@@ -1,0 +1,21 @@
+git	分布式
+
+配置文件
+	/etc/gitconfig		
+		--system选项的git config命令读写此配置		通用
+	~/.gitconfig或~/.config/git/config
+		--global选项的git config命令读写此配置		当前用户
+	仓库目录中.git/config
+													当前仓库
+
+
+
+
+
+
+
+
+使用git命令
+	向上寻找最近的.git目录执行
+	
+git自定义命令

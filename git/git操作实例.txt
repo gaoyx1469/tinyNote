@@ -1,0 +1,29 @@
+git操作实例
+
+一：
+	1：github注册，上传头像
+	2：本地生成SSH
+		查看是否拥有密钥
+		$ cd ~/.ssh
+		$ ls
+		寻找一对以 id_dsa 或 id_rsa 命名的文件，其中一个带有 .pub 扩展名。
+		.pub 文件是公钥，另一个则是私钥
+		
+		创建SSH密钥
+		$ ssh-keygen
+		
+	3：github增加SSH公钥
+		将id_rsa.pub公钥文件内容填入文本区
+	
+	4：github新建项目
+	
+二：
+	1：本地代码目录运行git init,生成本地仓库
+	
+	2：git add .	添加本地文件到暂存区
+	
+	3：git commit -m “提交信息”	提交本地文件
+	
+	4：git remote add origin [url]	本地仓库添加远程连接
+	
+	5：git push -u origin master

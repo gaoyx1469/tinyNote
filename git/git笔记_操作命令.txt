@@ -1,0 +1,266 @@
+安装：
+	windows		傻瓜式安装包
+	键入如下命令配置git仓库的名字和e-mail地址
+		$ git config --global user.name "用户名"
+		$ git config --global user.email "xxxx@xxx.com"
+		
+创建版本库
+	windows		在无中文的路径下执行如下命令
+	
+		以当前目录创建
+		$ git init
+		在当前目录下创建XXXX目录，以XXXX为目录创建
+		$ git init  xxxx
+		
+		在当前目录创建子目录（名字可指定，不指定将与原仓库名相同），并克隆某个已存在的Git仓库
+		$ git clone [url] 自定义本地仓库名
+		如：
+		$ git clone https://github.com/gaoyx1469/hello-world helloworld
+
+基本命令
+	查看状态
+		详细版
+		$ git status
+		紧凑版
+		$ git status -s
+		$ git status --short
+		
+	查看git配置
+		$ git config
+		$ git config xxx.xxx
+		
+	文件改名
+		$ git mv file_from file_to
+		等同于：
+			$ mv file_from file_to
+			$ git rm file_from 
+			$ git add file_to
+		
+	增加命令别名
+		$ git config --global alias.别名 原命令
+		
+版本提交
+	文件增加	在要提交文件路径下执行如下命令
+		$ git add 文件名
+		$ git add .
+		
+		如未在git路径下
+		fatal: Not a git repository (or any of the parent directories): .git
+		如未在要提交文件路径下
+		$ fatal: pathspec '文件名' did not match any files
+
+
+	文件提交	在git仓库下执行如下命令
+		纯提交：
+		$ git commit -m "提交说明"
+		增加+提交（不建议使用）：
+		$ git commit -a -m "提交说明" 
+		
+		$ git commit --amend这个命令会将暂存区中的文件提交。
+		
+版本回退
+	删除某文件
+		$ git rm xxx.xxx
+		
+		$ git rm -f xxx.xxx	(暂存区有的话，需要强制删除)
+		
+		$ git rm --cached xxx.xxx(从暂存区删除，本地保留)
+	查看版本记录
+		$ git log
+		
+		$ git log -p -2(-p显示版本间差异，-2展示最近两次提交)
+		
+		$ git log --stat(--stat简要状态)
+		
+		$ git log --pretty=oneline(oneline,short,full,fuller)
+		$ git log --pretty=format:"%h - %an, %ar : %s"   （这个好玩）
+			
+			%H 提交对象（commit）的完整哈希字串
+			%h 提交对象的简短哈希字串
+			%T 树对象（tree）的完整哈希字串
+			%t 树对象的简短哈希字串
+			%P 父对象（parent）的完整哈希字串
+			%p 父对象的简短哈希字串
+			%an 作者（author）的名字
+			%ae 作者的电子邮件地址
+			%ad 作者修订日期（可以用 --date= 选项定制格式）
+			%ar 作者修订日期，按多久以前的方式显示
+			%cn 提交者（committer）的名字
+			%ce 提交者的电子邮件地址
+			%cd 提交日期
+			%cr 提交日期，按多久以前的方式显示
+			%s 提交说明
+		
+		--graph 添加了一些ASCII字符串来形象地展示分支、合并历史
+		
+	查看提交和回退记录
+		$ git reflog
+		
+		$ git reflog show xxxxxx	xxxxxx为分支名
+		
+	查看文件与最新版本的差异
+	
+		当前与暂存区（已add的版本）对比：
+		$ git diff
+		对比并校验
+		$ git diff --cached
+		当前与最新版本库（已commit的版本）对比：
+		$ git diff HEAD
+		暂存区与最新版本库对比：
+		$ git diff --cached
+		$ git diff --staged
+		
+		
+		$ git diff HEAD -- xxx.txt 
+	
+	撤销还未add的修改，让文件回到最近一次git commit或git add时的状态(慎用)
+	
+		整体回退
+		$ git checkout .
+		
+		回退某文件
+		$ git checkout -- xxx.txt
+		让文件回到最近一次git commit或git add时的状态
+	
+	撤销add但未commit的修改，让暂存区的而修改回退到工作区
+		$ git reset HEAD xxx.txt
+		
+		$ git reset xxx.txt
+		
+	回退commit的修改
+		两种：
+		
+		$ git reset --hard HEAD^       	^个数为回退版本数
+		$ git reset --hard HEAD~100		~后个数为回退版本数
+		$ git reset --hard xxxxxx		xxxxxx为回退版本号的前几位
+		
+		$ git reset --soft HEAD^       	^个数为回退版本数
+		$ git reset --soft HEAD~100		~后个数为回退版本数
+		$ git reset --soft xxxxxx		xxxxxx为回退版本号的前几位
+		
+		
+删除文件
+	从版本库删除
+		$ git rm xxx.txt
+		
+		
+添加到远程库
+	首次将本地代码导入到远程库
+	$ git remote add <shortname> <url>
+	如
+	$ git remote add gitt https://github.com/gaoyx1469/xxx.git
+	
+	推送到远程仓库
+	$ git push [remote-name] [branchname]
+	推动到远程仓库[remote-branchname]的分支上
+	$ git push [remote-name] [branchname]：[remote-branchname]
+	
+	$ git push -u [remote-name] [branchname]
+	
+	从远程仓库抓取，移动本地origin/master指针（远程引用）到与远程仓库一致的位置
+	$ git fetch [remote-name]
+	
+	$ git pull  约等于   $ git fetch 加上 $ git merge
+	
+	删除远程引用，仅移除指针
+	$ git push [remote-name] --delete [branchname]
+	
+	远程仓库改名
+	$ git remote rename oldName newName
+	
+	提交更改(只有推送时做了合并才能成功)
+	$ git push [remote-name] [branchname]
+
+	
+	列出指定的每一个远程服务器的简写
+	$ git remote
+	
+	$ git remote -v	简写及URL
+	
+	
+	远程引用的完整列表
+	$ git ls-remote [remote-name]
+	
+	查看某个远程仓库的详细信息
+	$ git remote show [remote-name]
+	
+	删除某远程仓库
+	git remote rm [remote-name]
+	
+	
+分支
+	查看分支
+	$ git branch
+	包含最后一次提交信息
+	$ git branch -v
+	
+	已合并分支，不带星号的可以删除了
+	$ git branch --merged
+	未合并分支
+	$ git branch --no-merged
+	
+	创建分支
+	$ git branch 分支名
+	切换分支
+	$ git checkout 分支名
+	
+	以上两条命令可合并为(创建并切换到该分支)：
+	$ git checkout -b 分支名
+	
+	临时存储
+	$ git stash
+	放开临时存储
+	$ git stash pop
+	
+	删除分支，如有未合并工作，删除会失败
+	$ git branch -d 分支名
+	强制删除，如有未合并工作，也会强制删除
+	$ git branch -D 分支名
+	
+	
+	
+	
+	//$ git merge 版本号
+	
+	将另一分支合并到当前分支
+	$ git merge 另一分支名
+	
+	将远程引用合并到当前分支
+	$ git merge [remote-name]/[branchname]
+	
+	如有冲突：
+		手动合并，然后 add，一旦add暂存，git默认该文件冲突已解决；
+		然后commit确认以完成合并
+
+		
+	变基：
+	！！注意，只把变基当做推送前清理提交结构的工具。推送后的不要变基。
+	只对尚未推送或分享给别人的本地修改执行变基操作清理历史，从不对已推送至别处的提交执行变基操作
+	
+	$ git rebase [topicbranch]
+	寻找当前分支与[topicbranch]分支的共同祖先，然后提取共同祖先到当前分支的膝盖
+	然后将这些修改应用到[topicbranch]上。（将并行操作变为串行操作）
+	
+	git rebase [basebranch] [topicbranch]
+	效果同上，不需要特定当前分支位置
+	
+	$ git request-pull 远程引用 [remote-name]
+	
+标签
+	查看标签
+	$ git tag
+	添加标签例子：
+	$ git tag -a v1.4 -m 'my version 1.4'
+	补记标签例子：
+	$ git tag -a v1.2 9fceb02
+	
+其它
+	查看是否拥有密钥
+	$ cd ~/.ssh
+	$ ls
+	寻找一对以 id_dsa 或 id_rsa 命名的文件，其中一个带有 .pub 扩展名。
+	.pub 文件是公钥，另一个则是私钥
+	
+	创建SSH密钥
+	$ ssh-keygen
+	
