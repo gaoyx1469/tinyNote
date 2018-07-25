@@ -26,7 +26,7 @@
 		$ git status --short
 		
 	查看git配置
-		$ git config
+		$ git config --list
 		$ git config xxx.xxx
 		
 	文件改名

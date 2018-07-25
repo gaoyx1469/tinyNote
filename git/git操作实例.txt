@@ -1,29 +1,65 @@
 git操作实例
 
 一：
-	1：github注册，上传头像
-	2：本地生成SSH
-		查看是否拥有密钥
-		$ cd ~/.ssh
-		$ ls
-		寻找一对以 id_dsa 或 id_rsa 命名的文件，其中一个带有 .pub 扩展名。
-		.pub 文件是公钥，另一个则是私钥
+	1：	github注册，上传头像
+	2：	本地生成SSH
+			查看是否拥有密钥
+			$ cd ~/.ssh
+			$ ls
+			寻找一对以 id_dsa 或 id_rsa 命名的文件，其中一个带有 .pub 扩展名。
+			.pub 文件是公钥，另一个则是私钥
 		
-		创建SSH密钥
-		$ ssh-keygen
+			创建SSH密钥
+			$ ssh-keygen
 		
-	3：github增加SSH公钥
+	3：	github增加SSH公钥
 		将id_rsa.pub公钥文件内容填入文本区
 	
-	4：github新建项目
+	4：	github新建项目
 	
 二：
-	1：本地代码目录运行git init,生成本地仓库
+	1：	本地代码目录运行git init,生成本地仓库
 	
-	2：git add .	添加本地文件到暂存区
+	2：	git add .	添加本地文件到暂存区
 	
-	3：git commit -m “提交信息”	提交本地文件
+	3：	git commit -m “提交信息”	提交本地文件
 	
-	4：git remote add origin [url]	本地仓库添加远程连接
+	4：	git remote add origin [url]	本地仓库添加远程连接
+		如git remote add origin https://github.com/gaoyx1469/tinyNote.git
+		
+		origin：[remote-name]远程连接名
+		[url]:远程仓库url
+		
+	4.1:	操作过程中url敲错了，
+		git remote -v	查看远程连接
+		
+	4.2：	删除该远程连接
+		git remote rm [remote-name]
+		
+		[remote-name]：就是上面的origin
 	
-	5：git push -u origin master
+	
+	5：	git push -u origin master	将本地仓库代码推送至远程仓库
+	
+		origin:[remote-name]
+		master:[branch]分支名
+		-u:
+		
+三：
+	1：	查看配置
+		git config --list
+		
+	2：	查看仓库状态
+		git status			详细信息，带提示
+		
+		git status -s		单行信息
+		git status --short	同上
+		？？表示未跟踪	左M已修改已暂存未提交	右M已修改未暂存		A新添加到暂存区
+		
+
+		
+		
+五：
+	1：	第二电脑克隆代码
+		$ git clone [url] 自定义本地仓库名	
+		克隆url到当前目录下新建本地仓库名目录内，自定义本地仓库名不指定，则与远程库同名。
