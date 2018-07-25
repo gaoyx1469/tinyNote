@@ -102,8 +102,6 @@
 	
 		当前与暂存区（已add的版本）对比：
 		$ git diff
-		对比并校验
-		$ git diff --cached
 		当前与最新版本库（已commit的版本）对比：
 		$ git diff HEAD
 		暂存区与最新版本库对比：
