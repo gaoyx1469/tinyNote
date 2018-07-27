@@ -47,6 +47,8 @@ git操作实例
 		
 		另：git push [remote-name] [branchname]：[remote-branchname]推送到远程仓库指定分支
 		
+		另：后来直接git push直接搞定
+		
 	6：	git commit --amend	此次提交将与上次提交合并，进入VIM编辑修改提交备注信息
 		
 三、附加操作：
