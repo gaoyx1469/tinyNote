@@ -1,0 +1,22 @@
+eclipse实操
+
+一、下载安装插件：
+
+	首先打开Eclipse，然后点击Help>Install New Software>Add。 
+	Name：EGit 
+	Location： http://download.eclipse.org/egit/updates 
+	NEXT到完成
+	
+二、已有项目，建立git版本管理：
+	
+	项目上右键，点击Team，然后点击Share Project...
+	
+三、提交本地仓库：
+
+	项目上右键，点击Team，然后点击Add to Index 实现git的add操作
+	
+	项目上右键，点击Team，然后点击Commit 实现git的commit操作
+	
+四、提交远程仓库：
+
+	项目上右键，点击Team，然后点击Remote，然后点击Push

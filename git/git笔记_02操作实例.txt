@@ -20,6 +20,9 @@ git操作实例
 二、本地操作：
 	1：	本地代码目录运行git init,生成本地仓库
 	
+		在当前目录下创建XXXX目录，以XXXX为目录创建
+		$ git init  xxxx
+	
 	2：	git add .	添加本地文件到暂存区
 	
 	3：	git commit -m “提交信息”	提交本地文件
