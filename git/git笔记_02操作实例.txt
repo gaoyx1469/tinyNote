@@ -124,10 +124,10 @@ git操作实例
 		$ git reset HEAD xxx.txt		
 		$ git reset xxx.txt
 		
-四、本地分支操作：
+四、本地分支操作 no：
 
 	
-五、分布式操作：
+五、分布式操作 no：
 	1：	第二电脑克隆代码
 		$ git clone [url] 自定义本地仓库名	
 		克隆url到当前目录下新建本地仓库名目录内，自定义本地仓库名不指定，则与远程库同名。
@@ -143,6 +143,6 @@ git操作实例
 	4：	远程仓库改名
 	git remote rename oldName newName
 		
-七、其它操作：
+七、其它操作 no：
 	1：	增加命令别名
 		$ git config --global alias.别名 原命令
