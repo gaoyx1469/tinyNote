@@ -144,8 +144,14 @@ git操作实例
 		
 		使用git merge或git pull命令，然后git push即可
 	
-	
-	
+	4：第一仓库push时会失败（远端包含有本地没有的commit），此时若有同文件冲突问题，执行：
+		git pull
+		git status查看显然有一个unmerged的文件，手工合并，然后
+		git add
+		此时发现git status下是
+			All conflicts fixed but you are still merging.
+			(use "git commit" to conclude merge)
+		使用git commit即可合并完成，然后git push即可
 
 六、分布式操作 [no]：
 	1：	第二电脑克隆代码
