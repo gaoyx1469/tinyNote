@@ -129,8 +129,24 @@ git操作实例
 		
 四、本地分支操作 no：
 
+
+五、本地第二仓库操作操作，代码合并：
+	1：使用eclipse导入github代码，并提交版本commit推送push至github
 	
-五、分布式操作 no：
+	2：本地第一仓库修改代码，add，commit
+
+	3：第一仓库push时会失败（远端包含有本地没有的commit），此时若没有同文件冲突问题，执行：
+		git fetch origin
+		将本地远端指针指向与github相同处，而由于本地commit是从前一个commit出来的，因此出现分叉
+		
+		git fetch 命令从服务器上抓取本地没有的数据时，它并不会修改工作目录中的内容。 
+		它只会获取数据然后让你自己合并。
+		
+		使用git merge或git pull命令，然后git push即可
+	
+	
+	
+六、分布式操作 no：
 	1：	第二电脑克隆代码
 		$ git clone [url] 自定义本地仓库名	
 		克隆url到当前目录下新建本地仓库名目录内，自定义本地仓库名不指定，则与远程库同名。
@@ -146,6 +162,6 @@ git操作实例
 	4：	远程仓库改名
 	git remote rename oldName newName
 		
-七、其它操作 no：
+八、其它操作 no：
 	1：	增加命令别名
 		$ git config --global alias.别名 原命令
