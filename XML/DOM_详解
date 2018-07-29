@@ -1,0 +1,10 @@
+DOM
+	适合增删改查
+
+	NODE：节点
+		Document：代表整棵树
+		Element：元素
+		Att：属性
+		Text：文本
+		
+	要想构建整棵树，必须将XML文件内容全部读取到内存中

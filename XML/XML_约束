@@ -5,6 +5,9 @@ XML约束技术
 		SOX
 		XML Scheme
 		
+SimpleGOD中提供了IE的XML校验工具
+	/SimpleGOD/WebContent/WEB-INF/OtherUtils/XMLValidate.html
+		
 DTD 文档类型定义
 	约束XML文件的书写规范，验证XML的有效性
 	必须保存成UTF-8编码
