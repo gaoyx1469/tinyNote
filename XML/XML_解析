@@ -13,13 +13,18 @@ XML解析开发包：
 		javax.xml:提供解析XML文档的类
 		
 
-javax.xml.praser包中，定义了几个工厂类，可用过调用工厂类，得到对XML文档进行解析的DOM和SAX解析器对象
-	DocumentBuilderFactory
-	SAXParserFactory
-	
-javax.xml.transform包中的	Transformer类用于把代表XML文件的Document对象转换成某种格式后输出
-	通过TransformerFactory获得Transformer
-	用Transformer的transform方法实现
-	用javax.xml.transform.dom.DOMSource关联Document对象
-	用javax.xml.transform.stream.StreamResult对象表示数据目的地
+
+XML文档与对象的转换：
+	javax.xml.praser包中，定义了几个工厂类，可用过调用工厂类，得到对XML文档进行解析的DOM和SAX解析器对象
+		DocumentBuilderFactory
+		SAXParserFactory
+		
+	javax.xml.transform包中的	Transformer类用于把代表XML文件的Document对象转换成某种格式后输出
+		通过TransformerFactory获得Transformer
+		用Transformer的transform方法实现
+		用javax.xml.transform.dom.DOMSource关联Document对象
+		用javax.xml.transform.stream.StreamResult对象表示数据目的地
+		
+	示例：
+		/SimpleGOD/src/top/util/xml/DocumentUtil.java
 	

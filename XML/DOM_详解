@@ -8,3 +8,8 @@ DOM
 		Text：文本
 		
 	要想构建整棵树，必须将XML文件内容全部读取到内存中
+	
+	DOM增删改查示例：
+		/SimpleGOD/src/top/tiral/xml/JaxpDomDemo.java
+	DOM增删改查实用示例：
+		/SimpleGOD/src/top/tiral/xml/JaxpDomDemoPlus.java
