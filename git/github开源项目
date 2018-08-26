@@ -1,0 +1,57 @@
+C/C++
+
+	CrossApp
+		开源、免费、跨平台的移动应用开发引擎。CrossApp 采用 C++ 开发（即将支持 JS 和 Lua 编写）。
+		https://github.com/9miao/CrossApp
+	Tengine
+		淘宝网发起的Web服务器项目。在Nginx的基础上，针对大访问量网站的需求，添加了很多高级功能和特性。
+		https://github.com/alibaba/tengine
+	FastDFS
+		开源的分布式文件系统，对文件进行管理，功能包括：文件存储、文件同步、文件访问（文件上传、文件下载）等，解决了大容量存储和负载均衡的问题。特别适合以文件为载体的在线服务，如相册网站、视频网站等等。
+		https://github.com/happyfish100/fastdfs
+	SSDB
+		高性能 NoSQL 数据库, 支持 zset(sorted set), map(hash), kv, list 等数据结构, 用来替代或者与 Redis 配合存储十亿级别列表的数据。
+		https://github.com/ideawu/ssdb
+	Fastsocket
+		高扩展性的 Socket 以及 Linux 内核的底层网络实现。可以在多核机器上提供极好的性能，此外使用和维护还非常简单。
+		https://github.com/fastos/fastsocket
+	OceanBase 
+		支持海量数据的高性能分布式数据库系统，实现了数千亿条记录、数百TB数据上的跨行跨表事务
+		https://github.com/alibaba/oceanbase
+	Tinyhttpd
+		超轻量型Http Server，使用C语言开发，全部代码只有502行(包括注释)，附带一个简单的Client，可以通过阅读这段代码理解一个 Http Server 的本质。
+		https://github.com/LippiOuYang/Tinyhttpd
+	Webbench
+		一个在linux下使用的非常简单的网站压测工具。它使用fork()模拟多个客户端同时访问我们设定的URL，测试网站在压力下工作的性能，最多可以模拟3万个并发连接去测试网站的负载能力。Webbench使用C语言编写, 代码实在太简洁，源码加起来不到600行。
+		https://github.com/LippiOuYang/WebBenchl
+	Libevent
+		开源的事件驱动库，基于epoll，kqueue等OS提供的基础设施。其以高效出名，它可以将IO事件，定时器，和信号统一起来，统一放在事件处理这一套框架下处理。基于Reactor模式，效率较高，并且代码精简（4.15版本8000多行），是学习事件驱动编程的很好的资源。
+		https://github.com/libevent/libevent
+	Muduo
+		基于 Reactor 模式的现代 C++ 网络库，它采用非阻塞 IO 模型，基于事件驱动和回调，原生支持多核多线程，适合编写 Linux 服务端多线程网络应用程序。
+		https://github.com/chenshuo/muduo
+	
+		
+Java
+	
+	Dubbo 
+		开源的一个高性能优秀的服务框架，使得应用可通过高性能的 RPC 实现服务的输出和输入功能，可以和 Spring 框架无缝集成。
+		https://github.com/alibaba/dubbo
+	JFinal 
+		基于 Java 语言的极速 web + ORM 框架，其核心设计目标是开发迅速、代码量少、学习简单、功能强大、轻量级、易扩展、Restful。在拥有Java语言所有优势的同时再拥有 ruby、python、php 等动态语言的开发效率！
+		https://github.com/jfinal/jfinal
+	Afinal 
+		一个 Android 的 Sqlite ORM 和 IOC 框架。内置了四大模块功能：FinalAcitivity,FinalBitmap,FinalDb,FinalHttp。通过finalActivity，我们可以通过注解的方式进行绑定ui和事件。通过finalBitmap，我们可以方便的加载bitmap图片，而无需考虑oom等问题。通过finalDB模块，我们一行代码就可以对android的sqlite数据库进行增删改查。通过FinalHttp模块，我们可以以ajax形式请求http数据。
+		https://github.com/yangfuhai/afina
+	fastjson
+		性能很好的 Java 语言实现的 JSON 解析器和生成器
+		https://github.com/alibaba/fastjson
+	HP-Socket
+		一套通用的高性能 TCP/UDP 通信框架，包含服务端组件、客户端组件和Agent组件，广泛适用于各种不同应用场景的 TCP/UDP 通信系统，提供 C/C++、C#、Delphi、E（易语言）、Java、Python 等编程语言接口。
+		https://github.com/ldcsaa/HP-Socket
+	TeamTalk 
+		由蘑菇街开发的开源即时通讯解决方案，适用于中小型企业，提供可靠的消息传递机制；支持文字、图片、语音等富文本信息；文件收发等。
+		https://github.com/meili/TeamTalk
+	Argo 
+		开源的web框架
+		https://github.com/58code/Argo
