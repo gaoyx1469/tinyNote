@@ -1,0 +1,56 @@
+大纲
+	Collection:集合根接口，允许重复。方法：{add、remove、clear、contains、isEmpty、size、addAll、removeAll、containsAll、retainAll(取并集，返回是否有更改)、toArray、iterator}
+		List：有序集合根接口，允许重复，有索引。方法：{四个索引操作add、remove、get、set、特定迭代器listIterator}
+			ArrayList：底层数据结构是数组，查询快，增删慢。线程不安全，效率高。
+			LinkedList：底层数据结构是链表，查询慢，增删快。线程不安全，效率高。方法{addFirst、addLast、removeFirst、removeLast、getFirst、getLast}
+			Vector：底层数据结构是数组，查询快，增删慢。线程安全，效率低。方法{addElement、elementAt、elements}
+		Set：无序集合根接口，不允许重复。
+			HashSet：底层数据结构是哈希表(是一个元素为链表的数组)。哈希表底层依赖两个方法保证唯一：hashCode()和equals()，具体执行顺序见下文。
+				LinkedHashSet：元素有序唯一，由链表保证元素有序，由哈希表保证元素唯一。
+			TreeSet：底层数据结构是红黑树(是一个自平衡的二叉树)。保证元素排序的两种方式：自然排序、比较器排序。保证唯一：比较方法返回值是否为0
+			
+			
+	Map：将键映射到值的对象，不能有重复的键。Map集合的数据结构值针对键有效，跟值无关。方法{put、remove、clear、containsKey、containsValue、isEmpty、size、get、keySet、values、entrySet}
+		HashMap：键是哈希表结构，可以保证键的唯一性
+			LinkedHashMap：Map 接口的哈希表和链接列表实现，具有可预知的迭代顺序。
+		TreeMap：键是红黑树结构，可以保证键的排序和唯一性
+		Properties：可保存在流中或从流中加载。属性列表中每个键及其对应值都是一个字符串。 方法{setProperty、getProperty、stringPropertyNames
+																							与IO流交互：load、store}
+
+	
+	Iterator：迭代器接口，依赖集合存在	{hasNext、next}
+		ListIterator：迭代器接口，依赖List存在，可倒序	{hasPrevious、previous}
+	
+	Comparable：接口，由封装类实现，重写方法来自然排序
+	Comparator：比较器接口，作为TreeSet构造方法参数，实现比较器排序。常见匿名内部类方式。
+	
+	Collections：针对集合进行操作的工具类，可以对集合进行排序和查找等。方法{sort、binarySearch、max、reverse、shuffle}
+	Arrays：
+	
+	ConcurrentModificationException：并发修改异常，属于运行时异常
+		现象：迭代器遍历集合，集合修改集合元素
+		原因：迭代器是依赖于集合的，而集合的改变迭代器并不知道。
+		解决：	a:迭代器遍历，迭代器修改(ListIterator)
+				元素添加在刚才迭代的位置
+				b:集合遍历，集合修改(size()和get())
+				元素添加在集合的末尾
+	
+	
+				
+TIPS：				
+	HashSet：由hashCode()和equals()保证唯一性
+		执行顺序：
+			首先比较哈希值是否相同
+				相同：继续执行equals()方法
+					返回true：元素重复了，不添加
+					返回false：直接把元素添加到集合
+				不同：就直接把元素添加到集合
+		
+	TreeSet：
+		自然排序(元素具备比较性)：
+			让元素所属的类实现Comparable接口
+		比较器排序(集合具备比较性)：
+			让集合构造方法接收Comparator的实现类对象
+		当两种方法都存在时，以比较器为主
+	
+	HashMap和Hashtable的区别
