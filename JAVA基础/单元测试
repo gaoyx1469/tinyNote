@@ -1,9 +1,9 @@
-单元测试
+鍗曞厓娴嬭瘯
 
-Test类注解：
+Test绫绘敞瑙ｏ細
 	@Test(timeout = XXX)
 	@Test(expected = XXXXXX.class)
 	@Before
 	@After
-	@BeforeClass	注解方法需要static修饰
-	@AfterClass		注解方法需要static修饰
+	@BeforeClass	娉ㄨВ鏂规硶闇�瑕乻tatic淇グ
+	@AfterClass		娉ㄨВ鏂规硶闇�瑕乻tatic淇グ

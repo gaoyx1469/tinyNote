@@ -1,17 +1,17 @@
 Dom4J
 
-	Dom4J²âÊÔDemoÀà
+	Dom4Jæµ‹è¯•Demoç±»
 		/SimpleGOD/src/top/tiral/xml/Dom4JDemo.java
 	
 	
-	ÉÏÀıdemo¿É¼û£¬ÔöÉ¾¸Ä²Ù×÷·½±ã£¬µ«ÊÇ¶à²ãÔöÉ¾¸Ä²éÂé·³£¬Òò´ËÒı³öXPath
-		Document ÖĞµÄ  	selectNodes(String xPath) ·½·¨·µ»Ø½ÚµãList<Node>
-						selectSingleNode(String xPath) ·½·¨·µ»Ø½ÚµãNode
-		Node  ÖĞµÄ   valueOf(String xPathAttrName) ·½·¨·µ»ØÊôĞÔÖµ
+	ä¸Šä¾‹demoå¯è§ï¼Œå¢åˆ æ”¹æ“ä½œæ–¹ä¾¿ï¼Œä½†æ˜¯å¤šå±‚å¢åˆ æ”¹æŸ¥éº»çƒ¦ï¼Œå› æ­¤å¼•å‡ºXPath
+		Document ä¸­çš„  	selectNodes(String xPath) æ–¹æ³•è¿”å›èŠ‚ç‚¹List<Node>
+						selectSingleNode(String xPath) æ–¹æ³•è¿”å›èŠ‚ç‚¹Node
+		Node  ä¸­çš„   valueOf(String xPathAttrName) æ–¹æ³•è¿”å›å±æ€§å€¼
 	
 		
-	XPathĞèÒªJar°ü jaxen-1.1-beta-6.jar
+	XPathéœ€è¦JaråŒ… jaxen-1.1-beta-6.jar
 	
-	Dom4JÔöÉ¾¸Ä²éÊµÓÃÊ¾Àı(¸ÄĞ´DOM·½Ê½)£º
+	Dom4Jå¢åˆ æ”¹æŸ¥å®ç”¨ç¤ºä¾‹(æ”¹å†™DOMæ–¹å¼)ï¼š
 		/SimpleGOD/src/top/tiral/xml/Dom4JDemoPlus.java
 			
