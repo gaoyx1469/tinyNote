@@ -1,0 +1,21 @@
+简单工厂模式又 叫静态工厂方法模式（Static FactoryMethod Pattern）
+	通过专门定义一个类来负责创建其他类的实例，被创建的实例通常都具有共同的父类。
+	这种简单工厂的写法是通过switch-case来判断对象创建过程的（或者if-else）。
+	
+	优点：
+		简单工厂将对象的创建过程进行了封装，用户不需要知道具体的创建过程，只需要调用工厂类获取对象即可。
+	缺点：
+		在实际使用过程中，违背了 开放-关闭原则，增加实例类型需要修改工厂类。因此用处不大，建议使用工厂方法模式
+	
+	实现：
+		创建一个普通类，类中有一个方法，通过不同入参，return不通对象
+		
+		public fatherClass create(String type){
+			if("+".equals(type)) {
+				return new sonClass1();
+			}else if("-".equals(type)) {
+				return new sonClass2();
+			}else {
+				return null;
+			}
+		}
