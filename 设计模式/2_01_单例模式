@@ -11,3 +11,32 @@
 		1：构造方法私有
 		2：成员位置自己创建一个对象
 		3.通过一个公共方法提供访问
+		
+		
+		饿汉式：
+			类加载时直接产生对象
+		public class Demo {
+			private Demo(){}
+			
+			private static Demo demo = new Demo();
+			
+			public static Demo getDemo() {
+				return demo;
+			}
+		}
+		
+		懒汉式：
+			在首次用的时候才产生对象
+		public class Demo {
+			private Demo(){}
+			
+			private static Demo demo = null;
+			
+			public synchronized static Demo getDemo() {
+			
+				if(demo == null){
+					demo = new Demo();
+				}
+				return demo;
+			}
+		}
