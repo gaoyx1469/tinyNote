@@ -1,0 +1,17 @@
+Dom4J
+
+	Dom4J测试Demo类
+		/SimpleGOD/src/top/tiral/xml/Dom4JDemo.java
+	
+	
+	上例demo可见，增删改操作方便，但是多层增删改查麻烦，因此引出XPath
+		Document 中的  	selectNodes(String xPath) 方法返回节点List<Node>
+						selectSingleNode(String xPath) 方法返回节点Node
+		Node  中的   valueOf(String xPathAttrName) 方法返回属性值
+	
+		
+	XPath需要Jar包 jaxen-1.1-beta-6.jar
+	
+	Dom4J增删改查实用示例(改写DOM方式)：
+		/SimpleGOD/src/top/tiral/xml/Dom4JDemoPlus.java
+			

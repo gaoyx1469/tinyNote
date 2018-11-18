@@ -1,0 +1,15 @@
+SAX
+	SAX采用事件处理的方式解析XML文件，涉及解析器和事件处理器
+	
+	解析器由JAXP的API创建，使用其对XML文档解析。
+	只要解析到XML文档的一个组成部分，就会调用事件处理器的一个方法，并将该部分内容作为方法参数传递过去。
+	
+	工作核心：事件处理器编写
+	
+	XMLReader在parser一个XML文件前，需要先setContentHandler
+	
+	ContentHandler是一个接口，此处可以使用匿名内部类，重写ContentHandler全部方法；也可以使用匿名内部类，重写DefaultHandler需要的方法。
+	DefaultHandler是ContentHandler的实现类。{接口适配器模式}
+	
+	SAX查询示例：
+		/SimpleGOD/src/top/tiral/xml/JaxpSaxDemo.java

@@ -1,0 +1,9 @@
+单元测试
+
+Test类注解：
+	@Test(timeout = XXX)
+	@Test(expected = XXXXXX.class)
+	@Before
+	@After
+	@BeforeClass	注解方法需要static修饰
+	@AfterClass		注解方法需要static修饰
