@@ -57,9 +57,14 @@
 		DatagramSocket
 	
 	示例：
-		/SimpleGOD/src/top/tiral/socket/UDPSendDemo.java
-		/SimpleGOD/src/top/tiral/socket/UDPReceiveDemo.java
-		
+		UDP:
+			/SimpleGOD/src/top/tiral/socket/UDPSendDemo.java
+			/SimpleGOD/src/top/tiral/socket/UDPReceiveDemo.java
+			/SimpleGOD/src/top/tiral/socket/ChatRoomDemo.java
+		TCP:
+			/SimpleGOD/src/top/tiral/socket/TCPReceiveDemo.java
+			/SimpleGOD/src/top/tiral/socket/TCPSendDemo.java
+			
 			
 		
 		
