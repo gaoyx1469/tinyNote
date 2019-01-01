@@ -1,0 +1,6 @@
+
+MySql5.7版本
+
+	更改root用户密码：
+		update user set authentication_string=PASSWORD("123456") where user='root';
+	重启服务即可
