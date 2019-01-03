@@ -1,0 +1,4 @@
+1.JS使用Unicode字符集，区分大小写；
+2.JS注释类似java，唯一区别是多行注释少一个*，规范：注释符后尽量空一格，注释前尽量空一行；
+3.JS中浮点数运算存在误差，建议转化为整数后做运算，然后转化回去；
+4.null==undefined  结果为true；   null===undefined  结果为false；

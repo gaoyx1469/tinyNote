@@ -1,0 +1,22 @@
+JavaScript
+
+	JQuery是使用最广泛最流行的JS库，简化编码工作，包含很多插件，轻松实现很多效果，用少量代码实现更多效果，且消除了JS中很多跨平台兼容性问题。
+	
+	JQuery使用了大量监听者模式。
+	
+	NodeJS是对谷歌浏览器V8引擎（JS解释器）进行的封装，是一个JS的运行环境/运行平台，使JS运行在服务器端。
+	
+	JS常见开发工具：
+		HBuilder
+			官网：http://www.dcloud.io/hbuilderx.html
+			下载：https://pan.baidu.com/s/1klRp-aS7GQmzC_ag-Hdp7w
+			功能强大，可真机联调。
+		VScode
+			官网：https://code.visualstudio.com/
+			原版未集成太多功能，但是插件非常丰富，集成了命令行和git，启动快。
+		sublime
+			官网：http://www.sublimetext.com/
+			无调试功能，适合做文本编辑器，体量小。适合未前后端分离的代码。
+		brackets
+			官网：http://brackets.io/
+			无调试功能，适合做文本编辑器，体量小。适合未前后端分离的代码。

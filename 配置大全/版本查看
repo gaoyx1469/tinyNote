@@ -3,15 +3,16 @@
 	注意系统变量的配置
 
 	git版本：	git --version
-			更新：git update-git-for-windows
+			windows更新：git update-git-for-windows
 	java版本：java -version
-			更新：开始--java中有java更新
+			windows更新：开始菜单--java菜单中有java更新
 	MySql版本：mysql -uroot -p123456
 		注：在根用户为root 密码为123456的情况下
 	python版本：python --version
 		注：直接输入python会进入python命令行，exit()退出
 	node.js版本：node -v
+		windows更新：官网下载新版本覆盖安装到原路径
 	maven版本：mvn -version
 	tomcat版本：catalina version
-			更新：绿色版更啥新-.-
+		windows更新：绿色版更啥新-.-
 	
