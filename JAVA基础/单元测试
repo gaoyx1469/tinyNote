@@ -7,3 +7,11 @@ Test类注解：
 	@After
 	@BeforeClass	注解方法需要static修饰
 	@AfterClass		注解方法需要static修饰
+	
+	
+	
+	Assert类:断言
+	
+	
+	示例：
+		/SimpleGOD/src/top/trial/unitTest/JUnitTestDaoImplTest.java
