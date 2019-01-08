@@ -1,5 +1,14 @@
 jar包
+	放在结界里
 
 	XML相关：
 		dom4j	Dom4j
 		jaxen	XPath
+		
+	日志：
+		logging
+		
+	内省：
+		beanutils	依赖于commons-logging
+		
+	
