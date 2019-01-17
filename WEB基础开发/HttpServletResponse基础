@@ -1,0 +1,7 @@
+HttpServletResponse代表HTTP响应部分
+	对象中封装了向客户端发送数据，发送响应头，发送状态码的方法
+	自身方法：addHeader、setHeader、setStatus、setError、setRedirect
+	继承方法：flushBuffer、reset
+	
+	HttpServletResponse输出中文字符演示：
+		/SimpleGOD/src/top/trial/encode/SysoChineseServletDemo.java

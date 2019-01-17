@@ -100,7 +100,7 @@ HTTP超文本传输协议
 				Server：通知客户端，服务器的类型
 				*Content-Encoding：通知客户端，响应正文的数据压缩方式
 				Content-Length：返回消息正文长度
-				*Content-Type：正文的媒体类型,默认text/html
+				*Content-Type：正文的媒体类型,默认text/html后面可加【;charset=XXX】来通知浏览器解析编码
 				Last-Modified:文件最后修改时间
 				*Refresh:每过N秒浏览器自动刷新，后面可跟一个【;URL=XXXXXX】常用于登陆成功跳转
 				*Content-Disposition：通知客户端以下载的方式打开资源，如Content-Disposition:attachment;filename=XXX

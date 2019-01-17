@@ -1,0 +1,49 @@
+Servlet
+	SUN公司制定Servlet规范
+	
+	jar包为servlet-api.jar,在Tomcat中就有，Eclipse配置了Tomcat就不用专门找jar包了
+	
+	开发动态web资源：
+		编写一个Java类，实现servlet接口
+		部署到web服务器上
+		
+	Servlet方法：
+		init：初始化方法，servlet类实例化时执行，执行一次；
+			默认情况下，只有第一次访问时才执行；
+			web.xml中servlet标签下添加load-on-startup标签，值从2开始设置
+		destory：销毁方法，由容器调用，执行一次
+		
+	GenericServlet：Servlet的默认适配器（抽象类）
+	HttpServlet：GenericServlet的子类（抽象类），http协议下的servlet应该继承此方法
+		请求过来，调用service方法，强转参数后调用自身的service方法分发给doXXX方法。（模板方法设计模式）
+		
+	web.xml配置细节：
+		一个Servlet可以映射到多个URL地址上
+		URL地址支持通配符* ，支持以*开头扩展名结尾和以/开头以*结尾两种方式，当一个url匹配多个通配符时，原则/开头的方式优先级较高
+	
+	Servlet线程安全问题：
+		1.Servlet是多线程的，会存在线程安全问题
+		2.实现SingleThreadModel，改为单线程模式，Servlet引擎采用构造多个Servlet实例的方式实现多线程调用，该方式已过时
+		3.在Servlet定义变量尽量使用局部变量，以避免线程安全问题
+		4.必须使用实例变量时，做同步处理，同步代码块应包含尽量少的代码
+		
+	ServletConfig对象：
+		代表了Servlet配置中的参数信息（web.xml中的init-param），生成Servlet对象时生成
+		常用于字符编码信息和数据库连接信息
+		
+	ServletContext对象：
+		在应用被服务器加载时由容器创建，每一个web应用都有一个唯一的该对象，代表整个web应用，是一个域对象。
+		ServletConfig对象中维护了ServletContext对象的引用
+		作用：
+			用于Servlet对象之间的通讯交互
+			用于获取web应用的全局初始化参数context-param
+			getRealPath方法比较常用
+		
+		
+	
+	示例：
+		入门演示：
+			默认适配器GenericServlet使用：
+				/SimpleGOD/src/top/trial/servlet/GenericServletImpl.java
+			HttpServlet通过ServletContext获取不同位置配置文件：
+				/SimpleGOD/src/top/trial/servlet/GetPropertiesServlet.java
