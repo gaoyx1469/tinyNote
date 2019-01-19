@@ -5,3 +5,5 @@ HttpServletResponse代表HTTP响应部分
 	
 	HttpServletResponse输出中文字符演示：
 		/SimpleGOD/src/top/trial/encode/SysoChineseServletDemo.java
+	输出随机图片（CAPTCHA）:
+		/SimpleGOD/src/top/trial/servlet/CAPTCHAServlet.java		
