@@ -1,0 +1,7 @@
+HttpServletRequest代表HTTP请求部分
+	对象中封装了客户端发送的请求数据，类中有各种get方法
+	
+	
+	常见get方法示例：
+		/SimpleGOD/src/top/trial/servlet/HttpServletRequestDemo.java
+	

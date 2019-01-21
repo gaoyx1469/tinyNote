@@ -3,6 +3,26 @@ HttpServletResponse代表HTTP响应部分
 	自身方法：addHeader、setHeader、setStatus、setError、setRedirect
 	继承方法：flushBuffer、reset
 	
+	常见应用：
+		定时刷新:
+			setHeader("Refresh","1");
+		通知浏览器不缓存:
+			setHeader("Expires", "-1");
+			setHeader("Cache-Control", "no-cache");
+			setHeader("Pragma", "-1");
+		通知浏览器缓存一小时:
+			setDateHeader("Expires", System.currentTimeMillis()+60*60*1000);
+		请求重定向(地址栏会变化，且发出两次请求，增加服务器负担):
+			setStatus(302);
+			setHeader("Location","/xxxxx");
+			或者
+			setRedirect("/xxxxx");
+			
+	其它注意点：
+		1、getOutputStream得到ServletOutputStream字节流和getWriter得到的PrintWriter字符流是互斥的，两者只能调用一个。
+		2、通过字符流和字节流输出的数据，先缓存在response对象中，服务器从对象缓存中拿取数据按照HTTP协议格式输出给浏览器。
+		3、response对象的输出流，不用自己关闭，服务器会在service方法调用完毕后检查是否关闭并帮助关闭。
+	
 	HttpServletResponse输出中文字符演示：
 		/SimpleGOD/src/top/trial/encode/SysoChineseServletDemo.java
 	输出随机图片（CAPTCHA）:
