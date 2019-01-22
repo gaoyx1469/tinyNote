@@ -9,6 +9,6 @@ jar包
 		logging
 		
 	内省：
-		beanutils	依赖于commons-logging
+		beanutils(1.9.3)	依赖于commons-logging(1.2)和commons-collections(3.2.2)
 		
 	

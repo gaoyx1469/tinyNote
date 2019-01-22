@@ -1,7 +1,32 @@
 HttpServletRequest代表HTTP请求部分
 	对象中封装了客户端发送的请求数据，类中有各种get方法
+	配合Beanutils使用可封装数据
 	
+	浏览器当前使用什么编码，则发送表单数据就是用什么编码；
+	使用Beanutils封装数据，会默认以ISO-8859-1编码方式编码汉字，使用request.setCharacterEncoding("UTF-8")方法设置编码方式，只对POST请求方式有效
+	
+	请求转发：
+		一次请求，转发后，一次返回。服务器行为，一个来回 。地址栏不变，请求域共享。请求转发借助于RequesrDispacher。
+		转发时会清空源组件的响应体，但是源组件响应头不会清空，因此设置的头信息依然有效。【原则：源组件转发前后操作响应体都无效，目标组件的响应体才有效】
+		getServletContext().getRequestDispatcher(path).forward(request, response):path必须以/开头，/代表当前应用。
+		request.getRequestDispatcher(path).forward(request, response):path如果以/开头，/代表当前应用。如果不以/开头，则表示相对路径。
+	请求重定向：
+		两次请求，两次返回。浏览器行为，两个来回。地址栏会变化，请求域不是一个。请求重定向设置Response返回头信息即可。
+	包含：
+		getServletContext().getRequestDispatcher(path).include(request, response)
+		或
+		request.getRequestDispatcher(path).include(request, response)
+		包含操作会清空目标组件的响应头，源组件设置的头才有效，响应体不会清空，不要在目标组件中设置头。
+		
+	
+	ServletRequest是一个域对象，内部维护了一个Map，作用域为一个请求响应过程内
 	
 	常见get方法示例：
 		/SimpleGOD/src/top/trial/servlet/HttpServletRequestDemo.java
-	
+	表单数据封装示例：
+		/SimpleGOD/WebContent/html/trial/registerDemo.html
+		/SimpleGOD/src/top/trial/servlet/FormDataInsertServlet.java
+		发现一个问题，Beanutils封装数据需要使用org.apache.commons.collections.FastHashMap,因此需要commons-collections包
+	请求转发示例：
+		/SimpleGOD/src/top/trial/servlet/OriRequestServlet.java
+		/SimpleGOD/src/top/trial/servlet/GoalRequestServlet.java
