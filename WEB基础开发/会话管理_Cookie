@@ -13,9 +13,9 @@
 				name：必须
 				value：必须
 				comment：可选
-				path：可选，
+				path：可选，访问地址的URI与该path匹配时，即startwith时，就带上该cookie去访问网站
 				domain：可选，网站域名
-				maximum age：可选
+				maximum age：可选，int型，单位是秒
 				version number：可选
 			
 			The servlet sends cookies to the browser by using the HttpServletResponse.addCookie(javax.servlet.http.Cookie) method, which adds fields to HTTP response headers to send cookies to the browser, one at a time. 
@@ -28,9 +28,12 @@
 			浏览器通过请求头向服务器发送cookie，通过HttpServletRequest.getCookies()方法获得。
 			cookie通过name、path和domain来区分
 			
+		cookie的生命周期
+			不设置的话，生命周期就是会话过程，存在于浏览器的内存中
+			想要留存，设置maximum age即可
 		
 		Cookie示例：
-				
+			/SimpleGOD/src/top/trial/servlet/CookieDemoServlet.java
 		
 		
 	
