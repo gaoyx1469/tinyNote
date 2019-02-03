@@ -9,6 +9,7 @@ docker info	返回所有容器和镜像的数量，docker使用的执行驱动�
 
 ## Execute Docker image
 docker run hello-world	run命令提供了Docker容器的创建到启动的功能
+docker run --name xxx_xxx_xxx -i -t ubuntu /bin/bash	【-i：保证STDIN开启|-t：为容器分配伪tty终端|ubuntu：基于ubuntu镜像创建容器|/bin/bash：告诉容器执行此命令】
 
 ## List Docker images
 docker image ls
@@ -17,5 +18,15 @@ docker image ls
 docker container ls
 docker container ls --all
 docker container ls -aq
-docker ps -a
+docker ps -a	【等同于docker container ls --all】
 
+## Remove Docker container
+docker rm xxx_xxx_xxx
+
+## Restart Docker container
+docker restart xxx_xxx_xxx
+docker start xxx_xxx_xxx
+docker attach xxx_xxx_xx
+
+## Create Docker container 创建而不运行
+docker create
