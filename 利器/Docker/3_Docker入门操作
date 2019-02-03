@@ -1,0 +1,22 @@
+安装完成后，查看是否正常工作
+	docker info
+
+运行一个容器
+	docker run -i -t ubuntu /bin/bash	【-i：保证STDIN开启|-t：为容器分配伪tty终端|ubuntu：基于ubuntu镜像创建容器|/bin/bash：告诉容器执行此命令】
+	
+在容器中执行操作
+	hostname
+	ps -aux
+	apt-get update && apt-get install vim
+
+退出容器，容器自动停止运行
+	exit
+
+查看当前容器列表
+	docker ps -a	【-a：列出所有容器|-l：最后一个运行的容器，无论此时运行还是停止】
+	
+指定名字运行一个容器
+	docker run --name xxx_xxx_xxx -i -t ubuntu /bin/bash
+	
+删除指定名称的容器
+	docker rm xxx_xxx_xx

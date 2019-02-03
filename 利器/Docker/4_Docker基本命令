@@ -1,0 +1,21 @@
+## List Docker CLI commands
+docker
+docker container --help
+
+## Display Docker version and info
+docker --version 返回docker的版本
+docker version
+docker info	返回所有容器和镜像的数量，docker使用的执行驱动和存储驱动，docker的基本配置
+
+## Execute Docker image
+docker run hello-world	run命令提供了Docker容器的创建到启动的功能
+
+## List Docker images
+docker image ls
+
+## List Docker containers (running, all, all in quiet mode)
+docker container ls
+docker container ls --all
+docker container ls -aq
+docker ps -a
+

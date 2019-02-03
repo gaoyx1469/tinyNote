@@ -15,4 +15,5 @@
 	maven版本：mvn -version
 	tomcat版本：catalina version
 		windows更新：绿色版更啥新-.-
+	docker版本： docker --version
 	
