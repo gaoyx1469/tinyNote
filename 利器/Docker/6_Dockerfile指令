@@ -1,1 +1,76 @@
 Dockerfile相关指令
+
+FROM指令
+	例：FROM ubuntu:14.04
+	以某镜像为基础镜像，此必须为第一条指令。
+
+MAINTAINER指令
+	例：MAINTAINER XIXAINGDEE "gaoyx1469@163.com"
+	标明作者和邮箱
+
+RUN指令
+	例：	RUN apt-get update && apt-get install -y nginx
+		RUN echo 'Hi, I am in your container' >/usr/share/nginx/html/index.html
+	在当前镜像中运行指定的命令
+
+EXPOSE指令
+	例：EXPOSE 80
+	对外暴露的端口号，可指定多个
+	
+CMD命令
+	例：CMD ["/bin/true","-1"]
+	指定容器启动时要运行的命令（仅最后一条有效）,等同于构建容器docker run时写的运行命令。
+	注：docker run 命令会覆盖CMD命令
+	
+ENTRYPOINT命令
+	例：ENTRYPOINT ["/usr/sbin/nginx"]
+	指定容器启动时要运行的命令（仅最后一条有效）,等同于构建容器docker run时写的运行命令。
+	注：docker run 命令会作为 ENTRYPOINT 命令的参数而不是覆盖掉
+
+WORKDIR命令：
+	例：WORKDIR /opt/webapp/db
+	从镜像创建一个容器时，在容器内部设置一个工作目录ENTRYPOINT命令和CMD命令、RUN命令等会在该目录下执行
+	docker run中的-w标志会覆盖掉该参数
+	
+ENV命令：
+	例：ENV RVM_PATH /home/rvm/
+	在镜像构建过程中设置环境变量，该环境变量可以再后续的RUN命令中使用
+	注：可空格隔开设置多个环境变量，如ENV RVM_PATH=/home/rvm RVM_ARCHFLAGS="-arch i386",使用时用$即可
+		相比于docker run 中-e标志仅在运行是有效，ENV命令具有持久化
+
+USER命令：
+	例：USER nginx
+	指定镜像的运行用户，包括可以指定用户名、UID、组、GID
+	docker run 中-u标志会覆盖掉该参数
+	
+VOLUME命令：
+	例：VOLUME ["/opt/project"]  为基于此镜像创建的任何容器创建一个名为/opt/project的挂载点
+	向基于镜像创建的容器添加卷，卷可以存在一个或多个容器中，提供共享和持久化，直到没有任何容器使用它时会消失
+	注：可添加多个卷，逗号分隔
+	
+ADD命令：
+	例：ADD software.lic /opt/application/software.lic
+	将构建环境下的文件和目录复制到镜像中。前一个参数为构建环境URL或文件或目录，后一个是镜像中的URL或文件或目录，以/结尾就是目录。
+	注：	1.如果源文件是归档文件（zip或tar或gz等），会自动解包；解包文件不会覆盖掉原位置同名文件
+		2.如果目标位置不存在，会创建
+		3.ADD指令会使构建缓存无效
+		
+COPY命令：
+	例：COPY conf.d/ /etc/apache2/
+	类似ADD,但不会提取和解压，且要求原路径必须是与当前构建环境相对的文件或目录
+	
+LABEL命令：
+	例：LABEL version="1.0" location="Bei Jing"
+	为Docker镜像添加元数据，以键值对形式出现,可以使用docker inspect命令查看元数据信息
+	
+STOPSINGLE命令：
+	设置停止容器时发送什么系统调用信号给容器
+	
+ARG命令：
+	例：ARG webapp_user=user
+	定义可以在docker build中命令运行时传递给构建运行时的变量，使用--build-arg xxx=xxxx，前面xxx需使用ARG命令先定义
+	
+ONBUILD命令：
+	例：ONBUILD ADD . /app/src
+	为镜像添加触发器，当一个镜像被用作其它镜像的基础镜像时，触发器将执行，可以使用docker inspect命令查看
+	
