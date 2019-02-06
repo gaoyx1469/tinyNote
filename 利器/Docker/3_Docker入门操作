@@ -86,5 +86,12 @@
 	
 查看Docker端口映射情况
 	docker port 容器ID或容器名 容器端口号
-
+  
+将镜像推送到Docker Hub
+	docker push 用户名/仓库名:标签
 	
+删除镜像
+	docker rmi 用户名/仓库名:标签	【空格隔开可删除多个】	
+	
+删除全部镜像
+	docker rmi 'docker images -a -q'
