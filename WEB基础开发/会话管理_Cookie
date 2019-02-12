@@ -34,6 +34,10 @@
 		
 		Cookie示例：
 			/SimpleGOD/src/top/trial/servlet/CookieDemoServlet.java
+			
+			简单浏览历史演示：
+			/SimpleGOD/src/top/trial/servlet/BookMarketServlet.java【/BookMarketServlet】
+			/SimpleGOD/src/top/trial/servlet/BookDetailServlet.java
 		
 		
 	
