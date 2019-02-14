@@ -1,0 +1,53 @@
+常见命令
+	命令格式：command [-options] parameter1 parameter2 ...
+	
+	ls		列出文档列表	
+			-a	列出隐藏文档	
+			-l	列出权限等详细信息
+			-al	等同-a -l
+			参数为目录名称，不填则为当前目录
+		
+	date	打印当前日期时间
+			+%Y/%m/%d	格式化成YYYYmmdd
+			+%H:%M		格式化成HH：MM
+	
+	locale	打印用户目前所支持的语系
+	
+	cal		打印日历
+			[month]	打印特定月份
+			[year]	打印特定年
+			
+	bc		计算器
+			scale=N	N为保留小数点位数
+			quit	离开
+			
+	man		操作说明
+			后面跟命令名
+			-f		列出所有的说明文件，命令全匹配	等同于whatis命令
+			-k		列出所有的说明文件，关键字匹配	等同于apropos命令
+			
+			操作：
+				空格和[Page Down]向下翻页
+				[Page Up]向上翻页
+				[Home]去第一页
+				[End]去最后一页
+				q退出
+	
+	whatis	等同于man -f
+			需要root用户执行mandb建立whatis 数据库
+			
+	info	类似于man，分页分节点展示说明
+			
+			操作：
+				空格和[Page Down]向下翻页
+				[Page Up]向上翻页
+				[Tab]node间移动
+				[Enter]进入node
+				b移动到第一个node
+				e移动到最后一个node
+				n移动到下一个node
+				p移动到上一个node
+				u向上移动一层
+				q退出
+	
+	nano	简单文本编辑器
