@@ -1,0 +1,6 @@
+Session
+	服务器端技术
+	
+	服务器为每个用户浏览器创建一个会话对象（session对象）
+	默认情况下，一个浏览器独占一个session对象
+	session对象由服务器创建，可通过request对象的getSession方法获得

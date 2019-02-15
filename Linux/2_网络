@@ -1,0 +1,18 @@
+网络
+	极简版安装CentOS后，无法ping通www.baidu.com
+	解决方式如下：（以下都是root环境）
+		1.配置DNS
+			vi etc/resolv.conf
+			填入
+			nameserver 114.114.114.114
+			nameserver 114.114.114.115
+		2.配置IP和网关
+			ip addr 查看虚拟机网卡配置文件名（我的是eth0）
+			vi etc/sysconfig/network-scripts/ifcfg-eth0
+			修改：
+				ONBOOT=yes
+				NETMASK=虚拟机IP地址
+				GATEWAY=虚拟机网关
+			虚拟机IP地址和网关是查看物理机ipconfig，得到的为虚拟机分配的网络的IPv4地址和网关，取其同网段IP和相同的网关即可。
+		3.重启网络
+			service network restart

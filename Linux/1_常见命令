@@ -51,3 +51,33 @@
 				q退出
 	
 	nano	简单文本编辑器
+			极简版需要安装，root权限下yum install nano
+			
+	who		查看使用者
+	
+	ps		
+			-aux查看后台执行程序
+			
+	sync	将内存数据写入到硬盘中
+					
+	shutdown关机
+			[OPTIONS][TIME][WALL...]
+			执行前默认执行sync
+			需要root权限
+			
+			-r	等同于reboot
+			-h	立即关机
+			-c	取消进行中的shutdown指令
+			
+			Time可以使整数，单位为分钟，不填的话默认1；也可以是hh:mm;也可以是now
+			
+	
+	reboot	重启
+			执行前默认执行sync
+			实体终端不需root权限
+	halt	系统停止，屏幕保留一些讯息
+			执行前默认执行sync
+			需要root权限
+	poweroff系统关机，屏幕空白
+			执行前默认执行sync
+			不需root权限
