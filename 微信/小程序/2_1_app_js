@@ -1,0 +1,8 @@
+App()方法
+	该方法有且仅有一个，存在于app.js中
+	参数为Object
+		onlaunch	Function类型	小程序初始化时调用，全局调用一次
+		onShow		Function类型	小程序启动或从后台进入前台时调用
+		onHide		Function类型	小程序进入后台时调用，包括右上角关闭
+		其它		任何类型		开发者自己的函数或数据，本js中由this可以访问到，其它js中getApp()方法可以得到【该方法不能在App()中调用】
+	

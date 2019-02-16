@@ -1,0 +1,27 @@
+可先获得app实例
+const app = getApp()
+
+Page()方法
+	该方法每个页面有且仅有一个，存在于该页面的.js中
+	参数为Object
+		data				Object类型	页面初始数据
+		onLoad		参数可以获取wx.navigateTo和wx.redirectTo以及<navigate/>中的query
+		onReady
+		onShow
+		onHide
+		onUnload
+		onPullDownRefresh				用户下拉动作，处理完全部数据刷新，可以调用wx.stopPullDownRefresh停止当前页面的下拉刷新
+		onReachBottom					页面上拉触底事件的处理函数
+		onShareAppMessage				用户点击右上角分享
+		其它				任何类型	开发者自己的函数或数据，本js中由this可以访问到，getCurrentPage()方法可以得到【该方法不能在App()中调用】
+		
+	使用setData函数修改data数据，使用this.data修改无效，无法改变页面状态
+		setData接收一个Object，将改变的data放进去即可
+		
+	使用getCuurntPages函数获取当前的页面栈，返回页面栈数组，第一个元素为首页，最后一个元素为当前页
+	
+	打开首页--onLoad onShow
+	打开新页面--onLoad onShow--前一页面onHide
+	页面重定向--onLoad onShow--前一页面onUnload
+	页面返回--onShow--前一页面onUnload
+	Tab切换--(首次打开)onLoad onShow/(之前已打开)onShow--前一页面onHide
