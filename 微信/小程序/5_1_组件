@@ -1,0 +1,91 @@
+视图容器组件
+	view
+		相当于div
+	scroll-view
+		滚动view，内部放view组件
+		属性：
+			scroll-x			Boolean		允许横向滚动，默认false
+			scroll-y			Boolean		允许纵向滚动，默认false
+			upper-threshold		Number		距顶部或左边多少px时触发scrolltoupper事件
+			lower-threshold		Number		距底部或右边多少px时触发scrolltolower事件
+			scroll-top			Number		设置竖向滚动条位置
+			scroll-left			Number		设置横向滚动条位置
+			scroll-into-view	String		值为某子元素id，则滚动到该元素，元素顶部对齐滚动区顶部
+			bindscrolltoupper				滚动到顶部或左边时触发scrolltoupper事件
+			binscrolltolower				滚动到底部或右边时触发scrolltolower事件
+			bindscroll						滚动时触发，event.detail
+	swiper
+		滑块视图容器组件，其中只可放置swiper-item组件
+		属性
+			indicator-dots	Boolean		是否显示面板指示点，默认false
+			autoplay		Boolean		是否自动切换，默认false
+			current			Number		当前所在页面的index，默认0
+			interval		Number		自动切换时间间隔，默认5000
+			duration		Number		滑动动画时长，默认1000
+			bindchange		
+基础内容组件
+	icon
+		图标组件
+		属性：
+			type	String	有效值：success、success_no_circle、info、warn、waiting、cancel、download、search、clear
+			size	Number	默认23，单位px
+			color	Color
+	text
+		文本组件，支持转义符"\"
+		类似span，标签内文本可复制
+		text可嵌套使用
+	progress
+		进度条组件
+		属性
+			percent			Float		百分比
+			show-info		Boolean		进度条右侧是否显示百分比，默认false
+			stroke-width	Number		进度条线的宽度，单位px，默认6
+			color			Color		进度条颜色，默认#09BB07
+			active			Boolean		进度条从左到右的动画，默认false
+表单组件
+	button
+		表单按钮
+		属性
+			size			String		默认default，可选值default和mini
+			type			String		按钮样式、默认default，可选值default、warn、primar
+			plain			Boolean		按钮是否镂空，默认false
+			disabled		Boolean		是否禁用，默认false
+			loading			Boolean		名称前是否带loading图标，默认false
+			form-type		有效值submit、reset，用于触发对应事件
+			hover-class		指定按钮按下去的样式
+	form
+		表单组件，提交用户输入的switch、input、checkbox、slider、radio、picker
+		属性
+			report-submit	Boolean		是否返回formId用于发送模板消息
+			binsubmit
+			bindreset
+	input
+	checkbox-group
+		多项选择器组件，内部多个checkbox组成
+		属性
+			bindchange	选中项发生改变触发change事件
+	checkbox
+		属性
+			value		String
+			disabled	Boolean		默认false
+			checked		Boolean		默认false
+	radio
+	picker
+	slider
+	switch
+	label
+互动操作组件
+	action-sheet
+	modal
+	toast
+	loading
+页面导航组件
+	navigator
+媒体组件
+	audio
+	image
+	video
+地图组件
+	map
+画布组件
+	canvas

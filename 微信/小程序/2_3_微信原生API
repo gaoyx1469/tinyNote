@@ -1,0 +1,63 @@
+七大类
+
+	TIPS:	wx.on开头的监听事件，接收一个回调函数
+			其它接口接收一个OBJECT参数
+			object中可以指定success、fail、complete来接收接口调用结果
+
+	网络API
+		wx.request				发起网络请求
+		wx.uploadFile			上传文件
+		wx.downloadFile			下载文件
+		wx.connectSocket		创建WebSocket连接
+		wx.onSocketOpen			监听WebSocket打开
+		wx.onSocketError		监听WebSocket错误
+		wx.sendSocketMessage	发送WebSocket消息
+		wx.onSocketMeaasge		接受WebSocket消息
+		wx.closeSocket			关闭WebSocket
+		wx.onSocketClose		监听WebSocket关闭
+	媒体API
+		wx.chooseImage			选择图片或拍照
+		wx.previewImage			预览图片
+		wx.startRecord			开始录音
+		wx.stopRecord
+		wx.playVoice			播放语音
+		wx.pauseVoice
+		wx.stopVoice
+		wx.getBackgroundAudioPlayerState	获取音乐播放状态
+		wx.playBackgroundAudio				播放音乐
+		wx.pauseBackgroundAudio
+		wx.seekBackgroundAudio				控制播放进度
+		wx.stopBackgroundAudio
+		wx.onBackgroundAudioPlay
+		wx.onBackgroundAudioPause
+		wx.onBackgroundAudioStop
+		wx.chooseVideo			选择视频或拍摄
+		wx.saveFile				保存文件
+	数据API
+		wx.getStorage			获取本地缓存
+		wx.setStorage			
+		wx.clearStorage
+	位置API
+		wx.getLocation			获取当前位置
+		wx.openLocation			打开内置地图
+	设备API
+		wx.getNetworkType		获取网络类型
+		wx.getSystemInfo		获取系统信息
+		wx.onAccelerometerChange	监听重力感应数据
+		wx.onCompassChange			监听罗盘数据
+	界面API
+		wx.setNavigateBarTitle		设置当前页面标题
+		wx.showNavigateBarLoading	显示导航条加载动画
+		wx.hideNavigateBarLoading
+		wx.navigateTo			新窗口打开页面
+		wx.redirectTo			原窗口打开页面
+		wx.navigateBack			回退上一页面
+		wx.createAnimation		动画
+		wx.createContext		创建绘图上下文
+		wx.drawCanvas			绘图
+		wx.hideKeyboard
+		wx.stopPullDownRefresh
+	开放API
+		wx.login				登录
+		wx.getUserInfo			获取用户信息
+		wx.requestPayment		发起微信支付

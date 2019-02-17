@@ -1,0 +1,64 @@
+规范：
+	第一行建议<!--文件名-->
+	
+其它：
+	<block>是一个包装元素，不会做渲染，只接受控制属性
+	
+文件引用：
+	import
+		src属性填写具体wxml
+		引用后可以使用目标文件的template
+	include
+		src属性填写具体wxml
+		引用目标文件除template外的全部代码
+	
+	
+功能：
+	数据绑定
+		{{}}
+			作用于
+				简单绑定：内容、组件属性、控制属性
+				运算：三元运算、算术运算、逻辑判断、字符串运算、数据路径运算
+				组合：数组、对象、扩展运算符...
+	列表渲染
+		wx:for
+			绑定一个数组，数组当前项变量名默认item，下标变量名默认index
+			可使用wx:for-item和wx:for-index修改上述两个默认值
+	条件渲染
+		wx:if	
+			根据条件判断是否需要渲染该代码块
+		wx:elif
+		wx:else
+	模板
+		template：在模板中定义代码片段，在不同的地方调用
+		定义：需要有属性name
+		使用：is属性的值与定义中的name属性相同，将所需data传入，data类型为Object
+	事件绑定
+		冒泡事件：
+			touchstart	手指触摸
+			touchmove	手指触摸后移动
+			touchcancel	手指触摸动作被打断
+			touchend	手指触摸动作结束
+			tap			手指触摸后离开
+			longtap		手指触摸后，超过350ms再离开
+		以bind或catch开头，bind开头不阻止向上冒泡，catch开头阻止向上冒泡
+		
+		事件对象：
+			Type			String		事件类型
+			timeStamp		Integer		时间戳
+			target			Object		触发事件组件的一些属性
+				id
+				dataset
+				offsetLeft，offsetTop	坐标偏移量
+			currentTarget	Object		当前组件的一些属性
+			touches			Array		停留的触摸点信息
+				pageX，pageY		距文档左上角距离
+				clientX，clientY	距页面左上角距离
+				screenX，screenY	距屏幕左上角距离
+			changedTouches	Array		变化的触摸点信息
+			detail			Object		额外的信息
+			
+内联样式：
+	style：接收动态样式，运行时解析
+	class：接收静态样式
+			

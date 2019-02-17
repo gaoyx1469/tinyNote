@@ -25,3 +25,6 @@ Page()方法
 	页面重定向--onLoad onShow--前一页面onUnload
 	页面返回--onShow--前一页面onUnload
 	Tab切换--(首次打开)onLoad onShow/(之前已打开)onShow--前一页面onHide
+	
+	通过module.exports才能对外暴露接口
+	通过require()将代码引入
