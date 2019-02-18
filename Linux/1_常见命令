@@ -81,3 +81,12 @@
 	poweroff系统关机，屏幕空白
 			执行前默认执行sync
 			不需root权限
+			
+	uname	查看Linux核心与操作系统的位版本
+		-r	查看核心版本
+		-m	查看操作系统位版本
+		
+	yum
+	
+	su		切换身份到root
+			使用exit离开su指令环境

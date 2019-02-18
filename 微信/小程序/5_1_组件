@@ -60,6 +60,22 @@
 			binsubmit
 			bindreset
 	input
+		用户输入框
+		属性
+			value				String			输入框内容
+			type				String			默认text，可选值text、number、idcard、digit、time、date
+			password			Boolean			是否是密码类型，默认false
+			placeholder			String			输入框为空时的占位符
+			placeholder-style	String			placeholder的样式
+			placeholder-class	String			placeholder的样式类
+			disabled			Boolean			是否禁用，默认false
+			maxlength			Number			最大输入长度，默认140，设置0为不限
+			auto-focus			Boolean			自动聚焦，拉起键盘，页面只能有一个input设置该属性，默认false
+			focus				Boolean			获取焦点，默认false
+			bindchange							失去焦点时触发
+			bindinput							键盘输入时触发，date/time类型除外，处理函数可以直接return一个字符串，替换输入框中的内容
+			bindfocus							获取焦点时触发
+			bindblur							失去焦点时触发
 	checkbox-group
 		多项选择器组件，内部多个checkbox组成
 		属性
@@ -69,11 +85,39 @@
 			value		String
 			disabled	Boolean		默认false
 			checked		Boolean		默认false
+	radio-group
+		单项选择器组件，由多个radio组成
+		属性
+			bindchange
 	radio
+		属性
+			value		String		当选中时，radio-group的change事件会携带
+			checked		Boolean		默认false，是否选中
+			disabled	Boolean		默认false，是否禁用
 	picker
+		滚动选择器组件，目前支持普通选择器、时间选择器、日期选择器，默认普通选择器。
+		普通选择器mode=selector
+			属性
+				range		Array	默认[]
+				value		Number	默认0	表示选择了range中的第几个，从0开始
+				bindchange			value改变时触发change事件
+		时间选择器mode=time
+			属性
+				value		String	选中的时间，格式hh:mm
+				start		String	有效起始时间，格式hh:mm
+				end			String	有效结束时间，格式hh:mm
+				binchange
+		日期选择器mode=date
+			属性
+				value		String	默认0，选中的时日期，格式yyyy-MM-dd
+				start		String	有效起始日期，格式yyyy-MM-dd
+				end			String	有效结束日期，格式yyyy-MM-dd
+				fields		String	默认day，有效值year/month/day，选择器粒度
+				binchange
 	slider
 	switch
 	label
+		标签组件，改进表单组件可用性，支持使用for属性找到对应的id
 互动操作组件
 	action-sheet
 	modal
