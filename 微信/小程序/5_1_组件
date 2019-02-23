@@ -115,21 +115,159 @@
 				fields		String	默认day，有效值year/month/day，选择器粒度
 				binchange
 	slider
+		滑动选择器组件
+			属性
+				min			Number	最小值，默认0
+				max			Number	最大值，默认100
+				step		Number	步长，默认1，取值需大于0且能被max-min整除
+				disabled	Boolean	是否禁用，默认false
+				value		Number	当前取值，默认0
+				show-value	Boolean	是否显示当前value，默认false
+				bindchange			完成一次拖动后触发
 	switch
+		开关选择器
+			属性
+				checked		Boolean	是否选中，默认false
+				type		String	样式，默认switch，有效值为switch好checkbox
+				bindchange			checked改变时触发change时间
 	label
 		标签组件，改进表单组件可用性，支持使用for属性找到对应的id
+	textarea
+		多行输入框组件
+			属性
+				value				String	输入框内容
+				placeholder			String	输入框为空时占位符
+				placeholder-style	String	
+				placeholder-class	String	
+				disabled			Boolean	是否禁用，默认false
+				maxlength			Number	最大长度，默认140，可以设置为0不限制
+				auto-focus			Boolean	自动聚焦，拉起键盘，默认false
+				focus				Boolean	获取焦点，默认false
+				auto-height			Boolean	是否自动增高，默认false
+				bindfocus					聚焦时触发
+				bindblur					失去焦点时触发
+				bindlinechange				输入框行数变化时触发
 互动操作组件
 	action-sheet
+		屏幕底部菜单表，具有bindchange属性
+		属性
+			hidden
+			bindchange	点击背景或action-sheet-cancel触发
+	action-sheet-item
+		底部菜单子选项
+		属性
+			data-name
+	action-sheet-cancel
+		底部菜单取消按钮
 	modal
+		模态弹窗组件
+		属性
+			title			String	标题
+			no-cancel		Boolean	是否隐藏cancel按钮，默认false			
+			confirm-text	String	confirm文字，默认确定
+			cancel-text		String	cancel文字，默认取消
+			bindconfirm
+			bindcancle
 	toast
+		消息提示框组件
+		属性：
+			duration	Float	hidden设置false后触发bindchange的延时，单位毫秒，默认1500
+			bindchange			duration延后时触发
 	loading
+		加载提示组件
 页面导航组件
 	navigator
+		页面链接组件
+		属性：
+			url				String	应用内跳转链接
+			redirect		Boolean	是否关闭当前页面，默认false
+			hover-class		String	点击是样式，默认navigator-hover
 媒体组件
 	audio
-	image
+		音频组件
+		属性：
+			action			Object		控制音频暂停、播放、播放速率、播放进度的对象，有method和data两个参数
+				method属性
+					play
+					pause
+					setPlaybackRate		倍速
+					setCurrentTime		播放速度
+			src				String		音频资源地址
+			loop			Boolean		是否循环播放，默认false
+			controls		Boolean		是否显示默认控件，默认true
+			poster			String		默认控件上的音频封面的图片资源地址，如果controls属性值为false则设置poster无效
+			name			String		默认控件上的音频名字，如果controls属性值为false则设置name无效，默认未知音频
+			author			String		默认控件上的作者名字，如果controls属性值为false则设置author无效，默认位置作者
+			binderror		发生错误时触发
+				错误码：
+				MEDIA_ERR_ABORTED				获取资源被用户禁止
+				MEDIA_ERR_NETWORD				网络错误
+				MEDIA_ERR_DECODE				解码错误
+				MEDIA_ERR_SRC_NOT_SUPPOERTED	不合适资源
+			bindplay		当开始/继续播放时触发
+			bindpause		当暂停播放时触发
+			bindratechange	当播放速率改变时触发
+			bindtimeupdate	当播放进度改变时触发
+			bindended		当播放到末尾时触发
+	image	
+		图片引用组件，默认宽300px、高225px
+		属性：
+			src			String	图片资源地址
+			mode		String	图片裁剪、缩放
+				缩放：
+				scaleToFill	不保持横纵比缩放图片，使图片的宽高完全拉伸至填满image元素
+				aspectFit	保持横纵比缩放，使图片的长边能完全显示出来，完整显示图片
+				aspectFill	保持横纵比缩放，保证图片短边能完全显示出来，只由水平或垂直方向是完整的，另一个方向将会发生截取
+				裁剪：
+				top				不缩放，只显示图片顶部区域
+				bottom			不缩放，只显示图片底部区域
+				center			不缩放，只显示图片中间区域
+				left			不缩放，只显示图片左边区域
+				right			不缩放，只显示图片右边区域
+				top left		不缩放，只显示图片左上边区域
+				top right		不缩放，只显示图片右上边区域
+				bottom left		不缩放，只显示图片左下边区域
+				bottom right	不缩放，只显示图片右下边区域
+			binderror			错误发生时，发布到AppService事件名
+			bindload			图片载入完毕，发布到AppService事件名
 	video
+		视频组件,默认宽度300px，高度225px
+		属性
+			src				String			要播放视频的资源地址
+			controls		Boolean			是否显示默认播放控件，默认true
+			danmu-list		Object Array	弹幕列表
+			danmu-btn		Boolean			是否显示弹幕按钮，初始化时有效，不能动态改变，默认false
+			enable-danmu	Boolean			是否展示弹幕，初始化时有效，不能动态改变，默认false
+			autoplay		Boolean			是否自动播放，默认false
+			bindplay						
+			bindpause
+			bindended
+			binderror
 地图组件
 	map
+		属性
+			longitude	Number		中心经度，默认北京经度
+			latitude	Number		中心纬度，默认北京纬度
+			scale		Number		缩放级别，默认16
+			markers		Array		标记点，不支持动态更新
+				属性
+					longitude	必填		浮点数-90~90
+					latitude	必填		浮点数-180~180
+					name		必填
+					desc
+			covers		Array		覆盖物，显示自定义图标
+				属性
+					longitude	必填
+					latitude	必填
+					iconPath	必填		显示的图标，项目目录下图片路径，支持相对路径
+					rotate		顺时针旋转角度，范围0~360，默认0
 画布组件
-	canvas
+	canvas	画布组件，可实现页面动画,默认宽度300px，高度225px
+		属性
+			canvas-id			String	唯一标识符
+			disable-scroll		Boolean	在canvas中移动时，禁止屏幕滚动及下拉刷新，默认false
+			bindtouchstart		
+			bindtouchmove
+			bindtouchend
+			bindtouchcancel		触摸动作被打断，如来电或弹窗
+			binderror
