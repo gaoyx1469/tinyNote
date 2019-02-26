@@ -425,4 +425,9 @@
 
 	parted	列出磁盘分区表类型与分区信息
 		格式
-			parted	device_name print
+			parted device_name print
+
+	gdisk	磁盘分区，需要root权限，装置名称不加数字，针对整个磁盘装置分区
+		格式
+			gdisk 装置名称
+		更新完成后，分区表没有立刻更新，需要重启或通过partprobe处理

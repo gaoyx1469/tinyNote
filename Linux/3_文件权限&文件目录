@@ -133,3 +133,5 @@ xfs文件系统
 		对partition格式化，建立filesystem
 		对filesystem进行检验
 		建立挂载点将filesystem挂载上来
+	MBR分区表使用fdisk分区
+	GPT分区表使用gdisk分区
