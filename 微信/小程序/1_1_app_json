@@ -9,9 +9,9 @@
 		backgroundTextStyle				下拉背景字体、loading图样式	数据类型String	默认dark，仅支持dark，light？
 		enablePullDownRefresh			是否开启下拉刷新	数据类型Boolean	默认false
 	tabBar			设置底部tab的表现		数据类型Object	非必填
-		color			标签页文字默认颜色	数据类型HexColor	必填
-		selectColor		标签页文字选中颜色	数据类型HexColor	必填
-		backgroundColor	标签页背景色		数据类型HexColor	必填
+		color			标签页文字默认颜色	数据类型HexColor	非必填
+		selectedColor		标签页文字选中颜色	数据类型HexColor非必填
+		backgroundColor	标签页背景色		数据类型HexColor	非必填
 		borderStyle		标签条框线颜色		数据类型String		非必填默认black
 		list			标签页列表			数据类型Array		必填
 			pagePath			页面路径
