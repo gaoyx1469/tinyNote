@@ -427,7 +427,82 @@
 		格式
 			parted device_name print
 
-	gdisk	磁盘分区，需要root权限，装置名称不加数字，针对整个磁盘装置分区
+	gdisk	GPT磁盘分区，需要root权限，装置名称不加数字，针对整个磁盘装置分区
 		格式
 			gdisk 装置名称
 		更新完成后，分区表没有立刻更新，需要重启或通过partprobe处理
+
+	partprobe 更新Linux核心的分区表信息
+		格式
+			partprobe [-s]
+		-s	显示讯息
+
+	fdisk	MBR磁盘分区，类同gdisk
+
+	mkfs.xfs	格式化成XFS文件系统
+		格式
+			mkfs.xfs [-b bsize] [-d parms] [-i parms] [-l parms]  [-L label] [-f] [-r parms] 装置名称
+		-b	后面接的是block容量,512到4K
+		-d	后面接的是data section相关参数
+			agcount=数值		设定需要几个储存群组AG，通常与CPU核心数一致
+			agsize=数值		每个AG设定多少容量与agcount选择一个设定即可
+			file			指格式化的装置是个文件而不是个装置，如虚拟磁盘
+			size=数值		data section容量
+			su=数值			当有RAID时，那个stripe数值的意思，与底下的sw搭配来使用
+			sw=数值			当有RAID时，用于储存数据的磁盘数量
+			sunit=数值		与su相当，单位是sector（512bytes）
+			swidth=数值		数据宽度，su*sw的数值，单位是sector（512bytes）
+		-f	如装置内已有文件系统，使用-f强制格式化
+		-i	与inode有关的设定
+			size=数值		最小256bytes，最大2k
+			internal=[0|1]	log装置是否内建，1：内建
+			logdev=device	log装置外建时，外建装置是哪个
+		-L	后面接这个文件系统的标头名称
+		-r	指定realtime section的相关设定
+			extsize=数值		extent数值，一般不需设定，有RAID时，应设定与swidth数值相同最好，最小4K，最大1G
+
+	maks.ext4	格式化成ext4文件系统
+		格式
+			mkfs.ext4 [-b size] [-L label] 装置名称
+		-b	设定block的大小，有1K，2K，4K的容量
+		-L	后面接装置标头名称
+
+	xfs_repair	处理XFS文件系统，文件系统错乱时使用，修复时文件系统不能被挂载，否则应卸载后处理
+		格式
+			xfs_repair [-fnd] 装置名称
+		-f	后面的装置是文件而不是实体装置，如虚拟磁盘
+		-n	单纯检查并不修改文件系统任何数据
+		-d	用在单人维护模式，针对根目录进行检查和修复，此操作很危险，慎用
+
+	fsck.ext4	处理EXT4文件系统，
+		格式
+			fsck.ext4 [-pf] [-b superblock] 装置名称
+		-p	当文件系统在修复时，若有需要回复y的动作时，自动回复y继续进行修复动作
+		-f	强制进入细部检查
+		-D	针对文件系统下的目录进行优化配置
+		-b	后面接superblock的位置，一般用不到，如果superblock因故损毁，使用此参数使用备份superblock救援，1K block放在8193,2K block放在16384,4K block 放在 32768
+
+	mount	将文件系统挂载到系统上
+		格式
+			mount [-altno]
+		-a	依照配置文件/etc/fstab的数据将所有未挂载的磁盘都挂载上来
+		-l	增列Label名称
+		-t	可加上文件系统种类来指定要挂载的类型，常见有xfs/ext3/ext4/reiserfs/vfat/iso9660(光盘)/nfs/cifs/smbfs等
+		-n	不要讲实际挂载情况写入/etc/mtab中
+		-o	接挂载时的额外参数，如账号密码读写权限
+			saync,sync		文件系统是同步写入还是异步写入，默认async
+			atime,noatime	是否修订文件的读取时间
+			ro,rw			挂载文件系统成为只读还是可读写
+			auto,noauto		是否允许此文件系统被以mount -a自动挂载
+			dev,nodev		是否允许此文件系统上建立装置文件
+			suid,nosuid		是否允许此文件系统含有suid/sgid的文件格式
+			exec,noexec		是否允许此文件系统上拥有可执行文件
+			user,nouser		是否允许此文件系统让任何使用者执行mount
+			defaults		默认值：rw,suid,dev,exec,auto,nouser,async
+			remount			重新挂载
+			codepage		指定语系，中文是950
+			iocharset		指定编码，可以使utf8或big5
+		常见使用方式
+			mount [-t 文件系统] UUID='' 挂载点	--建议用法
+			mount [-t 文件系统] LABEL='' 挂载点
+			mount [-t 文件系统] 装置文件名 挂载点
