@@ -1,6 +1,18 @@
 Session
 	服务器端技术
 	
-	服务器为每个用户浏览器创建一个会话对象（session对象）
+	服务器为每个用户浏览器创建一个会话对象（session对象）,浏览器关闭就没了，因为sessionID存在cookie中，若想解决，自己写cookie的生命周期。
+		另，session在服务器默认存在半小时，可配置
 	默认情况下，一个浏览器独占一个session对象
-	session对象由服务器创建，可通过request对象的getSession方法获得
+	session对象由服务器创建，可通过request对象的getSession方法获得，该方法先查询内存是否有该客户的session，没有则创建新的。
+	所以，创建session的时机是第一次调用getSession方法时
+	
+	应用：
+		购物车--加入购物车set，查看购物车get
+		一次性验证码CAPTCHA--生成验证码set，提交get并比较
+		防止表单重复提交--生成令牌放到session中，同时放一份到输出的页面的表单隐藏input上。用户提交时对比，并销毁session中的令牌。
+	
+	
+	Session示例：
+		/SimpleGOD/src/top/trial/servlet/SessionGetDemoServlet.java
+		/SimpleGOD/src/top/trial/servlet/SessionSetDemoServlet.java
