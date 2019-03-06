@@ -461,7 +461,7 @@
 		-r	指定realtime section的相关设定
 			extsize=数值		extent数值，一般不需设定，有RAID时，应设定与swidth数值相同最好，最小4K，最大1G
 
-	maks.ext4	格式化成ext4文件系统
+	mkfs.ext4	格式化成ext4文件系统
 		格式
 			mkfs.ext4 [-b size] [-L label] 装置名称
 		-b	设定block的大小，有1K，2K，4K的容量
@@ -506,3 +506,181 @@
 			mount [-t 文件系统] UUID='' 挂载点	--建议用法
 			mount [-t 文件系统] LABEL='' 挂载点
 			mount [-t 文件系统] 装置文件名 挂载点
+			mount --bind 源目录 目标目录		将源目录暂时挂载到目标目录下
+
+	umount		将装置文件卸除
+		格式
+			umount [-fn] 装置文件名或挂载点
+		-f	强制卸除
+		-l	立即卸除，比-f更强
+		-n	不更新/etc/mtab情况下删除
+
+	mknod	修改文件系统参数
+		格式
+			mknod 装置文件名	[bcp] [Major] [Minor]
+		b	设定装置名称成为一个周边存储设备文件，如磁盘
+		c	设定装置名称成为一个周边输入设备文件，如键鼠
+		p	设定装置名称成为一个FIFO文件
+		Major	主要装置代码
+		Minor	次要装置代码
+
+	xfs_admin	修改XFS文件系统的UUID与Label name
+		格式
+			xfs_admin [-lu] [-L label] [-U uuid] 装置文件名
+		-l	列出这个装置的label name
+		-u	列出这个装置的UUID
+		-L	设定这个装置的label name
+		-U	设定这个装置的UUID
+
+	uuidgen		生成一个新的UUID
+
+	tune2fs		修改ext4的label name 与 UUID
+		格式
+			tune2fs [-l] [-L label] [-U uuid] 装置文件名
+		-l	类似dumpe2fs -h的功能，将superblock内的数据读取出来
+		-L	设定这个装置的label name
+		-U	设定这个装置的UUID
+
+	dd		创建大文件，格式化时需要使用	mkfs.xfs -f 输出文件名	来格式化
+		格式
+			dd if=/dev/zero of=/srv/loopdev bs=block大小 count=block数量
+		if	input file，输入文件，/dev/zero会一直输出0
+		of	output file，输出文件，写入/srv/loopdev这个位置
+		bs	每个block大小，可以是1M
+		count	bs数量
+
+	mkswap	创建swap格式，即将磁盘某分区槽格式化为swap格式
+		格式
+			mkswap 装置文件名
+
+	swapon	将swap装置启动
+		格式
+			swapon [-as] [装置文件名]
+		-a	启动所有swap
+		-s	列出目前有哪些swap装置
+
+	parted	分区，同时支持MBR和GPT，或将MBR和GPT分区表互相转换
+		格式
+			parted [装置] [指令[参数]]
+
+		指令
+			新增分区：mkpart [primary|logical|extended] [ext4|vfat|xfs] 开始 结束
+			显示分区：print
+			删除分区：rm [partition]
+
+	gzip	压缩及解压缩
+		格式
+			gzip [-cdtv#] 档名
+		-c	将压缩的数据输出到屏幕上
+		-d	解压缩
+		-t	可以用来检验一个压缩文件的一致性，看文件是否有错误
+		-v	可以显示除源文件/压缩文件的压缩比等信息
+		-#	#为数字，代表压缩等级，-1最快，压缩比最差，-9最慢，压缩比最好，预设是-6
+		读取.gz压缩文件的内容
+			zcat	类同cat
+			zmore	类同more
+			zless	类同less
+			zgrep	类同grep
+
+	bzip2	压缩及解压缩
+		格式
+			bzip2 [-cdkzv#] 档名
+		-c	将压缩的数据输出到屏幕上
+		-d	解压缩
+		-k	保留源文件，不会删除原始文件
+		-z	压缩的参数，默认值，可以不加
+		-v	可以显示除源文件/压缩文件的压缩比等信息
+		-#	#为数字，代表压缩等级，-1最快，压缩比最差，-9最慢，压缩比最好，预设是-6
+		读取.bz2压缩文件的内容
+			bzcat	类同cat
+			bzmore	类同more
+			bzless	类同less
+			bzgrep	类同grep
+
+	xz	压缩及解压缩
+		格式
+			xz [-cdtlk#] 档名
+		-c	将压缩的数据输出到屏幕上
+		-d	解压缩
+		-k	保留源文件，不会删除原始文件
+		-t	可以用来检验一个压缩文件的一致性，看文件是否有错误
+		-v	可以显示除源文件/压缩文件的压缩比等信息
+		-l	后面跟随压缩文件，列出该压缩文件的信息
+		-#	#为数字，代表压缩等级，-1最快，压缩比最差，-9最慢，压缩比最好，预设是-6
+		读取.xz压缩文件的内容
+			xzcat	类同cat
+			xzmore	类同more
+			xzless	类同less
+			xzgrep	类同grep
+
+	tar		打包指令
+		格式
+			tar [-z|-j|-J] [cv] [-f 待建立的新文件名] filename		打包与压缩
+			tar [-z|-j|-J] [tv] [-f 已存在的tar文件名]				查看tar文档
+			tar [-z|-j|-J] [xv] [-f 已存在的tar文件名] [待解开的文件] [-C目录]		解压缩
+		-c	建立打包文件
+		-t	查看打包文件的内容都有哪些文件
+		-x	解压解打包
+		-z	通过gzip的支持进行压缩或解压缩
+		-j	通过bzip2的支持进行压缩或解压缩
+		-J	通过xz的支持进行压缩或解压缩
+		-v	压缩/解压过程中，将正在处理的文件名显示出来
+		-f filename		-f后接要处理的文档名
+		-C 目录			解压缩时指定解压到特定目录
+		-p	打包时，保留备份数据的原本权限与属性，常用于备份重要的配置文件
+		-P	打包时，保留绝对路径
+		--exclude=FILE	压缩过程中，不要将某文件打包
+
+	xfsdump		已挂载的XFS文件系统备份，注意一定是要备份整个文件系统，需要root权限
+		格式
+			xfsdump [-L S_label] [-M M_label] [-l #] [-f 备份档] 待备份资料
+			xfsdump -I
+		-L	记录每次备份的session标头，可以填写简要说明
+		-M	可以记录储存媒体标头，可以填写此媒体的简易说明
+		-l	指定等级，0~9，预设为0，完整备份
+		-f	指定指定备份文件名
+		-I	从/var/lib/xfsdump/inventory列出目前备份的信息状态
+
+	xfsrestore		使用dump还原系统
+		格式
+			xfsrestore -I		查看备份文件资料
+			xfsrestore [-f 备份档] [-L S_label] [-s 希望复原的文件] 待复原目录		单一文件全系统复原
+			xfsrestore [-f 备份文件] -r	待复原目录								透过累积备份文件来复原
+			xfsrestore [-f 备份文件] -i	待复原目录								进入互动模式
+		-I	从/var/lib/xfsdump/inventory列出目前备份的信息状态
+		-f	后接备份档
+		-L	session的Label name
+		-s	接指定目录，将复原某一个文件或目录
+		-r	累计复原
+		-i	进入互动模式
+
+	mkisofs		将文件打包成iso格式光盘映像文件
+		格式
+			mkisofs [-o] [-Jrv] [-V vol] [-m file] 待备份文件... -graft-point isodir=systemdir ...
+		-o			后面接想要产生的iso文件名
+		-J			产生较兼容于windows机器的文件名结构，可增加文件名长度到64个unicode字符
+		-r			透过Rock Ridge产生支持Linux的文件数据，可以记录更多信息，常常会加上
+		-v			显示建置ISO文件的过程
+		-V vol		建立Volume，类似于CD title
+		-m file		-m为排除某些文件不打入iso中，可使用*通配符
+		-graft-point	后面接 映像文件内的目录=实际数据 这样能将不同目录的数据分开，而不是在一起
+
+	wodim	光盘刻录
+		格式
+			wodim --devices dev=/dev/sr0...					查询刻录机的BUS位置
+			wodim -v dev=/dev/sr0 blank=[fast|all]			抹除重复的读写片
+			wodim -v dev=/dev/sr0 -format					格式化DVD+RW
+			wodim -v dev=/dev/sr0 [可用选项功能] file.iso
+		--devices			用在扫瞄磁盘总线并找出可用的刻录机，后续的装置为 ATA 接口
+		-v					在 cdrecord 运作的过程中，显示过程
+		dev=/dev/sr0		可以找出此光驱的 bus 地址，非常重要！
+		blank=[fast|all]	blank 为抹除可重复写入的CD/DVD-RW，使用fast 较快，all 较完整
+		-format				对光盘片进行格式化，但是仅针对 DVD+RW 这种格式的 DVD 
+		[可用选项功能]
+			-data ：指定后面的文件以数据格式写入，不是以 CD 音轨(-audio)方式写入！
+			speed=X ：指定刻录速度，例如CD 可用 speed=40 为40 倍数，DVD 则可用 speed=4 之类
+			-eject ：指定刻录完毕后自动退出光盘
+			fs=Ym ：指定多少缓冲存储器，可用在将映像档先暂存至缓冲存储器。预设为 4m，一般建议可增加到 8m ，不过，还是得视你的刻录机而定。
+		针对 DVD 的选项功能：
+			driveropts=burnfree ：打开 Buffer Underrun Free 模式的写入功能
+			-sao ：支持 DVD-RW 的格
