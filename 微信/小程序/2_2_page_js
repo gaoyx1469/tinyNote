@@ -15,7 +15,7 @@ Page()方法
 		onShareAppMessage				用户点击右上角分享
 		其它				任何类型	开发者自己的函数或数据，本js中由this可以访问到，getCurrentPage()方法可以得到【该方法不能在App()中调用】
 		
-	使用setData函数修改data数据，使用this.data修改无效，无法改变页面状态
+	使用wx.setData函数修改data数据，使用this.data修改无效，无法改变页面状态
 		setData接收一个Object，将改变的data放进去即可
 		
 	使用getCuurntPages函数获取当前的页面栈，返回页面栈数组，第一个元素为首页，最后一个元素为当前页
