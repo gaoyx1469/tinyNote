@@ -1,0 +1,23 @@
+JSP中内置对象引用名称		对应的类型
+	request				HttpServletRequest
+	response			HttpServletResponse
+	session				HttpSession，JSP指令中session相关
+	application			ServletContext
+	config				ServletConfig
+	out					JspWriter
+									是PageContext的getOut方法返回的，相当于带缓存功能的PrintWiter。
+									因为缓存问题，输出后要给response.getWrite，可能造成顺序错乱。
+									使用out.flush解决,或设置JSP页面属性中页面缓存为none
+	pageContext			PageContext
+									本身是一个域对象，代表当前页面，还能操作其它三个域对象【PageContext/ServletContext/HttpServletRequest/HttpSession】
+										作为域对象，有方法setAttibute和removeAttribute
+										操作其它域对象，增加一个参数，int类型的SCOPE
+											PageContext.PAGE_SCOPE			页面范围，PageContext的MAP
+											PageContext.REQUEST_SCOPE		请求范围，HttpServletRequest的MAP
+											PageContext.SESSION_SCOPE		SESSION范围，HttpSession的MAP
+											PageContext.APPLICATION_SCOPE	应用范围，ServletContext的MAP
+										另有方法findAttribute，按照从小到大的范围依次搜寻
+									能获取其它八个隐式对象。
+									提供了转发和包含的简单方法，直接pageContext.forward("url")和pageContext.include("url")
+	page				this，代表当前servlet对象
+	exception			Throwable，JSP指令中isErrorPage相关
