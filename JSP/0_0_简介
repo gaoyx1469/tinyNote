@@ -37,3 +37,7 @@ JSP
 				uri			标签名称空间
 				prefix		前缀
 	
+	JSP映射
+		可以在web.xml中配置JSP映射
+		示例：/introduction.html
+	

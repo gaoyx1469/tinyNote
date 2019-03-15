@@ -1,0 +1,5 @@
+一、入口为servlet，处理业务逻辑或查询页面展示数据，放到request域中，请求转发到一个JSP，从request域对象中取出数据结果展示。
+	示例：/ShowBookTableServlet
+	相关代码
+		/SimpleGOD/src/top/trial/servlet/jsp/ShowBookTableServlet.java
+		/SimpleGOD/WebContent/JSP/trial/showBookTable.jsp

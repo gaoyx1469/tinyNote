@@ -1,0 +1,17 @@
+常用动作元素
+	<jsp:include/>包含
+		属性有page
+	<jsp:forward/>转发
+	<jsp:param/>包含和转发时的参数
+		属性有value和name，在另一个JSP中使用request.getParameter方法获取
+		
+JavaBean组件相关的动作元素
+	<jsp:useBean>
+		JSP页面中查找或实例化一个JavaBean组件
+		用于在指定域范围内，查找指定id的JavaBean对象（对象名就是下面的id值，可以直接在<%%>中使用），找到就直接使用，没找到就创建一个并放到指定域范围内。
+		属性有id，class（JavaBean的完整类名），scope（默认page，可选page，request，session，application）
+		标签主体内容只有在创建新对象时执行。
+	<jsp:setProperty>
+		JSP页面中设置一个JavaBean组件的属性
+	<jsp:getProperty>
+		JSP页面中获取一个JavaBean组件的属性
