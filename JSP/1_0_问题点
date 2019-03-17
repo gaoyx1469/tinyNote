@@ -7,3 +7,5 @@
 	由于存在内置对象out，因此response.getOutputStream得到字节流会与内置对象冲突会在后台报错。但是JspWriter在不使用时不会报错，因此可以将JSP页面中只保留JSP指令和JAVA代码，删除HTML相关代码。
 	JSP中尽量少用不用字节流
 
+三：加入jstl.jar后使用EL标准标签库报错
+	jstl1.2之后已经不需要standard.jar，但是加入到lib引入构建路径中之后报错。将jar包中的tld文件拿出来放到WEB-INF下或者放到某个子目录下并配置web.xml即可解决。

@@ -11,4 +11,8 @@ jar包
 	内省：
 		beanutils(1.9.3)	依赖于commons-logging(1.2)和commons-collections(3.2.2)
 		
+	JSP EL标准函数库：
+		jstl
+		standard
+		
 	

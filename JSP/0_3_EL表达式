@@ -50,8 +50,34 @@ EL表达式
 		自定义EL函数
 			1.编写java类
 			2.编写tld文件
-			3.配置web.xml
+			3.配置web.xml,如果tld文件就在WEB-INF文件下，此步骤可以省略
 			4.JSP中使用
 			示例：
 				/SimpleGOD/WebContent/JSP/trial/ELFunction.jsp
 				/SimpleGOD/WebContent/WEB-INF/tld/MD5Util.tld
+		标准EL函数库，JSTL
+			core：核心
+				常见的c:if和c:each
+				c:if
+					属性test，值可以是表达式，需要能判断true和false，如果是true，该标签主体内容展示，否则不展示
+					属性var，保存test运算结果，放置到key为该值的域中
+					属性scope，保存test运算结果，防止到scope域中，默认page
+				c:each
+					遍历数组和List、set、map
+					属性items
+					属性var
+					属性begin
+					属性end
+					属性step
+					属性varStatus，值为工具对象的名字，该工具对象有index/count/first/last四个方法
+			Fmt：国际化
+			SQL：数据库操作
+			XML：xml操作
+			fn：EL函数库
+				fn.tld里找找各种函数
+			使用：
+				导入jar包 jstl.jar(1.2)
+				可能需要处理tld文件和web.xml文件
+			
+				
+			
