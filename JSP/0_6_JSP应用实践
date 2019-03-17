@@ -3,3 +3,8 @@
 	相关代码
 		/SimpleGOD/src/top/trial/servlet/jsp/ShowBookTableServlet.java
 		/SimpleGOD/WebContent/JSP/trial/showBookTable.jsp
+
+二、开发模式
+	模型一：JSP+JavaBean
+		开发业务逻辑不复杂的程序
+	模型二：MVC、三层架构

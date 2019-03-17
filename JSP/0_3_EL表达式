@@ -1,0 +1,57 @@
+EL表达式
+	目的：替代java表达式<%=%>的使用
+	使用：
+		获取数据，获取域中的数据
+		执行运算，简单运算
+		获取隐式对象，11个EL内置对象
+		调用java方法，普通类的静态方法
+	语法：
+		${EL表达式}
+	具体内容：
+		1.获取域中JavaBean的属性值，${JavaBean的ID.属性名}。
+			注：EL表达式会对null和空指针进行优化成空字符串，无论ID不存在或属性不存在或属性值为null都优化，甚好。
+			另：域查找顺序同findAttribute方法,建议使用隐式对象前缀读取
+		2.获取域中集合或数组的元素，${数组[n]}，${List[n]}，${MAP.key值}
+		3.关系运算和逻辑运算
+			== eq	
+			!= ne
+			<  lt
+			>  gt
+			<= le
+			>= ge
+			&& and
+			!  not
+			|| or
+			empty 检查对象是null或空字符串，${empty 对象名} 返回true 或 false
+				对于集合，没有任何元素时也返回true
+			三元表达式
+	11个隐式对象：
+			pageContext，就是JSP中的pageContext，通过这个可以获取其它的几个JSP隐式对象：request、session、application
+				比如${pageContext.request}
+		其余10个都是Map集合
+			pageScope			代表page域范围的属性Map
+			requestScope		代表request域范围的属性Map
+			sessionScope		代表session域范围的属性Map
+			applicationScope	代表application域范围的属性Map
+			
+			param				代表请求参数，key是请求参数名称，value是请求参数的值，重名的只取第一个
+			paramValues			代表请求参数，key是请求参数名称，value是请求参数的值（数组形式）
+			
+			header				代表请求消息头，使用header["xxx"]来取值，重名的只取第一个
+			headerValues		代表请求消息头，使用headerValues["xxx"][n]来取值
+			
+			cookie				代表客户端提交的Cookie的Map，key是Cookie的name，值是Cookie是Cookie对象本身
+			initParam			代表全局初始化参数，web.xml中的参数
+		详细使用见
+			/SimpleGOD/WebContent/JSP/trial/elDemo.jsp
+			
+	EL函数
+		${prefix}
+		自定义EL函数
+			1.编写java类
+			2.编写tld文件
+			3.配置web.xml
+			4.JSP中使用
+			示例：
+				/SimpleGOD/WebContent/JSP/trial/ELFunction.jsp
+				/SimpleGOD/WebContent/WEB-INF/tld/MD5Util.tld
