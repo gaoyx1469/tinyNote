@@ -28,6 +28,7 @@ EL表达式
 	11个隐式对象：
 			pageContext，就是JSP中的pageContext，通过这个可以获取其它的几个JSP隐式对象：request、session、application
 				比如${pageContext.request}
+				注：可使用来获得java的contextPath
 		其余10个都是Map集合
 			pageScope			代表page域范围的属性Map
 			requestScope		代表request域范围的属性Map
