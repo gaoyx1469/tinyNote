@@ -1,2 +1,20 @@
 SQL
 	结构化查询语言(Structured Query Language)
+	
+	DQL数据查询语言
+	DML数据管理语言
+	DDL数据定义语言
+	DCL数据控制语言
+	TPL事务处理语言
+	CCL指针控制语言
+	
+	常用数据库
+		Oracle：商用强
+		DB2
+		MySQL：开源
+		SQL Server：只能运行在windows系统，不开源
+		Postgresql
+		
+		MongoDB
+		Redis
+		Hbase
