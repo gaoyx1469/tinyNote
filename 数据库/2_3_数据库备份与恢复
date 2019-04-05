@@ -1,11 +1,11 @@
 MYSQL版
 	备份
 		SHELL环境下：
-			MYSQLDUMP [-h 127.0.0.1] -u root -ppassword datebase_name>URI
+			MYSQLDUMP [-h 127.0.0.1] -u root -ppassword database_name>URI
 	恢复
 		首先数据库名必须存在
 		SHELL环境下：
-			MYSQL -u root -ppassword datebase_name<URI
+			MYSQL -u root -ppassword database_name<URI
 		或者MYSQL环境下
-			USE datebase_name;
+			USE database_name;
 			SOURCE URI;
