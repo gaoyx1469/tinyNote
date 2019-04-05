@@ -5,3 +5,7 @@ UNIQUE			唯一
 CONSTRAINT		外键
 	语法：
 		CONSTRAINT 外键名 FOREIGN KEY(column1) REFERENCES table2(key);
+
+数据库字符集
+	
+使用关键字作为表名，使用`将表名包围起来即可
