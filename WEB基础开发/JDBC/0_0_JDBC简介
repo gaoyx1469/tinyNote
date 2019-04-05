@@ -1,0 +1,7 @@
+JDBC
+	JAVA DATABASE CONNECTIVITY
+		SUN公司制定的java数据库连接标准，包含java.sql和javax.sql两个包，JDK中已经带了。
+		同时，要使用JDBC，还要导入对应数据库的驱动
+		MYSQL驱动下载：
+			https://www.mysql.com/products/connector/
+			目前使用mysql-connector-java-8.0.15.jar

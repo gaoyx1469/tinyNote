@@ -9,3 +9,14 @@ CONSTRAINT		外键
 数据库字符集
 	
 使用关键字作为表名，使用`将表名包围起来即可
+
+常见函数
+	日期相关
+		ADDDATE(E,E)
+		ADDTIME(E,E)
+		CURDATE()
+		CURTIME()
+		CURRENT_DATE()
+		CURRENT_TIME()
+		CURRENT_TIMESTAMP()
+		DATE(E)

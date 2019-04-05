@@ -1,0 +1,52 @@
+JDBC编码步骤
+	1.加载对应数据库驱动程序并注册
+		DriverManager
+		DriverManager.registerDriver(driver);
+			driver对象new的时候，静态代码块已经注册了一次，因此如果new完再注册，就注册了两遍。
+			另外，直接new过于耦合
+			因此，建议使用反射，直接Class.forName("");将Driver路径写入配置文件。
+		常用方法就是getConnection
+	2.获取与数据库的连接
+		Connection
+		各个数据库URL地址写法
+			MYSQL		jdbc:mysql://127.0.0.1:3306/database_name
+			ORACLE		jdbc:oracle:thin:@127.0.0.1:1521:database_name
+			SQLSERVER	jdbc:microsoft:sqlserver://127.0.0.1:1433;DatebaseName=database_name
+		常用方法有
+			createStatement
+			prepareStatement
+			prepareCall
+			setAutoCommit
+			commit
+			rollback
+	3.得到SQL语句对象，发送给数据库
+		Statement
+		常用方法有
+			executeQuery：入参为DQL语句，返回结果集
+			executeUpdate：入参为DML语句或无返回值得DDL语句，返回结果为影响的行数
+			execute：入参为任意SQL语句，返回Boolean类型，表示是否有返回结果集
+			addBatch：将多条语句放入一个批处理
+			executeBatch：执行批处理
+	4.如有结果，获取封装了查询结果的对象
+		ResultSet
+		常用方法有
+			next
+			previous
+			absolute
+			getObject
+	5.遍历结果
+	6.释放资源
+	
+	
+	MYSQL的JDBC初次运行报错：
+		The server time zone value '???ú±ê×??±??' is unrecognized or represents more than one time zone. 
+		You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
+		将url改为如下
+			jdbc:mysql://127.0.0.1:3306/database_name?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+			可以解决上述问题且解决乱码问题
+	
+	示例：
+		简单版：
+			/SimpleGOD/src/top/trial/demo/jdbc/MysqlJDBCTest.java
+		升级正式版：
+			/SimpleGOD/src/top/trial/demo/jdbc/MysqlJDBCTestPlus.java

@@ -14,5 +14,7 @@ jar包
 	JSP EL标准函数库：
 		jstl【1.2版不再需要依赖standard】
 		standard
+	JDBC
+		MYSQL驱动：mysql-connector-java
 		
 	
