@@ -7,7 +7,7 @@ CONSTRAINT		外键
 		CONSTRAINT 外键名 FOREIGN KEY(column1) REFERENCES table2(key);
 
 数据库字符集
-	
+	显示字符集：SET CHARACTER_SET_RESULTS = gbk;
 使用关键字作为表名，使用`将表名包围起来即可
 
 常见函数

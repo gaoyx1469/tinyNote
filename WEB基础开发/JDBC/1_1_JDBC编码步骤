@@ -14,7 +14,10 @@ JDBC编码步骤
 			SQLSERVER	jdbc:microsoft:sqlserver://127.0.0.1:1433;DatebaseName=database_name
 		常用方法有
 			createStatement
-			prepareStatement
+			*****prepareStatement
+				防止SQL注入
+				支持参数占位符[?]
+				预编译SQL语句，提高效率
 			prepareCall
 			setAutoCommit
 			commit
@@ -46,7 +49,11 @@ JDBC编码步骤
 			可以解决上述问题且解决乱码问题
 	
 	示例：
-		简单版：
+		简单版DEMO：
 			/SimpleGOD/src/top/trial/demo/jdbc/MysqlJDBCTest.java
-		升级正式版：
+		升级正式版DEMO：
 			/SimpleGOD/src/top/trial/demo/jdbc/MysqlJDBCTestPlus.java
+		单元测试版并启用PreparedStatemant：
+			/SimpleGOD/src/top/trial/demo/jdbc/MysqlJDBCUnitTest.java
+		工具类：（依赖PropertiesUtil工具类）
+			/SimpleGOD/src/top/util/jdbc/MysqlJDBCUtil.java
