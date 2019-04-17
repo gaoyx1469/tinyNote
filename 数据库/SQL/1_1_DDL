@@ -36,17 +36,29 @@ DDL数据定义语言
 	
 	修改表
 		修改表字段
-		ALTER TABLE table_name ADD(
-			field1 datatype,
-			field2 datatype,
-			...
-		);
-		ALTER TABLE table_name MODIFY field1 datatype;
-		ALTER TABLE table_name DROP field1;
+		MYSQL:
+			ALTER TABLE table_name ADD(
+				field1 datatype,
+				field2 datatype,
+				...
+			);
+			ALTER TABLE table_name MODIFY field1 datatype;
+			ALTER TABLE table_name DROP field1;
+		ORACLE:
+			ALTER TABLE table_name ADD(
+				field1 datatype,
+				field2 datatype,
+				...
+			);
+			ALTER TABLE table_name MODIFY (field1 datatype);
+			ALTER TABLE table_name DROP COLUMN field1;
 		修改表名
 		RENAME table_name TO new_table_name;
 		修改表字符集
 		ALTER TABLE CHARACTER SET gbk;--指定gbk字符集
 		修改列名
-		ALTER TABLE table_name CHANGE field1 field2 datatype;
+		MYSQL:
+			ALTER TABLE table_name CHANGE field1 field2 datatype;
+		ORACLE:
+			ALTER TABLE table_name RENAME COLUMN field1 to field2;
 		

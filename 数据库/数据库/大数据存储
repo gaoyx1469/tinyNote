@@ -1,0 +1,22 @@
+大数据LOB：
+	文本和二进制数据
+	
+	MYSQL中varchar最大容量65535个字节，超过这个，需要使用大数据类型存储，大小其实等同于BLOB
+	
+	MYSQL使用BLOB和TEXT
+		TINYTEXT/TEXT/MEDIUMTEXT/LONGTEXT
+		TINYBLOB/BLOB/MEDIUMBLOB/LONGBLOB
+		大小：
+			256B/64K/16M/4G
+			2^8/2^16/2^24/2^32
+		JDBC中存取方法：
+			大数据要使用流的形式
+			TEXT:
+				setCharacterStream(index,reader,length);
+				驱动没有实现第三个参数为long类型的方法，只实现了第三个参数为int类型的方法，因为int类型就足够MYSQL的LONGTEXT使用了。
+				reader = getCharacterStream(index);
+			BLOB:
+				setBinaryStream(index,inputStream,length);
+				inputStream = getBinaryStream(index);
+		
+	ORACLE使用BLOB个CLOB
