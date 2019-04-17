@@ -54,3 +54,6 @@ TIPS：
 		当两种方法都存在时，以比较器为主
 	
 	HashMap和Hashtable的区别
+		HashMap可以接受null作为键和值
+		Hashtable不可以使用null作为键和值，synchronized线程安全
+		ConcurrentHashMap在java1.5后出现，替代Hashtable，同样线程安全，但是效率更高，因为默认分成16段Hashtable，分16个锁保证线程安全。
