@@ -1,0 +1,4 @@
+JDBC在insert时获取自增主键的值：
+	PreparedStatement st = conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+	ResultSet rs = st.executeUpdate();
+	自增主键的值就返回到了ResultSet中，其实不加Statement.RETURN_GENERATED_KEYS也能默认返回。

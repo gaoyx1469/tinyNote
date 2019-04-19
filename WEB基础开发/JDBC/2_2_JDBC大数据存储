@@ -1,0 +1,9 @@
+JDBC中大数据存取方法：
+	大数据要使用流的形式
+	TEXT:
+		setCharacterStream(index,reader,length);
+		驱动没有实现第三个参数为long类型的方法，只实现了第三个参数为int类型的方法，因为int类型就足够MYSQL的LONGTEXT使用了。
+		reader = getCharacterStream(index);
+	BLOB:
+		setBinaryStream(index,inputStream,length);
+		inputStream = getBinaryStream(index);
