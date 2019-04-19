@@ -19,4 +19,4 @@
 				setBinaryStream(index,inputStream,length);
 				inputStream = getBinaryStream(index);
 		
-	ORACLE使用BLOB个CLOB
+	ORACLE使用BLOB和CLOB

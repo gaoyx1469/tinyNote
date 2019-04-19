@@ -1,0 +1,7 @@
+主键自增：
+	建表时使用auto_increment，默认从1开始自增
+	不建议使用，建议主键由程序生成，而不要数据库自增。
+	JDBC在insert时获取自增主键的值：
+		PreparedStatement st = conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+		ResultSet rs = st.executeUpdate();
+		自增主键的值就返回到了ResultSet中，其实不加Statement.RETURN_GENERATED_KEYS也能默认返回。

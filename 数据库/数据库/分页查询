@@ -1,0 +1,13 @@
+分页查询：
+	MYSQL简单：
+		使用LIMIT关键字
+	ORACLE略困难：
+		ROWNUM读出行标，然后根据行标筛选
+		示例：
+			SELECT * FROM  
+			(  
+			SELECT A.*, ROWNUM RN  
+			FROM (SELECT * FROM TABLE_NAME) A  
+			WHERE ROWNUM <= 40  
+			)  
+			WHERE RN >= 21  
