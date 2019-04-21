@@ -14,7 +14,12 @@ jar包
 	JSP EL标准函数库：
 		jstl【1.2版不再需要依赖standard】
 		standard
+		
 	JDBC
 		MYSQL驱动：mysql-connector-java
-		
+	DBCP
+		DBCP2：commons-dbcp2-2.6.0-bin		依赖commons-pool2-2.6.2-bin
+	C3P0
+		C3P0:c3p0-0.9.5.2					依赖mchange-commons-java-0.2.11
+		ORACLE增强：c3p0-oracle-thin-extras-0.9.5.2	
 	
