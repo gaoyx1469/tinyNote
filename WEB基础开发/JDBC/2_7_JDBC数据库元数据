@@ -4,4 +4,4 @@
 	获取数据库元信息：Connection 获取  DatabaseMetaData,内有各种get方法
 	获取SQL语句中占位符：Connection 获取 ParameterMetaData
 	获取SQL语句中占位符的SQL类型：Connection 获取 ParameterType,目前驱动不支持
-	获取结果集的元数据信息 ：Result使用getMetaData() 获取ResultSetMetaData
+	获取结果集的元数据信息 ：ResultSet使用getMetaData() 获取ResultSetMetaData

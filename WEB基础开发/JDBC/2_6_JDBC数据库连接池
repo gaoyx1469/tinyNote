@@ -14,6 +14,7 @@ JDBC数据库连接池
 		需要两个jar包
 		common-dbcp2
 		common-pool2
+		依赖JDBC数据库驱动
 		使用方式：
 			/SimpleGOD/src/top/util/jdbc/MysqlDBCPUtil.java
 			配置文件名可任意
@@ -22,7 +23,8 @@ JDBC数据库连接池
 		c3p0
 		c3p0-oracle-thin-extras
 		mchange-commons-java
+		依赖JDBC数据库驱动
 		使用方式：
 			/SimpleGOD/src/top/util/jdbc/MysqlC3P0Util.java
-			配置文件名固定，自动读取
+			配置文件名固定为c3p0-config.xml，自动读取
 			

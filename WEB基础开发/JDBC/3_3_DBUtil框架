@@ -1,0 +1,37 @@
+DbUtils
+	hibernate的轻量替代版
+	JAR包commons-dbutils-1.7
+	
+	依赖JDBC数据库驱动、DBCP或C3P0数据源
+	
+	核心类：QueryRunner、ResultSetHandler接口
+		结果处理器：
+		DbUtils中为ResultSetHandler接口提供的实现类：
+			BeanHandler：适合结果集只有一条的情况，封装到javabean中
+			BeanListHandler：封装到javabean的List中
+			ArrayHandler：适合结果集只有一条的情况，转成对象数组
+			ArrayListHandler：转成对象数组List
+			ColumnListHandler：单独取一列转成List
+			MapHandler：适合结果集只有一条的情况，转成Map
+			MapListHandler：每一行数据封装为一个Map，然后封装到List中
+			KeyedHandler：每一行数据封装为一个Map，然后多行数据的多个Map封装到Map中，一般使用主键为外围Map的key【根据命名规则，叫MapMapHandler挺好】
+			ScalarHandler：适合取一条一列的数据，如count(*)拿到的数据，返回Object类型
+		事务处理：
+			自己处理版：
+				DAO层
+					QueryRunner不传数据源，构造方法传入Connection引用，调用方法时指定该Connection
+				Service层
+					根据业务创建Connection，调用Dao层方法前设置Connection的自动提交为false，然后传给Dao层实现类
+					finally中提交事务，放回Connection
+			优雅版：
+				使用线程局部变量类ThreadLocal控制事务
+				参考：
+					/SimpleGOD/src/top/util/jdbc/TransactionUtil.java
+			
+	对于MYSQL：QueryRunner的update方法入参传入java.sql.Date或java.util.Date或yyyy-MM-dd格式的字符串都能生效
+	
+	DbUtils单元测试【增、删、改、查、批处理、大文本】
+		/SimpleGOD/src/top/trial/demo/jdbc/MysqlDbUtilsUnitTest.java
+	优雅版事务处理工具类
+		/SimpleGOD/src/top/util/jdbc/TransactionUtil.java
+			
