@@ -1,0 +1,43 @@
+自定义标签
+	类似自定义EL表达式
+	
+	步骤：
+		1.写一个直接或间接实现Tag接口的类.（可以继承Tag的默认适配器类TagSupport）
+			Tag接口：javax.servlet.jsp.tagext.Tag
+			常量：
+				SKIP_BODY:忽略标签的主体内容。只为doStartTag方法服务
+				EVAL_BODY_INCLUDE:不忽略标签的主体内容。只为doStartTag方法服务
+				SKIP_PAGE:忽略结束标签之后的内容。只为doEndTag方法服务
+				EVAL_PAGE:不忽略结束标签之后的内容。只为doEndTag方法服务
+			方法：
+				int doStartTag():容器调用。遇到自定义标签的开始标签时被调用。
+				int doEndTag():容器调用。遇到自定义标签的结束时被调用。
+				void setPageContext(PageContext pc):由容器调用。处理标签之前就会调用。
+				void setParent(Tag t):由容器调用。处理标签之前就会调用。目标传递进父标签，没有传递null。
+				void release() :由容器调用，释放标签类占用的资源。
+			
+			IterationTag：
+			常量：
+				EVAL_BOFY_AGAIN：再次执行doAfterBody方法。只为doAfterBody方法服务
+			方法：
+				int doAfterBody():执行完主体后容器执行该方法，只能返回Tag.SKIP_BODY或IterationTag.EVAL_BOFY_AGAIN
+				
+			BodyTag：
+			常量：
+				EVAL_BOFY_BUFFERED：让容器调用doInitBody和setBodyContent，为doStartTag方法服务
+			方法：
+				int doInitBody():初始化主体，容器调用，当doStartTag方法返回BodyTag.EVAL_BOFY_BUFFERED时容器默认调用
+				void setBodyContent():设置主题内容，容器调用，当doStartTag方法返回BodyTag.EVAL_BOFY_BUFFERED时容器默认调用
+				
+		2.编写tld文件，文件中对标签处理器类进行描述。并在web.xml中配置此tld文件
+	
+	示例：
+		/SimpleGOD/src/top/trial/servlet/jsp/tag/ShowRemoteIpTag.java
+		/SimpleGOD/WebContent/JSP/trial/selfTag.jsp
+		/SimpleGOD/WebContent/WEB-INF/tld/selfTag.tld
+	
+	附属功能：
+		1、控制JSP页面某一部分内容是否执行，使用doStartTag()方法返回SKIP_BODY常量
+		2、控制结束标签后的JSP内容是否执行，使用doEndTag()方法返回SKIP_PAGE常量
+		3、控制JSP页面某一部分内容重复执行，使用doAfterBody()方法返回IterationTag.EVAL_BOFY_AGAIN常量，自己算返回次数
+		4、修改JSP页面某一部分内容，然后输出，需要继承BodyTagSupport，使用doStartTag()方法返回BodyTag.EVAL_BOFY_BUFFERED常量，然后在doEndTag里操作bodyContent参数
