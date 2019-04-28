@@ -35,9 +35,38 @@
 		/SimpleGOD/src/top/trial/servlet/jsp/tag/ShowRemoteIpTag.java
 		/SimpleGOD/WebContent/JSP/trial/selfTag.jsp
 		/SimpleGOD/WebContent/WEB-INF/tld/selfTag.tld
-	
-	附属功能：
+		
+		/SimpleGOD/src/top/trial/servlet/jsp/tag/ShowRemoteIpSimpleTag
+		/SimpleGOD/WebContent/WEB-INF/tld/selfSimpleTag.tld
+		
+	附属功能(普通版)：
 		1、控制JSP页面某一部分内容是否执行，使用doStartTag()方法返回SKIP_BODY常量
 		2、控制结束标签后的JSP内容是否执行，使用doEndTag()方法返回SKIP_PAGE常量
 		3、控制JSP页面某一部分内容重复执行，使用doAfterBody()方法返回IterationTag.EVAL_BOFY_AGAIN常量，自己算返回次数
 		4、修改JSP页面某一部分内容，然后输出，需要继承BodyTagSupport，使用doStartTag()方法返回BodyTag.EVAL_BOFY_BUFFERED常量，然后在doEndTag里操作bodyContent参数
+	附属功能(简单版)【依赖JspTag接口的子接口simpleTag及其实现类SimpleTagSupport,每次调用都初始化】：
+		1、控制JSP页面某一部分内容是否执行，使用doTag()方法，方法体空置
+		2、控制结束标签后的JSP内容是否执行，使用doTag()方法，抛出SkipPageException异常即可
+		3、控制JSP页面某一部分内容重复执行，使用doTag()方法，直接设置属性接收次数后，for循环即可。getJspBody().invoke(null)即是展示主体内容。
+		4、修改JSP页面某一部分内容，然后输出，使用doTag()方法，getJspBody().invoke(new StringWriter())
+	
+	标签的配置元素详解
+		tld文件：
+		taglib：根元素
+			tlib-version:版本号
+			short-name:引用标签时的短名称。一般与tld文件的文件名一致，好找。
+			uri：标签绑定的名称空间。只是一个名字，没有实际的意义。
+			tag：定义标签元素
+				name：标签的名称。
+				tag-class:标签的实现类的全名称。
+				body-content:指示标签的主体内容的类型。
+					可选值：
+						empty:没有主体内容。适用于传统和简单标签。
+						JSP:说明JSP文件中能出现啥，标签主体内容中就能出现啥。适用于传统标签。
+						scriptless：说明标签的主体内容不能是java脚本。适用于简单标签。
+						tagdependent：说明标签的主体内容是原封不动的传递给标签处理类的。
+									而不是传递的运算结果
+				attribute：定义标签的属性
+					name：属性名。对应标签处理类中的setter方法
+					required:是否是必须的属性
+					rtexprvalue：是否支持表达式（EL或java表达式）。默认是false。
