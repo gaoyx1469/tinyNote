@@ -29,7 +29,7 @@
 9.【配置JVM参数】服务器--服务器类型--WebSphere Application Server	
 	选择新建的服务器，点击，点击进程定义
 	点击Java虚拟机
-	配置初始堆大小1024，最大堆大小3072，通过JVM参数：-Xgcpolicy:gencon -Djava.net.preferIPv4Stack=true -Ddefault.client.encoding=GBK
+	勾选详细垃圾回收，配置初始堆大小1024，最大堆大小3072，通过JVM参数：-Xgcpolicy:gencon -Djava.net.preferIPv4Stack=true -Ddefault.client.encoding=GBK
 	-Dfile.encoding=GBK -Duser.language=zh -Duser.region=CN
 10.【配置JVM日志】服务器--服务器类型--WebSphere Application Server		
 	选择新建的服务器，点击，点击记录与跟踪
