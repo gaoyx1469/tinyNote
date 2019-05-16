@@ -16,5 +16,14 @@
 		【控制静态资源缓存时间】
 			response.setDateHeader("Expires",1*60*60*1000);
 		【实现自动登录】
-		
+			登录页-->登陆Servlet-->跳转主页
+				登录Servlet校验客户身份，将客户信息存入session，并根据客户是否保存来存入指定cookie，客户名BASE64编码，密码MD5加密
+				各页面根据session中是否有客户信息判断是否登陆
+				增加权限过滤器，对所有请求进行过滤，判断session中是否有客户信息，若没有，看cookie是否有客户信息，如有，将客户信息存入session
+				增加字符过滤器，对所有请求进行字符过滤
+				
+				示例：访问http://127.0.0.1:8080/SimpleGOD/JSP/autoLogin/autoMain.jsp
+		【过滤器高级配置】
+			
 		【URL级别的权限认证】
+		
