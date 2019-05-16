@@ -24,6 +24,19 @@
 				
 				示例：访问http://127.0.0.1:8080/SimpleGOD/JSP/autoLogin/autoMain.jsp
 		【过滤器高级配置】
-			
+			在<dispatcher></dispatcher>中可以配置过滤器高级过滤规则
+			REQUEST	默认有，如填写其他值，则不再默认。代表过滤器过滤REQUEST请求
+			FORWARD	代表过滤器要过滤请求转发的转发操作 	<jsp:forward page=""/>以及跳转页面配置的errorPage时
+			INCLUDE 代表过滤器要过滤包含的内容，静态包含<jsp:include page=""/>有效，动态包含不会过滤	
+			ERROR	代表过滤页面报错后,web.xml中配置<error-page>时
+		【中文乱码、敏感词汇、HTML标记过滤器】
+			采用包装模式，重写HttpServletRequest的getParameter方法
+			分别进行：
+				字符转译
+				敏感词汇转译
+				特殊字符转译
 		【URL级别的权限认证】
+		
+		示例：
+			中文字符过滤：
 		
