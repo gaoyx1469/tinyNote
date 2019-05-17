@@ -3,7 +3,7 @@ HttpServletRequest代表HTTP请求部分
 	配合Beanutils使用可封装数据
 	
 	浏览器当前使用什么编码，则发送表单数据就是用什么编码；
-	使用Beanutils封装数据，会默认以ISO-8859-1编码方式编码汉字，使用request.setCharacterEncoding("UTF-8")方法设置编码方式，只对POST请求方式有效
+	使用Beanutils封装数据，会默认以ISO-8859-1编码方式编码汉字，使用request.setCharacterEncoding("UTF-8")方法设置编码方式，只对POST请求方式有效，且在set之前不能getParameter，否则无效！
 	
 	请求转发：
 		一次请求，转发后，一次返回。服务器行为，一个来回 。地址栏不变，请求域共享。请求转发借助于RequesrDispacher。

@@ -31,12 +31,18 @@
 			ERROR	代表过滤页面报错后,web.xml中配置<error-page>时
 		【中文乱码、敏感词汇、HTML标记过滤器】
 			采用包装模式，重写HttpServletRequest的getParameter方法
+			注意：
+				request.setCharacterEncoding(encoding)之前一定不能getParameter，否则无效
 			分别进行：
 				字符转译
 				敏感词汇转译
 				特殊字符转译
+		【GZIP全站压缩】
+			暂略
 		【URL级别的权限认证】
+		
 		
 		示例：
 			中文字符过滤：
-		
+				/SimpleGOD/WebContent/JSP/trial/input.jsp
+				/SimpleGOD/src/top/trial/servlet/filter/ChineseEncodingFilter.java
