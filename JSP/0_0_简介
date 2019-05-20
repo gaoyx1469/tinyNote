@@ -30,7 +30,7 @@ JSP
 			属性
 				file		指示要包含的文件
 			另：
-				<jsp:include page=""/>是动态包含，翻译成两个servlet，然后由容器组合输出
+				还有一种包含<jsp:include page=""/>是动态包含，翻译成两个servlet，然后由容器组合输出
 				
 		taglib	引入外部标签
 			属性
