@@ -1,0 +1,36 @@
+文件上传
+	form表单中
+		提交方式需要设置为post
+		enctype需要设置为multipart/form-data
+			此时，原获取表单内容的方法request.getParameter失效
+		input的type为file类型的文件上传域
+	Servlet接收
+		原始方法：request.getInputStream，然后用BufferReader包装，使用其readline方法可得到
+		现成的轮子：Apache的fileupload包
+		
+fileupload
+	简述：
+		DiskFileItemFactory工厂，核心类ServletFileUpload,将上送字段（包括普通字段和文件）解析为FileItem对象
+	核心类/接口
+		DiskFileItemFactory设置参数环境，是生成输入域对象的工厂
+			setSizeThreshold(int sizeThreshold)设置缓冲区大小，默认10KB
+				上传文件超出缓冲区大小，则使用临时文件缓存上传文件
+			setRepository(java.io.File repository)设置临时文件目录，默认系统缓存文件目录
+			构造方法：
+			DiskFileItemFactory(int sizeThreshold,java.io.File repository);
+				
+		ServletFileUpload核心上传类,将表单中每个域封装为一个FileItem对象
+			isMultipartContent(HttpRequest request)判断表单提交enctype是否是multipart/form-data
+			parseRequest(HttpRequest request)解析请求正文内容，返回FileItem的List
+		
+		FileItem输入域对象
+			isFormField()是否是普通字段
+			getFieldName()获取普通字段字段名
+			getString()获取普通字段字段值
+			getInputStream()获取上传输入域的InputStream
+			getName()获取上传文件名
+			
+示例：
+	最简版文件上传演示：
+		/SimpleGOD/src/top/trial/servlet/FileUploadDemoServlet.java
+			
