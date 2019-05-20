@@ -32,5 +32,7 @@ fileupload
 			
 示例：
 	最简版文件上传演示：
+		/SimpleGOD/WebContent/JSP/trial/uploadDemo.jsp
 		/SimpleGOD/src/top/trial/servlet/FileUploadDemoServlet.java
+		
 			
