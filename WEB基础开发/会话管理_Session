@@ -5,7 +5,7 @@ Session
 		另，session在服务器默认存在半小时，可配置
 			配置session超时时间web.xml
 			<session-config>
-				<session-timeout>1</session-timeout>
+				<session-timeout>1</session-timeout>单位为分钟
 			</session-config>
 			也可以调用session的invalidate()方法主动销毁
 		默认情况下，一个浏览器独占一个session对象
