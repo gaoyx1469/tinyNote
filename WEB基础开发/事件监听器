@@ -1,0 +1,25 @@
+事件监听器
+	1、事件源：发生事件的对象
+	2、监听器：接口，监听事件源上要发生的动作
+	3、事件：封装事件源
+	
+	监听器使用观察者设计模式
+	
+	Servlet提供的八个监听器
+		监听ServletContext对象的创建和销毁的ServletContextListener;监听两个方法：对象创建、对象销毁
+			应用启动和关闭/重启时调用，多用于初始化时加载配置文件和类到内存中，Spring中有使用
+		监听HttpSession对象的创建和销毁的HttpSessionListener;监听两个方法：对象创建、对象销毁
+			创建：第一次调用request.getSession()时
+			销毁：主动调用invalidate()方法或超时
+			
+		监听ServletRequest对象的创建和销毁的ServletRequestListener;监听两个方法：对象创建、对象销毁
+		
+		监听ServletContext对象中域的变化的ServletContextAttributeListener;监听三个方法：新建、替换、销毁
+		监听HttpSession对象中域的变化的HttpSessionAttributeListener;监听三个方法：新建、替换、销毁
+		监听ServletRequest对象中域的变化的ServletRequestAttributeListener;监听三个方法：新建、替换、销毁
+	
+		HttpSessionActivationListener
+		HttpSessionBindingListener
+		
+		使用方法：
+			写实现类实现监听器接口，web.xml配置listener标签
