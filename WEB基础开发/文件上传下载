@@ -7,8 +7,43 @@
 	Servlet接收
 		原始方法：request.getInputStream，然后用BufferReader包装，使用其readline方法可得到
 		现成的轮子：Apache的fileupload包
+	九大注意事项
+		1、服务器的安全
+			文件放到WEB-INF中，禁止用户直接访问
+		2、中文乱码问题
+			2.1普通字段的中文请求参数
+				String value = FileItem.getString("UTF-8");
+			2.2上传的文件名是中文（不一定需要）
+				解决办法：request.setCharacterEncoding("UTF-8");
+		3、重名文件被覆盖的问题
+			使用UUID为前缀，使用下划线连接
+		4、文件太多搜索慢问题
+			使用hash值分二级目录
+		5、限制用户上传文件类型
+			使用FileItem.getContentType()方法获取MIME类型判断
+		6、限制用户上传文件大小
+			6.1、单文件限制
+				设置文件大小限制
+				抓异常进行提示：org.apache.commons.fileupload.FileUploadBase.FileSizeLimitExceededException
+			6.2、总文件限制
+				抓异常进行提示：org.apache.commons.fileupload.FileUploadBase.SizeLimitExceededException
+		7、临时文件删除
+			临时文件不需要保存，在IO流关闭后，使用FileItem.delete()方法删除临时文件。
+		8、多文件上传时，不上传的域生成空文件的问题
+			if(fileName==null||"".equals(fileName.trim())){
+				continue;
+			}
+		9、上传进度检测
+			给ServletFileUpload注册一个进度监听器即可，把上传进度传递给页面去显示
+			//pBytesRead：当前以读取到的字节数
+			//pContentLength：文件的长度
+			//pItems:第几项
+			public void update(long pBytesRead, long pContentLength,
+					int pItems) {
+				System.out.println("已读取："+pBytesRead+",文件大小："+pContentLength+",第几项："+pItems);
+			}
 		
-fileupload
+fileUpload包
 	简述：
 		DiskFileItemFactory工厂，核心类ServletFileUpload,将上送字段（包括普通字段和文件）解析为FileItem对象
 	核心类/接口
@@ -22,17 +57,23 @@ fileupload
 		ServletFileUpload核心上传类,将表单中每个域封装为一个FileItem对象
 			isMultipartContent(HttpRequest request)判断表单提交enctype是否是multipart/form-data
 			parseRequest(HttpRequest request)解析请求正文内容，返回FileItem的List
-		
+			setFileSizeMax(long size)设置单文件最大大小
+			setSizeMax(long size)设置总文件最大大小
 		FileItem输入域对象
 			isFormField()是否是普通字段
 			getFieldName()获取普通字段字段名
 			getString()获取普通字段字段值
 			getInputStream()获取上传输入域的InputStream
 			getName()获取上传文件名
+
+文件下载
+	设置响应报文体
+	response.setHeader("Content-Disposition", "attachment;filename="+URLEncoder.encode(oldFileName, "UTF-8"));
 			
 示例：
-	最简版文件上传演示：
+	文件上传演示，已集成九大注意事项：
 		/SimpleGOD/WebContent/JSP/trial/uploadDemo.jsp
 		/SimpleGOD/src/top/trial/servlet/FileUploadDemoServlet.java
+
 		
 			
