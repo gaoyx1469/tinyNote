@@ -40,6 +40,11 @@
 		6、查看某一邮件内容【retr 邮件编号】
 		7、quit退出
 	
+	使用Socket实现邮件发送
+		见示例：sendEmailDemo.java
+		
+	使用框架JavaMail实现邮件创建及发送
+	
 示例
 	邮件发送：
 		/SimpleGOD/src/top/trial/email/sendEmailDemo.java
