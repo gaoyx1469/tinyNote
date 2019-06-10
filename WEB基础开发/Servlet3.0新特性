@@ -1,0 +1,6 @@
+1、注解
+2、web fragment
+	jar包中使用web-fragment.xml相当于可插拔式web.xml
+3、ServletContext初始化Servlet以及过滤器监听器
+4、新增HttpOnly cookies
+5、ServletRequest直接获取Response和ServletContext

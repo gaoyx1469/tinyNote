@@ -47,7 +47,11 @@ JDK中提供的三个基本的注解
 		RetentionPolicy.CLASS:注解存在于源字节码文件中
 		RetentionPolicy.RUNTIME:注解存在于运行时
 	***@Target：注解出现的位置
+		ElementType.METHOD
+		ElementType.FIELD
+		等
 	@Documented: 用于指定被该元 Annotation 修饰的 Annotation 类将被 javadoc 工具提取成文档.
+	@Inherited: 当某个类使用了被@Inherited修饰的注解，则其子类同时具有该注解
 
 利用注解替代了web.xml配置文件
 	@WebServlet：配置Servlet的
