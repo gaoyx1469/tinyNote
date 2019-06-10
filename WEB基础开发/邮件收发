@@ -54,6 +54,10 @@
 				实现类：MimeMultipart
 			Transport:实现邮件发送
 			DataHandler：二进制文件处理
+			
+		javax.activation包可能在JRE中已有，如没有，需要activation.jar支持
+		javax.activation.FileDataSource
+		javax.activation.DataHandler
 				
 		见示例：JavaMailDemo.java
 	
@@ -62,3 +66,5 @@
 		/SimpleGOD/src/top/trial/email/SendEmailDemo.java
 	使用JavaMail进行邮件发送：
 		/SimpleGOD/src/top/trial/email/JavaMailDemo.java
+		
+		

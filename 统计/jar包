@@ -28,5 +28,6 @@ jar包
 		commons-fileupload			依赖commons-io
 	邮件处理
 		javax.mail
+		activation.jar
 		
 	
