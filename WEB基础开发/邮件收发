@@ -56,6 +56,8 @@
 			DataHandler：二进制文件处理
 			
 		javax.activation包可能在JRE中已有，如没有，需要activation.jar支持
+		目前jdk_1.8.0_162中的rt.jar有javax.activation包
+		该包用到一下两个类：
 		javax.activation.FileDataSource
 		javax.activation.DataHandler
 				
