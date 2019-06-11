@@ -55,9 +55,10 @@
 			Transport:实现邮件发送
 			DataHandler：二进制文件处理
 			
-		javax.activation包可能在JRE中已有，如没有，需要activation.jar支持
+		javax.activation包可能在JRE中已有，如没有，需要JAF(activation.jar)支持
+		【Java6.0开始包含JAF，但是从Java11开始，又删除了JAF、JAX-WS和Java的通用注释】
 		目前jdk_1.8.0_162中的rt.jar有javax.activation包
-		该包用到一下两个类：
+		该包用到以下两个类：
 		javax.activation.FileDataSource
 		javax.activation.DataHandler
 				
