@@ -69,11 +69,18 @@ fileUpload包
 文件下载
 	设置响应报文体
 	response.setHeader("Content-Disposition", "attachment;filename="+URLEncoder.encode(oldFileName, "UTF-8"));
-			
+	
+Servlet3.0后文件上传新方式：
+	新增javax.servlet.http.Part接口
+	Servlet类上配@MultipartConfig这个注解是关键，证明客户端提交的表单数据是由多部分组成
+	
 示例：
 	文件上传演示，已集成九大注意事项：
 		/SimpleGOD/WebContent/JSP/trial/uploadDemo.jsp
 		/SimpleGOD/src/top/trial/servlet/FileUploadDemoServlet.java
+	Servlet文件上传Demo，未集成九大注意事项：	
+		/SimpleGOD/WebContent/JSP/trial/uploadDemoNew.jsp
+		/SimpleGOD/src/top/trial/servlet/FileUploadDemoNewServlet.java
 
 		
 			

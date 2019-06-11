@@ -59,3 +59,8 @@ JDK中提供的三个基本的注解
 	@WebFilter：配置过滤器
 	@WebListener：注册监听器
 	@MultipartConfig//证明客户端提交的表单数据是由多部分组成的
+	
+代码示例：
+	自定义注解：/SimpleGOD/src/top/trial/annotation/AnnotationUnitDemo.java
+	自定义单元测试运行类：/SimpleGOD/src/top/trial/annotation/JUnitDemo.java
+	自定义单元测试类：/SimpleGOD/src/top/trial/annotation/UnitCase.java
