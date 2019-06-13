@@ -3,3 +3,44 @@
 3.JS中浮点数运算存在误差，建议转化为整数后做运算，然后转化回去；
 4.null==undefined  结果为true；   null===undefined  结果为false；
 5.原型链？对象继承？
+
+构造函数的三种方式
+	function func(参数1，参数2){
+		函数体
+	}
+	
+	var func = new Function(参数1，参数2，函数体)
+	
+	var func = function(参数1，参数2){
+		函数体
+	}
+document对象
+	document.forms[]	表示页面表单
+	document.formname
+	
+		
+window对象
+	常用方法：
+		alert
+		prompt('提示','默认值')默认输入框
+		confirm确认框，返回true或false反馈用户行为
+		open
+		close
+		
+DOM编程
+	结构：顶层时document
+	
+	nodeName	元素返回元素名，属性返回属性名，文本返回#text
+	nodeValue	元素返回null，属性返回属性值，文本返回文本值
+	nodeType	元素返回1，属性返回2，文本返回3
+	childNodes
+	priviousSibling
+	nextSibling
+	attributes
+	appendChild
+	removeChild
+	hasChildNodes
+	getElementById
+	getElementsByName
+	getElementsByTagName
+	
