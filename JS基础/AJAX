@@ -32,8 +32,9 @@ AJAX实现：
 		
 		responseText属性：返回的text文本格式内容
 		responseXML：返回的XML格式内容的Document对象
-		
+			与文本格式的不同：servlet中的response的Content-Type需要变成text/xml,charset=utf-8
 		
 实例：
-	Servlet： /SimpleGOD/src/top/trial/servlet/jsp/AjaxDemoServlet.java
 	主体页面及JS：/SimpleGOD/WebContent/JSP/ajax/ajaxDemo.jsp
+	Servlet： /SimpleGOD/src/top/trial/servlet/jsp/AjaxDemoServlet.java
+			/SimpleGOD/src/top/trial/servlet/jsp/AjaxDemoXmlServlet.java
