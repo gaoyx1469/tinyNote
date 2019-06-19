@@ -38,3 +38,4 @@ AJAX实现：
 	主体页面及JS：/SimpleGOD/WebContent/JSP/ajax/ajaxDemo.jsp
 	Servlet： /SimpleGOD/src/top/trial/servlet/jsp/AjaxDemoServlet.java
 			/SimpleGOD/src/top/trial/servlet/jsp/AjaxDemoXmlServlet.java
+	二级联动：/SimpleGOD/src/top/trial/servlet/jsp/AjaxDemoLinkageServlet.java

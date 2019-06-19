@@ -29,5 +29,6 @@ jar包
 	邮件处理
 		javax.mail
 		activation.jar
-		
+	XStream【JavaBean转XML】
+		xstream						依赖xpp3_min-1.1.4c
 	
