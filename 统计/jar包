@@ -6,7 +6,7 @@ jar包
 		jaxen	XPath
 		
 	日志：
-		logging
+		commons-logging
 		
 	内省：
 		beanutils(1.9.3)	依赖于commons-logging(1.2)和commons-collections(3.2.2)
@@ -31,4 +31,10 @@ jar包
 		activation.jar
 	XStream【JavaBean转XML】
 		xstream						依赖xpp3_min-1.1.4c
+	Struts2
+		struts-core	struts2核心类库
+		xwork	XWork类库，struts2构建基础，新版struts2的2.5已经集成到struts-core中了
+		ognl	OGNL表达式
+		freemarker	FreeMarker模版
+		
 	
