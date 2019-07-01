@@ -4,9 +4,13 @@ struts2
 	能做什么？
 		使用过滤器作为Servlet控制器使用，而不依赖Servlet API
 		提供了类型转换器
+		提供拦截器
+		输入校验优化
 	什么原理？
 		在服务启动时，加载配置文件到核心过滤器，通过核心过滤器完成service层的调用
 	有哪些优秀的模式和思想？
+		无侵入设计？
+		不依赖Servlet API
 	怎么使用？
 		搭建环境
 			引入JAR包
@@ -19,6 +23,8 @@ struts2
 					commons-fileupload	文件上传，依赖commons-io
 					commons-io
 			编写struts2配置文件
+				struts.xml,位置在WEB-INF/classes下
+				dtd约束：在struts-core的jar包中有
 			向web.xml添加配置
 		配置文件
 			初始化过滤器时读取配置文件，因此修改配置文件需要重启。
