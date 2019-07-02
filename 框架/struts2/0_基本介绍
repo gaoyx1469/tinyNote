@@ -22,10 +22,17 @@ struts2
 					commons-logging		日志包
 					commons-fileupload	文件上传，依赖commons-io
 					commons-io
+					commons-lang3
+					log4j
+					javassist
+					等等，需要看struts版本
+					或者通过maven集成
 			编写struts2配置文件
 				struts.xml,位置在WEB-INF/classes下
 				dtd约束：在struts-core的jar包中有
-			向web.xml添加配置
+			向web.xml添加过滤器配置
+				过滤器：
+				org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter
 		配置文件
 			初始化过滤器时读取配置文件，因此修改配置文件需要重启。
 	使用案例

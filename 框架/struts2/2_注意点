@@ -1,0 +1,6 @@
+注意点：
+	result中可以使用${属性名}表达式访问action中的属性
+	action同样可以使用param注入参数，动态赋值
+建议点：
+	动作类建议继承ActionSupport
+	开发中，default.properties文件中属性struts.devMode为false，可在struts.xml中定义常量将其覆盖为true，即可热修改。

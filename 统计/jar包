@@ -36,5 +36,8 @@ jar包
 		xwork	XWork类库，struts2构建基础，新版struts2的2.5已经集成到struts-core中了
 		ognl	OGNL表达式
 		freemarker	FreeMarker模版
+		commons-lang3
+		log4j
+		javassist
 		
 	
