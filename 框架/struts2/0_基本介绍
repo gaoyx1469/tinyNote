@@ -35,4 +35,11 @@ struts2
 				org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter
 		配置文件
 			初始化过滤器时读取配置文件，因此修改配置文件需要重启。
+		处理流程
+			核心过滤器
+			拦截器
+			Action
+			Result
+			反馈
 	使用案例
+		/SimpleGOD/src/struts.xml

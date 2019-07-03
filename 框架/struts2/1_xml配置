@@ -18,6 +18,9 @@ XML配置
 			"http://struts.apache.org/dtds/struts-2.5.dtd">
 		<struts>
 			<package name="包名，唯一，用于区分和继承，必须有" namespace="命名空间，以/开头，用于访问时的路径部分，不设置则默认/" extends="struts-default，这个东西在核心jar包中" abstract="是否是抽象包，抽象包不能有action">
+				<global-results><!-- 包里的全局结果，继承该包的也可使用 -->
+					<result name="结果名">访问路径</result>
+				</global-results>
 				<action name="请求动作，请求时后面加上.action也能访问到，在default.properties中" class="JavaBean类全名" method="类方法，public且返回值为String">
 					<result name="结果名" type="结果处理类型">访问路径</result>
 				</action>
@@ -47,10 +50,13 @@ XML配置
 		redirect	重定向到某个页面
 		redirectAction	重定向到某个action
 		dispatcher	普通的转发，到某个页面
-		
+		plainText	以文本的方式返回页面内容
 						
 	struts.xml中不写时的各种默认值
 		action中的class：com.opensymphony.xwork2.ActionSupport
 		action中的method：execute	--
 		result中的type：dispatcher转发
+	
+	struts.xml拆分
+		使用<include file="xml文件名"></include>引入，清晰且便于管理
 		
