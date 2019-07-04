@@ -22,7 +22,10 @@
 	>	动态方法调用
 		第一种：	在action名后使用	!另一个action名
 				实际会调用后一个action，不建议使用
-		第二种：	使用通配符	
+		第二种：	使用通配符
+				<action name="action_*" class="JavaBean类全名" method="{1}">
+					<result name="结果名">访问路径_{1}.jsp</result>
+				</action>
 建议点：
 	动作类建议继承ActionSupport
 	开发中，default.properties文件中属性struts.devMode为false，可在struts.xml中定义常量将其覆盖为true，即可热修改。

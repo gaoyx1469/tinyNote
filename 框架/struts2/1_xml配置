@@ -26,7 +26,12 @@ XML配置
 				</action>
 				<action name="请求动作，请求时后面加上.action也能访问到，在default.properties中" class="JavaBean类全名" method="类方法，public且返回值为String">
 					<result name="结果名" type="结果处理类型">
+						<param name="namespace">其它命名空间</param>
+						<param name="actionName">action的name</param>
 					</result>
+				</action>
+				<action name="action_*" class="JavaBean类全名" method="{1}">
+					<result name="结果名">访问路径_{1}.jsp</result>
 				</action>
 			</package>
 		</struts>
