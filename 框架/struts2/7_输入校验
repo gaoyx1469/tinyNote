@@ -1,0 +1,13 @@
+输入校验
+	手工编写代码实现
+		对action的所有方法进行校验
+			动作类继承ActionSupport，重写ActionSupport中的validate方法，该方法会校验所有与execute方法签名相同的方法。
+			在validate方法中编写判断代码，校验失败时，需要调用addFieldError方法往系统的fieldErrors中添加校验失败信息
+			当fieldErrors中有校验失败信息，struts2会将请求转发到名为input的result，在input视图中可以使用<s:fielderror/>显示失败信息
+			使用<s:fielderror/>显示失败信息需要引入s标签:<@ taglib uri="/struts-tags" prefix="s">
+			使用<s:fielderror fieldName="属性名"></s:fielderror>展示错误信息
+	基于XML配置方式实现
+	对action的所有方法进行校验
+	对action的指定方法进行校验
+	
+	
