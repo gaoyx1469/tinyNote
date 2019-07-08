@@ -17,6 +17,7 @@ XML配置
 			"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
 			"http://struts.apache.org/dtds/struts-2.5.dtd">
 		<struts>
+			<constant name='xxx' value='xxx'></constant><!-- 定义常量 -->
 			<package name="包名，唯一，用于区分和继承，必须有" namespace="命名空间，以/开头，用于访问时的路径部分，不设置则默认/" extends="struts-default，这个东西在核心jar包中" abstract="是否是抽象包，抽象包不能有action">
 				<global-results><!-- 包里的全局结果，继承该包的也可使用 -->
 					<result name="结果名">访问路径</result>
