@@ -5,3 +5,45 @@ OGNL表达式
 		支持静态方法调用和值访问	@全类名@方法名或者@全类名@值名
 		操作集合对象，不光能获取，同时能创建
 		
+	使用
+		OGNL是从ActionContext中获取数据的
+			获取格式：<s:property value="属性名"/>
+			页面中可以使用<s:debug/>查看全部属性
+		ActionContext的结构
+			valueStack
+				List：动作类放在此处，取对象中属性直接使用名字即可【注意，是取Action对象中的属性】
+				由于是List，如果有重名对象，可使用[n].username来表示取第几个。
+				
+			访问以下内容中的对象时属性名要使用#+(范围)
+			request
+				用于访问HttpServletRequest,如#request.username或#request['username']
+				相当于调用request的getAttribute("username")
+			session
+				用于访问HttpSession,如#session.username或#session['username']
+				相当于调用session的getAttribute("username")
+			application
+				用于访问ServletContext,如#application.username或#application['username']
+				相当于调用ServletContext的getAttribute("username")
+			attr
+				用于按照page--request--session--application的顺序获取数据
+			parameters
+				用于访问请求参数的Map,如#parameters.username或#parameters['username']
+				相当于调用request的getParameter("username")
+		创建List/Map
+			List：
+				<s:set var="list" scope="session" value="{'a','b','c'}"/>
+				scope可以是application，session，request，page或action，默认为放置到action中【即OGNL ActionContext中】
+				value为赋给变量的值，如果没有设置，会将valueStack栈顶的值赋给变量
+			Map：
+				<s:set var="list" scope="session" value="#{'a':'b','c':'d'}"/>
+				获取
+				<s:iterator value="#list" var="me">
+					<s:property value="#me.key"><br/>
+					<s:property value="#me.value"><br/>
+				</s:iterator>
+		判断语句
+			<s:if test="表达式">
+			例如
+			<s:if test="'a' in {'a','b'}">
+			<s:if test="'a' not in {'a','b'}">
+		
