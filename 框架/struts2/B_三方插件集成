@@ -1,0 +1,5 @@
+三方插件集成
+	在lib中有plugin的jar包
+	参考jar包中的xml文件
+	
+	引入三方插件jar包
