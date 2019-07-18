@@ -39,5 +39,6 @@ jar包
 		commons-lang3
 		log4j
 		javassist
+	hibernate
 		
 	
