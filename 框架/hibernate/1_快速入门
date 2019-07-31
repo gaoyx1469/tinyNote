@@ -7,9 +7,11 @@
 		体现属性类型与字段类型的关系
 		体现一对多与多对多的关系
 	crud操作
-		
+		参考
+			/SimpleGOD/src/top/trial/hibernate/FirstTest.java			--insert的第一个简单测试
+			/SimpleGOD/src/top/trial/hibernate/GameEntity.java			--测试Entity
+			/SimpleGOD/src/top/trial/hibernate/HibernateTestBaseUtil.java	--集成一些公共方法
+			/SimpleGOD/src/top/trial/hibernate/TestForHibernateCRUD.java	--测试CRUD
+			/SimpleGOD/src/top/trial/hibernate/GameEntity.hbm.xml			--Entity对应的配置文件
 	关系操作
-		
 	
-	实例
-		

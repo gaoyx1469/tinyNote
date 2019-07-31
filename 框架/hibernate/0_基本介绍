@@ -6,6 +6,6 @@ hibernate
 		JDBC查询数据封装到POJO时，频繁遍历，操作繁琐；hibernate进行了封装，自动注入
 		JDBC没有做到数据缓存；hibernate有一级缓存、二级缓存、查询缓存
 		JDBC自写SQL语句，不同数据库不兼容，移植性跨平台性不好；hibernate自动生成SQL，移植性强
-		
+	缺点又在哪
 		JDBC原始，因此调用速度块；hibernate是对JDBC的包装，数据体量特别大时，速度慢，不适合用
 		JDBC自写语句，可灵活优化，易于把控；hibernate内部生成SQL，程序员无法干预，不可控，不易于优化
