@@ -20,4 +20,6 @@
 	脱管状态对象
 		【session的clear方法也可以将session中的所有持久化状态对象变为脱管状态】
 		【session的evict方法也可以将session中的某个持久化状态对象变为脱管状态】
-4、
+4、hbm2ddl.auto
+	根据持久化类和映射文件生成表，码值可以是 validate create-drop create update none
+	使用update，可能在建表时有外键的情况下依然按照bibernate规则创建外键，设置为none则可解决

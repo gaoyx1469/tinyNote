@@ -1,3 +1,14 @@
+级联cascade
+	save-update	“一”中的set集合中有“多”的元素，配置了级联后，save“一”对象，“多”对象会自动入表(insert或update)
+   	1、当 保存班级的时候，对学生进行怎么样的操作
+   	     如果学生对象在数据库中没有对应的值，这个时候会执行save操作
+   	     如果学生对象在数据库中有对应的值，这个时候会执行update操作
+   delete
+   all
+inverse  维护关系,给“多”增加外键的值
+   true      不维护关系     
+   false     维护关系
+   default   false
 一对多单向关系
 	“一”中使用Set集合关联“多”
 	“多”中关联不到“一”
@@ -8,18 +19,6 @@
 			通过set元素使classes表与student表建立关联
 			   key是通过外键的形式让两张表建立关联
 			   one-to-many是通过类的形式让两个类建立关联
-			
-			cascade 级联
-			   save-update
-			   	1、当 保存班级的时候，对学生进行怎么样的操作
-			   	     如果学生对象在数据库中没有对应的值，这个时候会执行save操作
-			   	     如果学生对象在数据库中有对应的值，这个时候会执行update操作
-			   delete
-			   all
-			inverse  维护关系
-			   true      不维护关系     
-			   false     维护关系
-			   default   false
 		 -->
 		<set name="students" cascade="all" inverse="true">
 			<!-- 
