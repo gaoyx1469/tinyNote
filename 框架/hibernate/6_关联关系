@@ -27,11 +27,28 @@ inverse  维护关系,给“多”增加外键的值
 			<key>
 				<column name="cid"></column>
 			</key>
-			<one-to-many class="cn.itcast.hiberate.sh.domain.Student"/>
+			<one-to-many class="top.trial.hiberate.domain.Student"/>
 		</set>
 	操作：
 		
 一对多双向关系
 	“一”中使用Set集合关联“多”
 	“多”中直接关联“一”
+	直接配置<many-to-one class="" column="" cascade="save-update"></many-to-one>
+	操作“多”的一方，效率更高
 多对多关系
+	修改如下配置
+	<set name="" table="第三张表" cascade="" inverse="false">
+		<key>
+			<column name="本类对应表的主键列"></column>
+		</key>
+		<many-to-many class="top.trial.hiberate.domain.Student" column="关联类对应表的主键列"/>
+	</set>
+一对一关系
+	主键生成策略使用foreign
+	<id name="appid" column="SAHI_ID">
+		<generator class="foreign">
+			<param name="property">外键关联属性</param>
+		</generator>
+	</id>
+	<one-to-one name="外键关联属性" class="top.trial.hiberate.domain.Student" contained="true"/>
