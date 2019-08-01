@@ -30,7 +30,7 @@ inverse  维护关系,给“多”增加外键的值
 			<one-to-many class="top.trial.hiberate.domain.Student"/>
 		</set>
 	操作：
-		
+		/SimpleGOD/src/top/trial/hibernate/relation/OneToManyTest.java
 一对多双向关系
 	“一”中使用Set集合关联“多”
 	“多”中直接关联“一”
@@ -44,6 +44,8 @@ inverse  维护关系,给“多”增加外键的值
 		</key>
 		<many-to-many class="top.trial.hiberate.domain.Student" column="关联类对应表的主键列"/>
 	</set>
+	操作：
+		/SimpleGOD/src/top/trial/hibernate/relation/ManyToManyTest.java
 一对一关系
 	主键生成策略使用foreign
 	<id name="appid" column="SAHI_ID">
