@@ -1,6 +1,9 @@
 优化
+	session的产生
+		目前在用的SessionFactory.openSession会有问题，只能操作最简单的情况
+			openSession做的事情：每次都new了一个SessionImpl对象
 	数据缓存
-	懒加载
+	懒加载【何时发出SQL语句】
 		1、使用session.load方法替代session.get，得到代理对象，该对象将在使用到除主键外的属性的时候才发出sql语句进行实际查询；
 		2、一对多中，配置文件里的Set部分，增加属性lazy=""，值可以是
 			false	不使用懒加载，查“一”时直接发出SQL语句查询到“多”	默认这个
@@ -11,4 +14,10 @@
 			no-proxy
 			proxy
 			多对一不使用懒加载也只多出一条SQL，影响不大
-	抓取策略
+	抓取策略【发出何种/多少SQL语句】
+		常规情况下，一对多中，查询数据会发出n+1条查询语句，一：1条，多：n条
+		由一个对象如何高效查询关联对象，采用手段发出更少的SQL语句，这就是抓取策略
+		一对多中，配置文件里的Set部分，增加属性fetch="",值可以是
+			join		左外连接
+			select		默认
+			subselect	子查询
