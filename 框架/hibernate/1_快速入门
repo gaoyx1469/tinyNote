@@ -14,4 +14,5 @@
 			/SimpleGOD/src/top/trial/hibernate/TestForHibernateCRUD.java	--测试CRUD
 			/SimpleGOD/src/top/trial/hibernate/GameEntity.hbm.xml			--Entity对应的配置文件
 	关系操作
-	
+			/SimpleGOD/src/top/trial/hibernate/relation/ManyToManyTest.java		--多对多操作测试
+			/SimpleGOD/src/top/trial/hibernate/relation/OneToManyTest.java		--一对多操作测试
