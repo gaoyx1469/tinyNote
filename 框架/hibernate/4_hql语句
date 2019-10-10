@@ -1,0 +1,16 @@
+HQL语句
+
+	使用:
+		session.createQuery(String hql)
+		createQuery方法的参数就是HQL语句
+		
+	
+	单表查询：
+		三种HQL查询方案
+			1、	from POJO类名
+				直接输出结果对象List集合
+			2、 select 属性名 from POJO类名
+				输出筛选的属性的数组List集合
+			3、 select new 全类名构造方法 from POJO类名
+				输出筛选数据填到结果对象的List集合
+			示例见：/SimpleGOD/src/top/trial/hibernate/hql/HqlSingleTestDemo.java
