@@ -1,0 +1,24 @@
+XML参数
+	约束引入
+		<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+	        https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	Bean标签
+		属性
+			id		自命名
+			name	同上
+			class	全类名
+			lazy-init	是否延迟加载，默认为false，即启动spring时就加载；如果是true，则是在调用getBean时加载
+			scope	作用域，默认为singleton单例模式
+					可以是prototype多例模式
+			factory-method	静态工厂方法和实例工厂方法使用其注入方法名
+			factory-bean	实例工厂方法使用其注入工厂名
+			init-method		注入初始化方法
+			destory-method	注入销毁方法
+	
+	alias标签
+		属性
+			name	同Bean标签属性id
+			alias	别名		定义后，可以使用别名，也可以使用id

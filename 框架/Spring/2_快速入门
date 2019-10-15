@@ -2,3 +2,6 @@
 	IoC
 		导入beans、context、core、expression四个jar包
 		导入日志包（common-logging或者log4j）
+		
+		写JavaBean的XML配置文件并通过IoC调用执行
+		示例：/SimpleGOD/src/top/trial/spring/SpringQuickStartDemo.java
