@@ -1,0 +1,4 @@
+快速入门
+	IoC
+		导入beans、context、core、expression四个jar包
+		导入日志包（common-logging或者log4j）
