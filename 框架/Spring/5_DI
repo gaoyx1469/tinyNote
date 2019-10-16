@@ -1,0 +1,45 @@
+DI依赖注入
+	运行时需要的对象交由Spring注入
+	三种方式
+		一：通过构造函数注入
+			涉及标签constructor-arg，位置在bean标签内
+			5个属性
+				type	指定要注入的参数类型【构造函数中的数据类型】
+				index	指定要注入的参数在构造函数中的索引位置
+				name	指定要注入的参数在构造函数中的名称，建议使用这个而不是index来
+				value	指定要注入的参数在构造函数中的内容，只能指定基本类型数据和String数据类型
+				ref		指定其它存在于Spring容器中的bean类型，填入其id
+			示例：
+				/SimpleGOD/src/top/trial/spring/SpringDIBeanTest.java
+				/SimpleGOD/src/top/trial/spring/SpringDIBean.java
+		二：通过set方法注入（常用）
+			涉及标签property，位置在bean标签内
+			5个属性
+				name	指定要注入的参数的set方法后面的名称，
+				value	指定要注入的参数的内容，只能指定基本类型数据和String数据类型
+				ref		指定其它存在于Spring容器中的bean类型，填入其id
+			示例：
+				/SimpleGOD/src/top/trial/spring/SpringDIBeanTest.java
+				/SimpleGOD/src/top/trial/spring/SpringDIBean.java
+		三：使用P名称空间注入
+			配置文件中导入P名称空间，xmlns:p="http://www.springframework.org/schema/p"
+			涉及属性p，位置为bean标签的属性
+			Bean类中属性需要有set方法
+				p:set方法后面的名称=""
+				p:set方法后面的名称-ref=""
+		四：使用注解注入
+			见6_spring注解
+	注入内容
+		一：基本类型和String
+			使用value注入
+		二：其它的Bean类型
+			使用ref注入
+		三：复杂类型【集合类型】
+			使用set方法方式
+			以下三个结构相同，标签可互换
+			使用property子标签array注入数组数据
+			使用property子标签list注入list数据
+			使用property子标签set注入set数据
+			以下两个结构相同，标签可互换
+			使用property子标签map注入map数据
+			使用property子标签props注入properties数据

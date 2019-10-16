@@ -1,0 +1,25 @@
+Bean的
+	三种创建方式/
+		一：默认情况下调用默认构造方法，原理是Class.forName().newInstance()
+			<bean id="firstBean" class="top.trial.spring.SpringBean"></bean>
+		二：静态工厂模式调用静态方法创建对象
+			<bean id="firstBean" class="top.trial.spring.SpringBeanStaticFactory" factory-method="静态方法名"></bean>
+		三：实例工厂调用非静态方法创建对象，实例工厂对象也被创建出来
+			<bean id="firstFactory" class="top.trial.spring.SpringBeanInstanceFactory"></bean>
+			<bean id="firstBean" factory-bean="firstFactory" factory-method="非静态方法名"></bean>
+	作用范围/
+		bean标签里的scope标签配置，可配置的值为：
+			singleton	单例范围，默认且最常用
+			prototype	多例范围
+			request		请求范围
+			session		会话范围
+			global-session	全局会话范围
+	生命周期/
+		单例对象
+			出生：容器创建对象创建【使用bean标签lazy-init可延迟至调用时创建对象】
+			存在：容器存在就一直存在
+			死亡：容器销毁对象消亡
+		多例对象
+			出生：调用时创建对象
+			存在：使用时一直存在
+			死亡：没有其它对象引用且长时间不用时，由垃圾回收机制销毁

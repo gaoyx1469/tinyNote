@@ -22,3 +22,11 @@ XML参数
 		属性
 			name	同Bean标签属性id
 			alias	别名		定义后，可以使用别名，也可以使用id
+	constructor-arg标签
+		位置在bean标签内
+		5个属性
+				type	指定要注入的参数类型【构造函数中的数据类型】
+				index	指定要注入的参数在构造函数中的索引位置
+				name	指定要注入的参数在构造函数中的名称，建议使用这个而不是index来
+				value	指定要注入的参数在构造函数中的内容，只能指定基本类型数据和String数据类型
+				ref		指定其它存在于Spring容器中的bean类型，填入其id
