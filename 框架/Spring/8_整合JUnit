@@ -1,0 +1,9 @@
+单元测试
+	1.整合jar包：test
+	2.使用注解时：
+		@RunWith(SpringJunit4ClassRunner.class)		使用此注解将原运行器替换为spring提供的，里面的main方法可加载spring容器
+		//带XML文件时
+		@ContextConfiguration(locations="classpath:bean.xml")	使用spring提供的此注解指定配置文件位置
+		//不带XML文件时
+		@ContextConfiguration(classes=配置文件字节码)	使用spring提供的此注解指定配置类位置
+	3.要测试的类使用@Autowired注入测试对象

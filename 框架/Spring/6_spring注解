@@ -17,7 +17,8 @@ Spring注解annotation
 				@Autowired		自动按照类型匹配注入，只要容器中有唯一可匹配类型，则能注入成功；使用此注解不需要set方法
 					属性required：值为true时注入失败会报错，值为false时注入失败不会报错，默认true
 					自动注入有多个匹配的情况时，再看有没有能和变量名完全匹配的bean的id，有则能注入成功，否则报错
-				@Qualifier		在自定按照类型注入的基础之上，再按照bean的id注入，给类的成员注入时，不能独立使用，需要在Autowired
+				@Qualifier		在自动按照类型注入的基础之上，再按照bean的id注入，给类的成员注入时，不能独立使用，需要在Autowired下使用
+								也可以在使用配置类进行配置时，可在方法的参数类型前加上此注解，指定bean的id进行精确注入
 					属性value指定bean的id	
 				@Resource		直接按照bean的id注入
 					属性name指定bean的id
@@ -32,4 +33,14 @@ Spring注解annotation
 			@PostContruct	指定初始化方法
 			@PreDestory		指定销毁方法
 		
-		新注解【全注解模式】
+		新注解【全注解模式:创建容器、扫描包、数据源等】
+			@Configuration	表明当前类是spring配置类，即建一个类取代xml，并加上该注解.如果仅作为AnnotationConfigApplicationContext的参数，可不加此注解
+			@Bean			写在方法上，把当前方法的返回值作为bean对象，存入spring容器之中
+				属性name指定bean的id，没有则默认值是当前方法名
+				如果当前方法有参数，去容器中找匹配的参数类型，如果找到唯一匹配，则注入；如果没有匹配，则报错；如果匹配多个，需要@Qualifier注解，此时其可单独使用
+			@ComponentScan	取代context:component-scan标签，value直接作为注解参数；扫描的包里含有带@Configuration标签的类，会作为spring配置类的从类
+			使用AnnotationConfigApplicationContext取代ClassPathXmlApplicationContext，参数填写spring配置类.class
+			@Import			在主配置类上导入从配置类，value属性填入类的字节码，此时从配置类不需要@Configuration
+			@propertySource	指定properties文件位置，用以取代<context:property-placeholder location="properties文件classpath路径"/>标签
+							值的例子："classpath:路径"或者"路径"
+			
