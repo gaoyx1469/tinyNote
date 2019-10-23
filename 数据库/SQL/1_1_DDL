@@ -26,6 +26,10 @@ DDL数据定义语言
 			field3 datatype
 			...
 		);
+		
+	复制表
+		复制表结构和表数据CREATE TABLE NEWTABLE AS SELECT * FROM OLDTABLE WHERE 1=1;
+		只复制表结构CREATE TABLE NEWTABLE AS SELECT * FROM OLDTABLE WHERE 1=2;
 	
 	显示表
 		SHOW TABLES
