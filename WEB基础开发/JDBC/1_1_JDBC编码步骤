@@ -19,6 +19,7 @@ JDBC编码步骤
 				支持参数占位符[?]
 				预编译SQL语句，提高效率
 			prepareCall
+				存储过程
 			setAutoCommit
 			commit
 			rollback
