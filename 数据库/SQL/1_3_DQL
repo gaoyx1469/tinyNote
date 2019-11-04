@@ -17,6 +17,8 @@ DQL数据查询语言
 		逻辑运算符
 			NOT AND ALL
 		LIKE语句中%代表0个或多个任意字符，_代表1个任意字符
+	判断
+		CASE WHEN THEN WHEN THEN ... ELSE END
 	排序
 		ORDER BY 	ASC DESC,默认ASC
 		
