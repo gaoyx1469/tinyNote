@@ -2,8 +2,10 @@ Spring注解annotation
 	环境准备
 		在IoC基础上，需要aop的jar包
 		配置文件需要导入基于注解的context的名称空间以及组件需要扫描的包
+			示例：/SimpleGOD/src/springAnnotation.xml
 		使用注解配置对象
-		
+			示例：/SimpleGOD/src/top/trial/spring/dao/impl/AnnotationDaoImpl.java
+				/SimpleGOD/src/top/trial/spring/service/impl/AnnotationServiceImpl.java
 	注解分类
 		创建对象
 			@Component		相当于bean标签 
