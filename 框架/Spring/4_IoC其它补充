@@ -11,7 +11,7 @@ Bean的
 		bean标签里的scope标签配置，可配置的值为：
 			singleton	单例范围，默认且最常用
 			prototype	多例范围
-			request		请求范围
+			request		请求范围，当前请求及转发过程中可用
 			session		会话范围
 			global-session	全局会话范围
 	生命周期/

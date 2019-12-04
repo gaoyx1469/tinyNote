@@ -7,3 +7,8 @@
 		//不带XML文件时
 		@ContextConfiguration(classes=配置文件字节码)	使用spring提供的此注解指定配置类位置
 	3.要测试的类使用@Autowired注入测试对象
+	
+	
+	示例：
+		/SimpleGOD/src/top/trial/spring/test/AccountOperationServiceTest.java
+		

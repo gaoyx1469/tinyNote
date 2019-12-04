@@ -37,9 +37,9 @@ DI依赖注入
 		三：复杂类型【集合类型】
 			使用set方法方式
 			以下三个结构相同，标签可互换
-			使用property子标签array注入数组数据
-			使用property子标签list注入list数据
-			使用property子标签set注入set数据
+			使用property子标签array注入数组数据，array内有子标签value
+			使用property子标签list注入list数据，list内有子标签value
+			使用property子标签set注入set数据，set内有子标签value
 			以下两个结构相同，标签可互换
-			使用property子标签map注入map数据
-			使用property子标签props注入properties数据
+			使用property子标签map注入map数据，map内有子标签entry
+			使用property子标签props注入properties数据，props内有子标签prop
