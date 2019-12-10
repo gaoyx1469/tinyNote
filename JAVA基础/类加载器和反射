@@ -39,8 +39,15 @@
 	/SimpleGOD/src/top/tiral/reflect/ReflectDemo.java
 	
 动态代理：
-	程序运行中产生对象，即通过反射生成的一个代理
+	基于接口的动态代理：
+		程序运行中产生对象，即通过反射生成的一个代理
+		多使用匿名内部类
+	基于子类的动态代理：
+		多使用匿名内部类
 	
 	示例：
-	/SimpleGOD/src/top/tiral/reflect/ProxyDemo.java
+		基于接口的动态代理：
+			/SimpleGOD/src/top/tiral/reflect/ProxyDemo.java
+		基于子类的动态代理：
+			/SimpleGOD/src/top/trial/reflect/ProxyDemo2.java
 	
