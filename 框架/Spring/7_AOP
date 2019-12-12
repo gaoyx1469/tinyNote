@@ -1,12 +1,31 @@
 概念：
-	面向切面编程，通过预编译和运行器动态代理实现程序功能。
+	面向切面编程，通过预编译和运行时动态代理实现程序功能。
+	运行时，使用动态代理对象，在不修改源码的情况下实现功能的增强；抽取重复代码，减少编码量；提高开发效率，便于维护。
 	名词解释：
-		切面：
-		切入点：
-		连接点：
+		连接点Joinpoint：被拦截到的点【方法】
+		切入点Pointcut：对哪些连接点进行拦截的定义
+		通知Advice：拦截到连接点后要做的事情，通知分为前置通知、后置通知、异常通知、最终通知、环绕通知
+		引介Introduction：不修改代码的情况下，运行器动态地为类增加方法或属性
+		代理对象Target：代理的目标对象
+		织入Weaving：把增强应用到目标对象来创建代理对象的过程
+		切面Aspect：切入点和通知的结合【通知和切入点的关系】
 解决了什么问题：解决事务间耦合
 如何实现：
 	配置
 		环境搭建
+			spring的aspects包
+			aopalliance.jar
+			aspectjweaver.jar
+			ioc及注解对应的5个包beans、context、core、expression、aop
+			commons-logging包
 		配置步骤
+		
+
+
+未使用AOP时事务处理：
+	/SimpleGOD/src/top/trial/spring/test/AccountOperationServiceTest.java
+		testTransfer()：无事务版本
+		testTransferTransaction()：增加事务版本
+使用AOP时事务处理：
+	
 	
