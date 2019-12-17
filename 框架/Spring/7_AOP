@@ -19,7 +19,34 @@
 			ioc及注解对应的5个包beans、context、core、expression、aop
 			commons-logging包
 		配置步骤
+			有XML版
+				参考bean_aop.xml【命名空间包含xsi和aop】
 		
+切入点表达式：
+	关键字execution(表达式)
+	表达式写法：访问修饰符 返回值 包名.包名....类名.方法名(参数列表)
+	访问修饰符：可省略
+		execution(void top.trial.spring.service.impl.AccountOperationAopServiceImpl.saveAccount())
+	返回值：可使用*表示任意返回
+		execution(* top.trial.spring.service.impl.AccountOperationAopServiceImpl.saveAccount())
+	包名：可使用*表示任意包；使用..表示当前包及其子包
+		execution(* top.trial.*.*.*.AccountOperationAopServiceImpl.saveAccount())
+		execution(* top.trial..AccountOperationAopServiceImpl.saveAccount())
+		execution(* *..AccountOperationAopServiceImpl.saveAccount())
+	类名：可使用*表示任意类
+		execution(* *..*.saveAccount())任意包任意类下的无参saveAccount方法
+	方法名：可使用*表示任意方法
+		execution(* *..*.*())任意包任意类下的无参方法
+	参数列表：可指定任意类型
+		基本类型直接写类型名称
+			execution(* *..*.*(int))任意包任意类下的参数为int的方法
+		引用类型写全类名
+			execution(* *..*.*(java.long.String))任意包任意类下的参数为String的方法
+		可使用*表示任意参数，但是必须有参数
+			execution(* *..*.*(*))任意包任意类下的有参的方法
+		可使用..表示任意参数，有无参数皆可
+			execution(* *..*.*(..))任意包任意类下的任意方法
+				
 
 
 未使用AOP时事务处理：
@@ -27,5 +54,7 @@
 		testTransfer()：无事务版本
 		testTransferTransaction()：增加事务版本
 使用AOP时事务处理：
-	
+	/SimpleGOD/src/top/trial/spring/test/AccountOperationServiceAopTest.java	全XML版本
+	/SimpleGOD/src/top/trial/spring/test/AccountOperationServiceAopAnnotationTest.java	半XML版本
+	/SimpleGOD/src/top/trial/spring/test/AccountOperationServiceAopAnnotationTestPlus.java	全注解版本
 	

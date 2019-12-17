@@ -47,4 +47,22 @@ Spring注解annotation
 			@propertySource	指定properties文件位置，用以取代<context:property-placeholder location="properties文件classpath路径"/>标签
 							值的例子："classpath:路径"或者"路径"
 							这样就可以使用@Value(${表达式})注入数据了
+		
+		AOP注解：
+			@EnableAspectJAutoProxy
+				替代<!-- 告知spring容器采用注解方式进行AOP --><aop:aspectj-autoproxy />
+			@Aspect 
+				将当前类配制成一个切面
+			@Pointcut("切入点表达式")
+				将当前方法配置成切入点
+			@Before("切入点表达式或切入点方法【切入点方法需要带括号】")
+				前置通知
+			@AfterReturning("切入点表达式或切入点方法【切入点方法需要带括号】")
+				后置通知
+			@AfterThrowing("切入点表达式或切入点方法【切入点方法需要带括号】")
+				异常通知
+			@After("切入点表达式或切入点方法【切入点方法需要带括号】")
+				最终通知
+			@Around("切入点表达式或切入点方法【切入点方法需要带括号】")
+				环绕通知
 			
