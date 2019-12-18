@@ -1,0 +1,23 @@
+Template系列
+	操作关系型数据库：
+		JdbcTemplate
+		HibernateTemplate
+	操作nosql数据库
+		RedisTemplate
+	操作消息队列
+		JmsTemplate
+		
+
+JdbcTemplate
+	Spring框架下的一个对象，对JDBC的简单封装，简化操作。
+	在IoC基础上，需要额外的jar包有：
+		spring的tx--事务相关
+		spring的jdbc--JdbcTemplate相关【依赖core】
+		
+	
+示例
+	最简化入门使用版：
+		/SimpleGOD/src/top/trial/spring/jdbcTemplate/JdbcTemplateDemo1.java
+	增删改操作示例版：
+		/SimpleGOD/src/top/trial/spring/jdbcTemplate/JdbcTemplateCUDDemo.java
+	
