@@ -65,4 +65,14 @@ Spring注解annotation
 				最终通知
 			@Around("切入点表达式或切入点方法【切入点方法需要带括号】")
 				环绕通知
+		
+		TX事务注解：
+			@Transactional
+				出现在接口上，则接口所有实现类方法都有事务
+				出现在类上，则类中所有方法有事务
+				出现在方法上，则该方法有事务
+				属性就近原则
+			@EnableTransactionManagement
+				使用该注解替代tx:annotation-driven
+				需要放在@Configuration下
 			
