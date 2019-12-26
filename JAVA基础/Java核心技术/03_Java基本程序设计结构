@@ -7,3 +7,9 @@
 	
 3/	
 	整数除0会报错，非0浮点数除0会是无穷大，0.0除0会是NaN
+
+4/
+	Scanner类【5.0】不适合在控制台读取密码。可使用Console类【6.0】实现。
+	Console cons = System.console();
+	String username = cons.readLine("User name: ")；
+	char[] passwd = cons.readPassword("Password: ");
