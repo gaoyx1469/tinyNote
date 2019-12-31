@@ -1,1 +1,4 @@
 1/	使用Date表示时间，使用LocalDate【JAVA 8】表示日期【日历】
+
+2/	方法参数的引用都是值引用，基本数据类型是将值拷贝一份进行操作，引用数据类型是将地址拷贝一份进行操作。
+		示例：/SimpleGOD/src/top/trial/test/MethodArgsDemo.java
