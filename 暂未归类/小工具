@@ -1,0 +1,3 @@
+you-get下载B站视频列表
+	安装you-get:pip3 install you-get
+	下载you-get --playlist -o XXXXPATH URL
