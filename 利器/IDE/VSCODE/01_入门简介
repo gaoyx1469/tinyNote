@@ -1,0 +1,14 @@
+1/
+	下载--官网https://code.visualstudio.com/
+2/
+	使用--除双击打开外，可在文件夹地址输入powershell，进入powershell；
+		执行命令code .即可使用VSCODE打开当前目录
+		执行命令code ./XXX即可使用VSCODE打开当前目录下的XXX目录
+3/
+		
+4/
+5/
+6/
+7/
+8/
+9/
