@@ -17,5 +17,5 @@ BASE64
 			
 	JDK之前的base64是内部测试使用的代码，不建议生产环境使用，而且未来可能会移除，JDK1.8提供最新可以正式使用的Base64类，
 		可以用java.util.Base64类来生成和解析base64码了。
-		java.util.Base64.getEncoder().encodeToString("进制)//编码
-		java.util.Base64.getDecoder().decode(字符串内容）//解码
+		java.util.Base64.getEncoder().encodeToString(待编码字符串)//编码
+		java.util.Base64.getDecoder().decode(待解码字符串）//解码
