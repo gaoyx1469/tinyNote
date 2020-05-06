@@ -1,0 +1,6 @@
+JDK1.5关于线程的内容：
+
+	JDK1.5新增的Lock接口：
+		实现类：ReentrantLock类
+			lock方法：加锁
+			unlock方法：解锁
