@@ -28,7 +28,7 @@ TOMCAT
 		Tomcat目录\conf\server.xml
 			端口号配置：Connector标签下配置
 			虚拟目录配置：
-				方法一(需重启Tomcat)：Hosr下配置一个Context，path属性配置虚拟目录名称【反斜线开头】，docBase属性配置应用所在目录；
+				方法一(需重启Tomcat)：Host下配置一个Context，path属性配置虚拟目录名称【反斜线开头】，docBase属性配置应用所在目录；
 				方式二：在Tomcat/conf/Catalina/localhost/下创建一个xml文件，文件名是虚拟目录名称，内容就是不含
 			默认应用配置：
 				在Tomcat/conf/Catalina/localhost/下创建一个xml文件，文件名是ROOT.xml,需重启Tomcat

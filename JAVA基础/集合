@@ -10,7 +10,7 @@
 			TreeSet：底层数据结构是红黑树(是一个自平衡的二叉树)。保证元素排序的两种方式：自然排序、比较器排序。保证唯一：比较方法返回值是否为0
 			
 			
-	Map：将键映射到值的对象，不能有重复的键。Map集合的数据结构值针对键有效，跟值无关。方法{put、remove、clear、containsKey、containsValue、isEmpty、size、get、keySet、values、entrySet}
+	Map：将键映射到值的对象，不能有重复的键。Map集合的数据结构只针对键有效，跟值无关。方法{put、remove、clear、containsKey、containsValue、isEmpty、size、get、keySet、values、entrySet}
 		HashMap：键是哈希表结构，可以保证键的唯一性
 			LinkedHashMap：Map 接口的哈希表和链接列表实现，具有可预知的迭代顺序。
 		TreeMap：键是红黑树结构，可以保证键的排序和唯一性
