@@ -28,3 +28,26 @@ TIPS：
 		A:父的方法有异常抛出,子的重写方法在抛出异常的时候必须要小于等于父的异常 
 		B:父的方法没有异常抛出,子的重写方法不能有异常抛出
 		C:父的方法抛出多个异常,子的重写方法必须比父少或者小
+		
+try...catch...finally
+
+1/try...catch...finally
+	try中出现catch不住的异常，将不再继续执行，而是执行finally中语句
+	try中出现catch住的异常，若catch后继续抛出，则catch语句块执行到抛出异常处，之后再执行完finally语句块后方法停止并将异常抛回调用者
+	try中出现catch住的异常，若catch后不抛出，则catch语句块完整执行，执行完finally语句块后继续执行后续方法
+	
+	假设资源属于一个实现了 AutoCloseable 接口的类，Java SE 7 为这种代码模式提供了一个很有用的快捷方式。
+		带资源的 try 语句（try-with-resources) 的最简形式为：
+			try (Resource res = . . .)
+			{
+				work with res
+			}
+		try块退出时，会自动调用 res.close()。
+	示例：
+		try (Scanner in = new Scanner (new FileInputStream('7usr/share/dict/words"). "UTF-8");
+			PrintWriter out = new PrintWriter("out.txt"))
+			{
+			while (in.hasNext())
+			out.println(in.next().toUpperCase());
+			}
+			不论这个块如何退出， in 和 out 都会关闭。
