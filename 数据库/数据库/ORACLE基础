@@ -4,4 +4,14 @@
 	to_char(xxx,'fm9.9EEEE')		EEEE表示科学计数法
 	格式化成X.X+EYYY格式的字符串
 	
-	
+
+Oracle某用户密码过期
+	使用另一用户登录，并查看用户状态：
+		SELECT * FROM DBA_USERS;
+		注：PROFILE字段是看用户使用了哪个profile文件作为参数，一般为DEFAULT
+		查看PROFILE为DEFAULT的密码有效期
+			SELECT * FROM dba_profiles s WHERE s.profile='DEFAULT' AND resource_name='PASSWORD_LIFE_TIME';
+		将密码有效期改为无限期
+			ALTER PROFILE DEFAULT LIMIT PASSWORD_LIFE_TIME UNLIMITED
+	使用另一用户登录，并修改过期用户密码
+		ALTER USER 过期用户登录名 IDENTIFIED BY 新密码;
