@@ -1,0 +1,14 @@
+1/
+    GIT配置
+        File-Settings-Version Control-Git
+        会自动扫描到电脑内安装的git。
+
+2/
+    GITHUB配置
+        File-Settings-Version Control-GitHub
+        点击“+”号，添加GitHub账户，输入用户名密码即可。
+
+3/
+    从GitHub导出项目到IDEA
+         VCS-Get from Version Control
+         填写URL，选择本地目标路径点击“clone”即可，若已配置GITHUB，可选择GITHUB账户，点选仓库点击“clone”即可。
