@@ -1,0 +1,4 @@
+1/
+    线程--
+        继承Thread类和实现Runnable接口
+        调用Thread的start方法
