@@ -1,4 +1,40 @@
 1/
-    线程--
-        继承Thread类和实现Runnable接口
+    线程
+        继承Thread类和实现Runnable接口(可以直接匿名内部类)
         调用Thread的start方法
+
+2/
+    中断线程
+        线程run方法执行完并return或者出现没有捕获的异常，线程会中断
+        interrupt方法用来请求终止线程，线程中有一个标志位，当调用了interrupt方法，该标志位会改变，使用isInterrupt方法可得到该标志位
+        线程阻塞状态下，无法检测中断状态。
+            因此在调用了Thread.sleep【不释放锁】或Object.wait【释放锁】后被阻塞的线程上调用interrupt方法会被InterruptedException异常中断
+            同样，在调用了interrupt方法中断的线程上调用sleep方法，会重置标志位，且同样会被InterruptedException异常中断
+
+3/
+    线程状态
+        创建【new了一个新Thread，还未调用start方法】
+        运行【新建后调用了start方法，可能正在运行，也可能没有，看CPU调度】
+        阻塞【试图获得一个内部的对象锁，但是该锁被其它线程持有】
+        等待【调用Object.wait方法和Thread.join方法或等待并发库中的Lock、Condition时，等待其它线程通知调度器一个条件】
+        计时等待【调用带参数的Thread.sleep、Object.wait、Thread.join、Lock.tryLock、Condition.await，状态保持到超时或接收另外的通知】
+        终止【run方法正常退出或未捕获异常终止了run方法】
+
+4/
+    线程属性
+        线程优先级1~10，具体实现效果依赖于操作系统。
+        守护线程，不要使用守护线程访问固有资源，因为随时可能中断。
+
+5/
+    同步
+        synchronized关键字
+        concurrent包
+        ReentrantLock类【concurrent包Lock接口的子类】
+            在需要同步的代码块前，调用ReentrantLock类对象的lock方法，并在finally中调用unlock方法解锁。ReentrantLock类对象就是那把锁。
+            锁可重入，保持一个计数，一个lock就对应一个unlock，计数为0即锁被释放。注：一个被锁保护的代码可以调用另一个被相同的锁保护的代码！
+        Condition接口
+            Condition是条件对象，由Lock接口的newCondition方法获取。
+            在同步代码块中，调用该Condition对象的await方法，将该线程放入该Condition对象的等待集，
+            直到其它线程调用同一Condition对象的signalAll方法将其释放，然后等锁可用时，从等待处继续执行。
+            await方法建议放到while循环中
+
