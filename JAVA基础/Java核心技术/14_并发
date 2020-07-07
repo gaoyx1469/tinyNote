@@ -27,8 +27,6 @@
 
 5/
     同步
-        synchronized关键字
-        concurrent包
         ReentrantLock类【concurrent包Lock接口的子类】
             在需要同步的代码块前，调用ReentrantLock类对象的lock方法，并在finally中调用unlock方法解锁。ReentrantLock类对象就是那把锁。
             锁可重入，保持一个计数，一个lock就对应一个unlock，计数为0即锁被释放。注：一个被锁保护的代码可以调用另一个被相同的锁保护的代码！
@@ -37,4 +35,34 @@
             在同步代码块中，调用该Condition对象的await方法，将该线程放入该Condition对象的等待集，
             直到其它线程调用同一Condition对象的signalAll方法将其释放，然后等锁可用时，从等待处继续执行。
             await方法建议放到while循环中
+        synchronized关键字
+            内部对象锁，Object中的wait、notifyAll、notify方法对应了Condition中的await、signalAll、signal
+            代码块加锁，自定义锁对象
+            普通方法加锁，锁对象是this？
+            静态方法加锁，锁对象是class？
+            synchronized的一些约束
+                •不能中断一个正在试图获得锁的线程。
+                •试图获得锁时不能设定超时。
+                •每个锁仅有单一的条件， 可能是不够的。
+        volatile关键字
+            修饰变量
+        ThreadLocal类
+            线程局部变量
+            可以使用线程局部变量为每个线程提供单独的线程安全型工具类，以减少多线程共享的低效
+        concurrent包
+            atomic包中的类提供了机器级指令保证操作原子性
+        队列
+            使用队列安全地从一个线程向另一个线程传递数据
+            LinkedBlockingQueue
+            ArrayBlockingQueue
+            PriorityBlockingQueue
+            DelayQueue
+            TransferQueue/LinkedTransferQueue
+
+
+
+        三种方式选择：
+            优先concurrent包
+            其次synchronized关键字
+            再次Lock/Condition
 
