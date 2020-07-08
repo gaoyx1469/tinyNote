@@ -1,0 +1,12 @@
+基础介绍
+    0/  背景介绍
+        持久层技术解决方案
+            --JDBC技术【规范】
+                Connection
+                PreparedStatement
+                ResultSet
+            --Spring的JdbcTemplate【工具类（对JDBC的简单封装）】
+            --Apache的DBUtils【工具类（对JDBC的简单封装）】
+            --Mybatis【框架（对JDBC的复杂封装）】
+                驱动、连接等由配置完成
+                动态参数映射，使用ORM思想对结果集封装

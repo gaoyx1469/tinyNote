@@ -1,0 +1,12 @@
+快速入门
+    环境搭建
+        jar包引用
+            github下载mybatis的jar包mybatis-3.5.5.jar，引入classpath即可
+        maven配置
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>x.x.x</version>
+            </dependency>
+
+    入门案例
