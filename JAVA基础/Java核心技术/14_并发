@@ -51,6 +51,11 @@
             可以使用线程局部变量为每个线程提供单独的线程安全型工具类，以减少多线程共享的低效
         concurrent包
             atomic包中的类提供了机器级指令保证操作原子性
+            映射、有序集、队列的并发高效实现类：
+                ConcurrentHashMap
+                ConcurrentSkipListMap
+                ConcurrentSkipListSet
+                ConcurrentLinkedQueue
         队列
             使用队列安全地从一个线程向另一个线程传递数据
             LinkedBlockingQueue
@@ -59,10 +64,40 @@
             DelayQueue
             TransferQueue/LinkedTransferQueue
 
+        早期的线程安全数组和散列表实现Vector和Hashtable已经弃用
+        现在使用线程不安全的数组和散列表ArrayList和HashMap并使用同步包装器包装：
+            Collections.synchronisedList(new ArrayList<E>());
+            Collections.synchronisedMap(new HashMap<K,V>());
+    三种方式选择：
+        优先concurrent包
+        其次synchronized关键字
+        再次Lock/Condition
 
+6/
+Callable和Future
+    Callable类似于Runnable，但是增加了返回值
+    Future保存异步计算结果
+    FutureTask包装器同时实现Future和Runnable接口，接收Callable作为参数
+        使用方式：
+            获得一个Callable的实现
+            new一个FutureTask并使用Callable作为参数
+            new一个Thread并使用FutureTask作为参数
+            Thread调用start方法执行线程
+            FutureTask调用get方法获得计算结果
 
-        三种方式选择：
-            优先concurrent包
-            其次synchronized关键字
-            再次Lock/Condition
+7/
+线程池
+    线程创建的开销
+    控制并发线程数
+    Executor执行器工厂类，有多种方法构建不同类型的线程池
+        newCachedThreadPool     必要时创建新线程，空闲线程保留60秒
+        newFixedThreadPool      固定数量线程
+        newSingleThreadPool     单线程
+            返回实现了ExecutorService接口的ThreadPoolExecutor类对象
+            可将Runnable对象或Callable对象作为ThreadPoolExecutor类对象submit方法的参数并返回一个Future对象
+            ThreadPoolExecutor类对象的shutdown和shutdownNow方法关闭线程池
+        newScheduledThreadPool              用于预定执行的固定数量线程，替代Timer
+        newSingleThreadScheduledExecutor    用于预定执行的单线程
+            返回实现了ScheduledExecutorService接口的对象
+            可将Runnable对象或Callable对象作为ScheduledExecutorService接口对象schedule方法的参数并返回ScheduledFuture对象
 
