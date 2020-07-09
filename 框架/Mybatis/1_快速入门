@@ -10,3 +10,14 @@
             </dependency>
 
     入门案例
+        GameDirectEntityDao
+        GameDirectEntity
+        GameDirectEntityMapper.xml
+        MybatisConfig.xml
+        配置文件注意事项
+            1、主配置文件，可任意命名
+            2、映射配置文件，建议与DAO同名或以Mapper结尾
+            3、映射配置文件位置与DAO接口的包结构位置保持一致
+            4、映射配置文件命名空间为DAO接口全限定类名
+            5、操作配置的id与DAO方法名一致
+            6、满足3、4、5之后，可以不用写DAO的实现类
