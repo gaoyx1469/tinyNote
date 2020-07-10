@@ -14,6 +14,7 @@
         GameDirectEntity
         GameDirectEntityMapper.xml
         MybatisConfig.xml
+        GameDirectEntityDaoTest
         配置文件注意事项
             1、主配置文件，可任意命名
             2、映射配置文件，建议与DAO同名或以Mapper结尾
@@ -21,3 +22,19 @@
             4、映射配置文件命名空间为DAO接口全限定类名
             5、操作配置的id与DAO方法名一致
             6、满足3、4、5之后，可以不用写DAO的实现类
+        入门实践参考GameDirectEntityDaoTest中注释
+            0、主配置文件编写【事务类型、连接池、映射文件】
+            1、实体类、DAO编写
+            2、映射文件编写【命名空间、方法、返回类型、SQL】
+            3、测试类编写
+                1、主配置文件加载-->mybatis提供了工具类Resources，直接加载主配置XML为输入流
+                2、SqlSessionFactoryBuilder加载输入流得到SqlSessionFactory
+                3、SqlSessionFactory调用openSession获得SqlSession
+                4、SqlSession调用getMapper加载DAO字节码文件得到DAO代理对象
+                5、代理对象调用方法获得结果，遍历结果验证
+                6、释放资源
+
+    入门案例使用注解优化
+        0、映射文件可删除
+        1、主配置文件中映射文件的配置改为配置class属性，值为DAO的全限定类名
+        2、DAO方法上增加@SELECT注解，值为SQL语句
