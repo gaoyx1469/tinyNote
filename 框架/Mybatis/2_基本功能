@@ -1,6 +1,15 @@
 基本功能
     单表CRUD
+        案例代码
+            GameEntity
+            GameEntityDao
+            GameEntityMapper.xml
+            MybatisConfig.xml
+            GameEntityDaoTest
+        注意点
     参数和返回值设置
+        实体类属性与表列名不一致的情况：
+        映射文件中配置resultMap，具体参考GameEntityMapper.xml
     DAO编写
     配置文件细节
 
