@@ -26,5 +26,21 @@
 
 
     连接池技术
+        mybatis连接池分类【配置在主配置文件dataSource中】
+            POOLED      采用传统的javax.sql.DataSource规范中的连接池，mybatis针对规范有自己的实现
+                            空闲池、活动池
+            UNPOOLED    采用传统的获取连接的方式，实现了javax.sql.DataSource接口，但是没有采用池的思想，每次获取都是新建连接
+                            直接按传统JDBC基础方式获取一个链接
+            JNDI        采用服务器提供的JNDI技术来实现获取DataSource，不同服务器实现效果不同，仅支持web或maven项目的war包工程
+                            Tomcat服务器使用的是DBCP连接池技术
+
+
     事务控制
+
+    基于XML配置的动态SQL语句
+        映射文件的几个标签
+            <if>
+            <where>
+            <foreach>
+            <sql>
     多表查询【一对多、多对多】
