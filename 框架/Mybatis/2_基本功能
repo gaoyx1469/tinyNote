@@ -7,11 +7,23 @@
             MybatisConfig.xml
             GameEntityDaoTest
         注意点
+            1、单参数的入参SQL中可以不用与参数名一致
+            2、自增主键，插入时主键值的获取方式
     参数和返回值设置
         实体类属性与表列名不一致的情况：
-        映射文件中配置resultMap，具体参考GameEntityMapper.xml
+            方法一：修改SQL语句，查询结果起别名以匹配实体类属性
+            方法二：映射文件中配置resultMap，匹配列名与实体类属性的对应关系，具体参考GameEntityMapper.xml
     DAO编写
+        编写实现类，调用session的selectOne/select/selectList/delete/insert/update方法并自己处理返回值
+
     配置文件细节
+        properties标签
+        alias标签
+        alias标签下的package标签
+        mapper标签下的package标签
+
+        以上参考MybatisConfig.xml中对应内容
+
 
     连接池技术
     事务控制
