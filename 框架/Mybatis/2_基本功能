@@ -36,11 +36,44 @@
 
 
     事务控制
+        什么是事务
+        事务四大特性ACID？
+        不考虑事务隔离性会产生的3个问题
+        四中隔离级别？
+
+        设置session自动提交【不常用】
+            openSession方法增加参数true
 
     基于XML配置的动态SQL语句
         映射文件的几个标签
             <if>
+                条件判断，用法参见GameEntityDaoTest中getGamesByProp方法
             <where>
+                使用where标签包围if标签，可以替代where 1=1这种写法
             <foreach>
+                主要用于sql语句中的in里的列举，用法参见GameEntityDaoTest中getGamesByIds方法
+                注意
+                    属性collection定义了要遍历的parameterType类中的属性
+                    属性item定义了collection中每一个元素的别名
             <sql>
+                抽取映射文件中公共的部分，定义一个id，通过include标签引用
+
     多表查询【一对多、多对多】
+        表之间的关系
+            一对多、多对一、一对一、多对多
+            mybatis中将多对一和一对一都看成一对一
+        示例：
+            一对一、多对一、一对多
+                ClassEntity
+                StudentEntity
+                StudentClassDao
+                StudentClassMapper.xml
+                MybatisConfig.xml
+                StudentClassDaoTest
+            多对多
+                ClassEntity
+                TeacherEntity
+                ClassTeacherDao
+                ClassTeacherMapper.xml
+                MybatisConfig.xml
+                ClassTeacherDaoTest
