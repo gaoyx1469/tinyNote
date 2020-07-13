@@ -37,5 +37,9 @@
             二级缓存存放的是数据而不是对象，查询时往对象中填充【因此，实体类需要实现序列化接口】
     注解开发【替代映射文件】
         单表CRUD
+            示例
+            GameEntityAnnotationDao
+            GameEntityAnnotationDaoTest
+            MybatisConfig.xml
         多表查询
         缓存配置
