@@ -32,7 +32,11 @@
             UNPOOLED    采用传统的获取连接的方式，实现了javax.sql.DataSource接口，但是没有采用池的思想，每次获取都是新建连接
                             直接按传统JDBC基础方式获取一个链接
             JNDI        采用服务器提供的JNDI技术来实现获取DataSource，不同服务器实现效果不同，仅支持web或maven项目的war包工程
+                        JNDI(Java Naming and Directory Interface [Java命名和目录接口])
                             Tomcat服务器使用的是DBCP连接池技术
+                            使用方式：
+                                配置：src\main\webapp\META-INF\mybatisJNDIContext.xml
+                                主配置文件引用该配置
 
 
     事务控制

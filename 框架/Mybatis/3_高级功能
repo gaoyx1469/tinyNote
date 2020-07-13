@@ -1,6 +1,41 @@
 高级功能
     加载时机
+        延迟加载【按需加载、懒加载】
+            一对多查询【还有多对多查询】，查到“一”之后，在用到“多”的时候再加载
+        立即加载
+            多对一查询【一对一查询】，建议立即加载
+        mybatis中懒加载实现方式
+            StudentClassLazyDao
+            StudentClassLazyMapper.xml【配置】
+            StudentClassLazyDaoTest
+            MybatisConfig.xml【配置settings开启懒加载】
     一级缓存和二级缓存
-    注解开发
+        什么是缓存
+            存在于内存中的临时数据
+        为什么使用缓存
+            减少与数据库交互次数，提高执行效率
+        什么数据能缓存，什么数据不能缓存
+            适用于缓存的数据
+                经常查询且不常改变、数据正确性对最终结果影响不大
+            不适用缓存的数据
+                经常改变或数据正确性对最终结果影响很大，如银行利率、库存等
+        一级缓存
+            mybatis中指SqlSession对象的缓存、map结构
+            首次查询结果存入SqlSession的缓存区域中，再次查询时直接从缓存区域中取出来
+            SqlSession对象消失后一级缓存也就消失
+            mybatis自动开启
+            SqlSession的clearCache方法也能清空一级缓存，同样，调用修改、添加、删除、commit、close方法，都会清空一级缓存
+            示例：
+                GameEntityDaoTest.testGetGameByIdCache()
+        二级缓存
+            mybatis中指SqlSessionFactory对象的缓存，同一个SqlSessionFactory生成的SqlSession对象共享二级缓存
+            mybatis需手动开启
+                主配置文件MybatisConfig.xml【配置settings开启二级缓存】
+                映射文件
+                    <cache/>标签
+                    <select>标签useCache属性
+            二级缓存存放的是数据而不是对象，查询时往对象中填充【因此，实体类需要实现序列化接口】
+    注解开发【替代映射文件】
         单表CRUD
         多表查询
+        缓存配置
