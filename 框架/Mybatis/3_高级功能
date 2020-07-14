@@ -42,4 +42,14 @@
             GameEntityAnnotationDaoTest
             MybatisConfig.xml
         多表查询
+            示例
+            一对一、多对一：
+            StudentClassAnnotationDao
+            StudentClassAnnotationDaoTest
+            一对多、多对多：
+            ClassTeacherAnnotationDao
+            ClassTeacherAnnotationDaoTest
+            MybatisConfig.xml
         缓存配置
+            一级缓存自动开启
+            二级缓存在DAO上增加注解：@CacheNamespace(blocking = true)
