@@ -2,8 +2,23 @@
 	IoC
 		导入beans、context、core、expression四个jar包
 		导入日志包（common-logging或者log4j）
+
+		使用maven时
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>X.X.X.RELEASE</version>
+            </dependency>
 		
 		
-		写JavaBean的XML配置文件并通过IoC调用执行：
-		
-		示例：/SimpleGOD/src/top/trial/spring/SpringQuickStartDemo.java
+		写JavaBean的XML配置文件并通过IoC调用执行
+		示例：
+		    /SimpleGOD/src/top/trial/spring/SpringQuickStartDemo.java
+
+        比较ClassPathXmlApplicationContext与FileSystemXmlApplicationContext
+            ClassPathXmlApplicationContext【通过读取类路径下的文件创建spring容器】【建议用这个】
+            FileSystemXmlApplicationContext【通过读取文件系统下的文件创建spring容器】
+
+		比较ApplicationContext与BeanFactory
+		    ApplicationContext采用立即加载策略，在读取xml文件时就直接将对象创建出来，
+		    BeanFactory采用延迟加载策略，在使用时才将对象创建出来，实现类使用XmlBeanFactory

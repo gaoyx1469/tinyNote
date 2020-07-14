@@ -4,9 +4,9 @@ Spring
 		方便解耦，简化开发（IoC）
 		AOP支持
 		声明式事务控制
-		方便单元测试
+		方便单元测试【整合Junit】
 		方便集成其它三方框架
-		降低JAVAEE使用难度
-		
+		降低JAVAEE使用难度【JAVAEE API封装】
+
 	IoC是类与类之间依赖关系的解耦
 	AOP是方法间的分离
