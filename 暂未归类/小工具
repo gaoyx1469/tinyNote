@@ -1,3 +1,6 @@
 you-get下载B站视频列表
-	安装you-get:pip3 install you-get
-	下载you-get --playlist -o XXXXPATH URL
+	安装you-get:  pip3 install you-get
+	    注：pip3命令需要有python3环境
+	更新you-get:  pip install --upgrade you-get
+	下载视频:   you-get --playlist -o 本地存储PATH 视频URL
+
