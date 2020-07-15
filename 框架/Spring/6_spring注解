@@ -1,11 +1,15 @@
 Spring注解annotation
 	环境准备
-		在IoC基础上，需要aop的jar包
+		在IoC基础上，需要aop的jar包/maven工程可忽略
 		配置文件需要导入基于注解的context的名称空间以及组件需要扫描的包
-			示例：/SimpleGOD/src/springAnnotation.xml
+			示例：springAnnotation.xml
 		使用注解配置对象
-			示例：/SimpleGOD/src/top/trial/spring/dao/impl/AnnotationDaoImpl.java
-				/SimpleGOD/src/top/trial/spring/service/impl/AnnotationServiceImpl.java
+			示例：
+			    AnnotationDao.java
+                AnnotationService.java
+			    AnnotationDaoImpl.java
+				AnnotationServiceImpl.java
+				SpringAnnotationBeanTest.java
 	注解分类
 		创建对象
 			@Component		相当于bean标签 
@@ -23,17 +27,18 @@ Spring注解annotation
 								【也可以在使用配置类进行配置时，可在方法的参数类型前加上此注解，指定bean的id进行精确注入，此时可以独立使用】
 					属性value指定bean的id	
 				@Resource		直接按照bean的id注入
+				                【java新版本JDK不再包含此注解，需要导包】
 					属性name指定bean的id
 			注入基本类型和String
 				@Value			
-					属性value	指定要注入的数据		支持spring的el表达式：${表达式},表达式是关联的properties文件中的key
+					属性value	指定要注入的数据		支持spring的el表达式SpEL：${表达式},表达式是关联的properties文件中的key
 					properties关联方式<context:property-placeholder location="properties文件classpath路径"/>
 		改变作用范围
 			@Scope	改变bean的作用范围，与xml中配置方式相同
 				属性value
 		影响生命周期（不重要）
-			@PostContruct	指定初始化方法
-			@PreDestory		指定销毁方法
+			@PostConstruct	指定初始化方法
+			@PreDestroy		指定销毁方法
 		
 		新注解【全注解模式:创建容器、扫描包、数据源等】
 			@Configuration	表明当前类是spring配置类，即建一个类取代xml，并加上该注解.

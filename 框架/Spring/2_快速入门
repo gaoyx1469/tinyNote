@@ -13,7 +13,7 @@
 		
 		写JavaBean的XML配置文件并通过IoC调用执行
 		示例：
-		    /SimpleGOD/src/top/trial/spring/SpringQuickStartDemo.java
+		    SpringQuickStartDemo.java
 
         比较ClassPathXmlApplicationContext与FileSystemXmlApplicationContext
             ClassPathXmlApplicationContext【通过读取类路径下的文件创建spring容器】【建议用这个】

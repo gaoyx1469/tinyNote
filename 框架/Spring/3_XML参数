@@ -16,7 +16,7 @@ XML参数
 			factory-method	静态工厂方法和实例工厂方法使用其注入方法名
 			factory-bean	实例工厂方法使用其注入工厂名
 			init-method		注入初始化方法
-			destory-method	注入销毁方法
+			destroy-method	注入销毁方法
 			abstract	如果值为true，标注该bean为抽象类，不实例化对象
 			parent		标注其父类的bean，此时会注入其继承的属性，否则继承的属性不会被注入
 			
