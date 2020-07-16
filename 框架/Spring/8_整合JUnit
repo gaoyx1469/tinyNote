@@ -1,5 +1,11 @@
 单元测试
 	1.整合jar包：test
+	    maven坐标
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>X.X.X.RELEASE</version>
+            </dependency>
 	2.使用注解时：
 		@RunWith(SpringJunit4ClassRunner.class)		使用此注解将原运行器替换为spring提供的，里面的main方法可加载spring容器
 		//带XML文件时
@@ -10,5 +16,5 @@
 	
 	
 	示例：
-		/SimpleGOD/src/top/trial/spring/test/AccountOperationServiceTest.java
+		SpringJunitTest
 		

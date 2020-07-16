@@ -5,11 +5,18 @@ Spring注解annotation
 			示例：springAnnotation.xml
 		使用注解配置对象
 			示例：
+			--半注解半XML形式
 			    AnnotationDao.java
                 AnnotationService.java
 			    AnnotationDaoImpl.java
 				AnnotationServiceImpl.java
 				SpringAnnotationBeanTest.java
+		    --纯注解形式
+                AnnotationDao.java
+                AnnotationService.java
+                AllAnnotationDaoImpl
+                AllAnnotationServiceImpl
+                SpringAllAnnotationTest
 	注解分类
 		创建对象
 			@Component		相当于bean标签 
