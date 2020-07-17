@@ -57,11 +57,9 @@
 
 
 未使用AOP时事务处理：
-	/SimpleGOD/src/top/trial/spring/test/AccountOperationServiceTest.java
-		testTransfer()：无事务版本
-		testTransferTransaction()：增加事务版本
+	SpringAccountOperationWithoutAopTest
+		serviceWithTransaction：无事务版本
+		serviceWithoutTransaction：增加事务版本
+		serviceWithProxy：使用动态代理事务版本
 使用AOP时事务处理：
-	/SimpleGOD/src/top/trial/spring/test/AccountOperationServiceAopTest.java	全XML版本
-	/SimpleGOD/src/top/trial/spring/test/AccountOperationServiceAopAnnotationTest.java	半XML版本
-	/SimpleGOD/src/top/trial/spring/test/AccountOperationServiceAopAnnotationTestPlus.java	全注解版本
-	
+	SpringAccountOperationAopTest	使用两个不同的XML，分别对应XML形式的AOP和注解形式的AOP
