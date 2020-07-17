@@ -18,6 +18,13 @@
 			aspectjweaver.jar
 			ioc及注解对应的5个包beans、context、core、expression、aop
 			commons-logging包
+
+			对于maven工程，在ioc基础上新增以下依赖
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjweaver</artifactId>
+                <version>1.9.5</version>
+            </dependency>
 		配置步骤
 			有XML版
 				参考bean_aop.xml【命名空间包含xsi和aop】
