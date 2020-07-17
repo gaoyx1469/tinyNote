@@ -13,10 +13,22 @@ JdbcTemplate
 	在IoC基础上，需要额外的jar包有：
 		spring的tx--事务相关
 		spring的jdbc--JdbcTemplate相关【依赖core】
-		
+
+		maven依赖是
+		    <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>5.2.7.RELEASE</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-tx</artifactId>
+                <version>5.2.7.RELEASE</version>
+            </dependency>
+
 JdbcDaoSupport
 	Spring框架下的一个对象，对DAO的支持，自己写的DAO继承该类，则不再需要自己注入JdbcTemplate，只要在XML中注入DataSource。
-	全注解形式下，不建议使用此方式。
+	全注解形式下，不建议使用此方式，因为无法通过注解向此类中注入JdbcTemplate对象或DataSource对象。
 
 DriverManagerDataSource
 	Spring框架下的一个内部数据源，可替代C3P0数据源
@@ -24,7 +36,7 @@ DriverManagerDataSource
 	
 示例
 	最简化入门使用版：
-		/SimpleGOD/src/top/trial/spring/jdbcTemplate/JdbcTemplateDemo1.java
+		JdbcTemplateDemo.java
 	增删改操作示例版：
-		/SimpleGOD/src/top/trial/spring/jdbcTemplate/JdbcTemplateCUDDemo.java
+		JdbcTemplateCRUDDemo.java
 	
