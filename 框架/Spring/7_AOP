@@ -53,8 +53,18 @@
 			execution(* *..*.*(*))任意包任意类下的有参的方法
 		可使用..表示任意参数，有无参数皆可
 			execution(* *..*.*(..))任意包任意类下的任意方法
-				
 
+
+注意：
+    Spring通知的后置通知和最终通知出现顺序有颠倒的情况，可能导致先释放资源后提交，故报setAutoCommit=true或直接未提交上
+    经试验得出：
+        对于XML配置
+            四个通知包围环绕通知
+            aop:after-returning配置在aop:after之前，两者执行顺序是不正确的，最终在后置之前执行了
+            aop:after-returning配置在aop:after之后，两者执行顺序无误
+        对于注解配置
+            环绕通知包围另外四个通知
+            配置顺序没有影响，执行顺序无误
 
 未使用AOP时事务处理：
 	SpringAccountOperationWithoutAopTest
