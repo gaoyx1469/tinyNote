@@ -1,0 +1,23 @@
+SpringMVC
+    表现层框架
+
+    表现层MVC设计模型
+        model模型             JAVABEAN
+        view视图              JSP
+        controller控制器       SERVLET
+
+    优势
+        清晰的角色划分【模块划分清晰】
+        分工明确易于扩展
+        适配Spring
+
+    与struts2比较
+        共同点：
+            表现层框架
+            底层基于ServletAPI
+            处理请求的机制都是一个核心控制器
+        区别：
+            SpringMVC核心控制器是servlet，struts2是Filter
+            SpringMVC基于方法设计，struts2基于类设计
+            SpringMVC更简洁，处理ajax更方便
+            Struts2的OGNL表达式使页面开发效率更高，但执行效率不高
