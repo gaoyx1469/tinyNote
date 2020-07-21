@@ -1,0 +1,54 @@
+快速搭建
+
+    1、导入依赖
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>2.2</version>
+            <scope>provided</scope>
+        </dependency>
+
+    2、配置web.xml的servlet
+        <servlet>
+            <servlet-name>dispatcherServlet</servlet-name>
+            <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        </servlet>
+        <servlet-mapping>
+            <servlet-name>dispatcherServlet</servlet-name>
+            <url-pattern>/</url-pattern>
+        </servlet-mapping>
+
+    3、配置spring的XML
+        头部添加beans、context、mvc名称空间
+        配置扫描的包
+        配置开启mvc注解支持
+        配置视图解析器
+
+    4、在web.xml配置spring配置文件的加载
+        为
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        配置初始化参数
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:top/trial/springmvc/springmvc_quickStart.xml</param-value>
+        </init-param>
+    5、写controller类和方法，配置RequestMapping，并将其配置到spring配置文件中
+    6、写返回结果页面
+
+    示例：
+        index.jsp
+        QuickStartController.java
+        quickStartSuccess.jsp
+        springmvc_quickStart.xml
+        web.xml
