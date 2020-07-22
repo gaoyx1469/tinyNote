@@ -1,0 +1,36 @@
+基本功能
+
+    模块介绍
+        前端控制器
+            DispatcherServlet
+        处理器映射器
+            开启mvc注解支持后自动交由IOC容器管理
+        处理器适配器
+            开启mvc注解支持后自动交由IOC容器管理
+        视图解析器
+            InternalResourceViewResolver
+
+    注解介绍
+        @RequestMapping
+            作用是配置处理器映射关系
+            可以配置在TYPE上，也能配置在METHOD上，都配置时，将组合拼接起来使用
+            name属性
+            value属性，等同于path属性，指定请求url
+            path属性，等同与value属性
+            method属性：规定可接受的请求方式，8种
+            params属性：指定限制请求参数的条件，要求请求参数的key和value必须满足配置的模式
+                例如
+                params={"account"} 表示请求参数必须有account
+                params={"account!100"} 表示请求参数中account的值必须有且不能是100
+            header属性，指定限制请求头的条件，定义请求中必须包含的请求头
+
+    请求参数绑定
+        处理器方法可以定义参数，当方法的参数名与请求参数的参数名一致时，会自动注入
+        支持基本类型、String、JavaBean、List和Map
+        绑定示例【含中文乱码解决 在web.xml中配置spring提供的字符编码过滤器】
+            index.jsp
+            requestBindingPage.jsp
+            ParamsBindingController
+            RequestParamsBindingEntity
+            RequestParamsInnerBindingEntity
+            requestBindingSuccess.jsp
