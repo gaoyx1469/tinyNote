@@ -1,0 +1,11 @@
+常用注解
+    RequestParam
+        把请求中的指定参数给控制器中的形参赋值，放在控制器类方法的形参数据类型前
+        value请求中的指定参数名
+        required是否必须提供，默认true
+    RequestBody
+    PathVariable
+    RequestHeader
+    CookieValue
+    ModelAttribute
+    SessionAttribute

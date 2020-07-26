@@ -34,3 +34,12 @@
             RequestParamsBindingEntity
             RequestParamsInnerBindingEntity
             requestBindingSuccess.jsp
+
+        部分日期格式无法自动格式转换，需要自定义类型转换【可自动封装'/'作为分割符的，但是无法自动封装‘-’作为分隔符的】
+        自定义类型转换器示例
+            requestBindingPage.jsp
+            ParamsBindingController
+            RequestParamsConvertEntity
+            DateConverter
+
+        获取ServletAPI
