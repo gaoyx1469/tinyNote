@@ -4,8 +4,31 @@
         value请求中的指定参数名
         required是否必须提供，默认true
     RequestBody
+        获取请求体，get方法不适用，放在控制器类方法的形参数据类型String前\
+        TODO 目前测试发现有中文乱码问题
+        required是否必须有请求体，默认true
     PathVariable
+        获取绑定url中占位符，放在控制器类方法的形参数据类型String前
+        name是url中占位符的id
+        例如
+            @RequestMapping("/xxx/{sid}")
+            public void testPathVariable(@PathVariable(name="sid") String id)
     RequestHeader
+        获得指定请求头的值，放在控制器类方法的形参数据类型String前
+        value指定的请求头的id
     CookieValue
+        获得指定名称cookie的值
+        value指定cookie的名称
+        required是否必须有这个cookie
     ModelAttribute
-    SessionAttribute
+        可以作用在方法上，也可以作用在参数上
+        出现在方法上，当前方法会在控制器方法执行前先执行，如果有返回值，控制器方法的参数中如果有在请求参数中没拿到的，再试着从@ModelAttribute方法的返回值里拿取
+        出现在参数上，即从无返回值@ModelAttribute方法的参数map中取值，value填写map的key
+    SessionAttributes
+        用于多次执行控制器方法间的参数共享，作用在类上
+        value要存到session域中的key
+    HiddenHttpMethodFilter
+        过滤器，可以将浏览器请求修改为指定的请求方式，然后发送给控制器，交由控制器方法执行
+        使用方法
+            web.xml配置过滤器
+            表单增加隐藏参数"_method"，值是想要指定的请求方式
