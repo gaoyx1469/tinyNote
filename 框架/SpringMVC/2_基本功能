@@ -43,3 +43,4 @@
             DateConverter
 
         获取ServletAPI
+            直接增加控制器方法的参数，参数类型需要是想要的类型，比如HttpServletRequest

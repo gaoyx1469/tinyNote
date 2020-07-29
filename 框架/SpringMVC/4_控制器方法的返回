@@ -1,0 +1,13 @@
+控制器方法的返回
+    1、返回字符串，如果配置了视图解析器，则根据匹配规则跳转
+        另
+            如果有forward:关键字，会请求转发
+            如果有redirect:关键字，会请求重定向【从根目录开始】
+    2、返回void空，会按照请求路径，后面直接加上.jsp跳转
+        返回为空时，可使用请求转发和请求重定向两种方式处理页面跳转
+    3、返回ModelAndView，该对象封装了请求参数map和目标视图名称
+
+    示例
+        MethodReturnController
+        methodReturn.jsp
+        methodReturnSuccess.jsp
