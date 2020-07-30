@@ -1,0 +1,14 @@
+响应相关注解
+    1、ResponseBody
+        对于ajax请求，上送和返回字符串都是json格式
+        此时需要自动数据绑定，需要引入jackson的依赖
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.11.1</version>
+        </dependency>
+        该依赖自动依赖了jackson-core和jackson-annotations
+        该注解可以放到方法上，也可以放到返回值类型上
+        示例代码
+            ResponseJsonController
+            responseAjax.jsp
