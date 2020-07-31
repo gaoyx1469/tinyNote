@@ -3,7 +3,7 @@
 	    maven坐标
             <dependency>
                 <groupId>org.springframework</groupId>
-                <artifactId>spring-context</artifactId>
+                <artifactId>spring-test</artifactId>
                 <version>X.X.X.RELEASE</version>
             </dependency>
 	2.使用注解时：
