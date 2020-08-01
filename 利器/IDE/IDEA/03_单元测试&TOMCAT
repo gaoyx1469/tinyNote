@@ -1,0 +1,3 @@
+单元测试
+    将要进行单元测试的文件夹设置为test文件架
+    注意非maven项目引入的junit和hamcrest需要从idea的安装目录下的bin引入
