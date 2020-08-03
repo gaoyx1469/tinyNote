@@ -40,3 +40,20 @@
         compile--test--package--install--deploy
         clean
 
+    5/  依赖的scope标签
+        test        测试阶段
+        compile     默认|全部阶段
+        provided    提供者，编译、测试需要，打包、安装、部署不需要，服务器已经容器提供了
+
+    6/  打包时打入main/java文件夹中的
+        <!--将指定目录下的文件类型也打入包中-->
+        <resources>
+            <resource>
+                <directory>src/main/java</directory><!--要处理的目录-->
+                <includes>
+                    <include>**/*.properties</include><!--要处理的文件-->
+                    <include>**/*.xml</include><!--要处理的文件-->
+                </includes>
+                <filtering>false</filtering><!--不使用过滤器-->
+            </resource>
+        </resources>
