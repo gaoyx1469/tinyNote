@@ -1,15 +1,21 @@
 快速入门&基本功能
 
     0/  下载解压
+        官网下载maven.apache.org
+        解压至非中文路径中
         目录说明
             bin：可执行文件
             boot：类加载器文件
             config：配置文件，里面的settings.xml重要
+                settings.xml内可配置本地仓库位置和镜像地址
             lib：运行依赖jar包
+        配置环境变量
+            依赖JAVA_HOME环境变量
 
     1/  仓库介绍
         中央仓库：国外的，网络可能慢
-        远程仓库：建议使用阿里的
+        远程仓库【镜像】：建议使用阿里的
+        私服：局域网中的内部使用
         本地仓库
 
     2/  maven工程结构
@@ -20,7 +26,7 @@
             test
                 java
                 resource
-            pom.xml
+        pom.xml
 
     3/  常用命令
         compile：编译src/main/java下的文件

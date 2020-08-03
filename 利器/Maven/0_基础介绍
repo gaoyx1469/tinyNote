@@ -2,3 +2,36 @@
     maven两大功能
         依赖管理：解决项目臃肿问题
         工程构建：一键构建，方便
+
+    maven解决了什么痛点
+        依赖管理
+            项目模块管理
+            jar包下载
+            jar包版本控制
+            jar包间依赖
+        工程构建
+            清理clean、编译compile、测试test、打包package、安装install、部署deploy
+
+    核心概念
+        pom.xml
+            modelVersion    Maven模型版本，4.0.0
+            groupId         组织Id，域名倒写
+            artifactId      项目模块名称
+            version         项目模块版本
+            packaging       项目打包扩展名，可以是jar（默认）、war、rar、ear、pom
+            properties      配置属性，如jdk版本
+            build           构建相关配置
+            parent          继承，详见【2继承】
+            modules         聚合，详见【2聚合】
+        目录结构【1MAVEN工程结构】
+        坐标
+            互联网唯一标识一个项目
+            groupId         组织Id，域名倒写
+            artifactId      项目模块名称
+            version         项目模块版本
+        依赖管理
+        仓库管理【1仓库介绍】
+        生命周期【1生命周期】
+        插件和目标
+        继承
+        聚合
