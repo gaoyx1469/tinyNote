@@ -28,3 +28,89 @@
         provided              provided    provided     provided     -
         runtime               runtime       -          runtime      -
         test                  test          -          test         -
+
+    私服
+    1/  安装与启动
+        nexus压缩包解压
+        bin目录下管理员运行CMD
+            nexus.bat uninstall     卸载
+            nexus.bat install       安装
+            nexus.bat start         启动
+        conf目录下nexus.properties是配置文件，配置了启动后的端口
+        http://localhost:8081/nexus，登陆默认用户名admin密码admin123
+
+    2/  使用
+        maven的settings.xml中配置<servers>中配置<server>
+            上传：
+            <server>
+                <id>releases</id>
+                <username>admin</username>
+                <password>admin123</password>
+            </server>
+            <server>
+                <id>snapshots</id>
+                <username>admin</username>
+                <password>admin123</password>
+            </server>
+            下载【settings中配置和pom.xml中的下载配置有一个即可】
+            <profiles>
+                <profile>
+                    <id>随便起</id>
+                    <repositories>
+                        <!-- 私有库地址-->
+                        <repository>
+                            <id>nexus</id>
+                            <url>http://localhost:8081/nexus/context/groups/public/</url>
+                            <releases>
+                                <enabled>true</enabled>
+                            </releases>
+                            <snapshots>
+                                <enabled>true</enabled>
+                            </snapshots>
+                        </repository>
+                    </repositories>
+                    <pluginRepositories>
+                        <!--插件库地址-->
+                        <pluginRepository>
+                            <id>nexus</id>
+                            <url>http://localhost:8081/nexus/context/groups/public/</url>
+                            <releases>
+                                <enabled>true</enabled>
+                            </releases>
+                            <snapshots>
+                                <enabled>true</enabled>
+                            </snapshots>
+                        </pluginRepository>
+                    </pluginRepositories>
+                </profile>
+            </profiles>
+            <!--激活profile-->
+            <activeProfiles>
+              <activeProfile>与上面profile的id一致</activeProfile>
+            </activeProfiles>
+        pom.xml中配置链接地址
+            上传
+            <distributionManagement>
+                <repository>
+                    <id>releases</id>
+                    <url>http://localhost:8081/nexus/content/repositories/releases/</url>
+                </repository>
+                <snapshotRepository>
+                    <id>snapshots</id>
+                    <url>http://localhost:8081/nexus/content/repositories/snapshots/</url>
+                </snapshotRepository>
+            </distributionManagement>
+            下载【settings中配置和pom.xml中的下载配置有一个即可】
+            <repositories>
+                <repository>
+                    <id>nexus</id>
+                    <url>http://192.168.124.29:8081/repository/maven-public/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+             </repositories>
+        当项目deploy时上传至私服仓库
