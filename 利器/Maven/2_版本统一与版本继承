@@ -1,1 +1,30 @@
-TODO
+版本统一与版本继承
+    版本统一
+    1/  pom.xml
+        jar包依赖冲突时，maven采用原则是
+            1>直接依赖优先，
+            2>间接依赖第一声明优先原则，
+            3>直接排除法：dependency配置exclusions标签排除某个间接依赖
+
+    2/  jar版本锁定【dependencyManagement】
+        当项目被其它项目依赖时，即使同名jar包也不会覆盖
+        使用dependencyManagement包住dependencies，仅起锁定jar包的作用，实际引入依赖的dependencies还要另写。
+
+    版本继承
+    1/  MAVEN拆分与聚合
+        完整项目分成独立模块
+        每个模块都有各自独立的坐标，用的时候引用需要的模块坐标即可
+        最终可以聚合成完整项目
+
+    2/  父子工程创建
+        父工程只需要一个pom.xml
+        子模块的pom.xml<parent>标签引入父工程的坐标，子工程仅保留<artifactId>即可，groupId和版本号与父工程一致
+        父工程的pom.xml<modules>标签引入子模块artifactId
+        子模块之间的依赖，需要<dependency>引入
+
+                    传递依赖    compile     provided    runtime     test
+        直接依赖
+        compile               compile       -          runtime      -
+        provided              provided    provided     provided     -
+        runtime               runtime       -          runtime      -
+        test                  test          -          test         -
