@@ -17,7 +17,7 @@ JDK1.5关于线程的内容：
 	避免线程的创建和销毁带来的性能开销。
 	避免大量的线程间因互相抢占系统资源导致的阻塞现象。
 	能够对线程进行简单的管理并提供定时执行、间隔执行等功能。
-	/SimpleGOD/src/top/tiral/thread/ThreadPoolTestDemo.java
+	src/main/java/top/trial/thread/basethreadpool/ThreadPoolTestDemo.java
 	
 	Executor接口：线程池顶级接口，有execute方法
 	ExecutorService：线程池应用接口，ExecutorService 的默认实现是 ThreadPoolExecutor。具体使用方法见DEMO

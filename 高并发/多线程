@@ -1,7 +1,7 @@
 多线程
 	
-	/SimpleGOD/src/top/tiral/thread/ThreadTestDemo.java
-	/SimpleGOD/src/top/tiral/thread/ThreadPoolTestDemo.java
+	src/main/java/top/trial/thread/BaseThreadTestDemo.java
+	src/main/java/top/trial/thread/basethreadpool/ThreadPoolTestDemo.java
 	
 	基本概念：
 		线程：进程中负责程序执行的执行单元。一个进程中至少有一个线程。
