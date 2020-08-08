@@ -1,3 +1,8 @@
 单元测试
     将要进行单元测试的文件夹设置为test文件架
     注意非maven项目引入的junit和hamcrest需要从idea的安装目录下的bin引入
+
+    如果控制台出现乱码，需要在对应的Configurations Templates测试模版中的VM参数上加上-Dfile.encoding=UTF-8
+        main函数是在Application，单元测试是在Junit
+
+    单元测试不支持多线程，会出现子线程未执行完，测试进程就结束的情况，因此，测试多线程尽量在main函数中进行
