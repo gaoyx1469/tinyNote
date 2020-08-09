@@ -1,7 +1,0 @@
-Node.js
-
-	Node.js内置了npm
-	npm国内镜像cnpm地址：  https://npm.taobao.org/
-	
-	cnpm安装方式(替换了原npm)：
-		npm install -g cnpm --registry=https://registry.npm.taobao.org

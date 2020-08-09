@@ -1,0 +1,38 @@
+JDK1.5关于线程的内容：
+
+	JDK1.5新增的Lock接口：
+		实现类：ReentrantLock类
+			lock方法：加锁
+			unlock方法：解锁
+			
+线程间通信：
+	 不同线程对同一资源进行操作
+	 
+线程组：
+	ThreadGroup
+	对一批线程进行分类管理，允许程序对线程组进行控制。线程默认属于main线程组
+	Thread有传入ThreadGroup的构造方法
+	
+线程池：
+	避免线程的创建和销毁带来的性能开销。
+	避免大量的线程间因互相抢占系统资源导致的阻塞现象。
+	能够对线程进行简单的管理并提供定时执行、间隔执行等功能。
+	src/main/java/top/trial/thread/basethreadpool/ThreadPoolTestDemo.java
+	
+	Executor接口：线程池顶级接口，有execute方法
+	ExecutorService：线程池应用接口，ExecutorService 的默认实现是 ThreadPoolExecutor。具体使用方法见DEMO
+	ThreadPoolExecutor：ExecutorService 的默认实现
+	Executors：线程池工厂类
+		newCachedThreadPool ：可根据需要创建新线程的线程池，但是在以前构造的线程可用时将重用它们。
+			对于执行很多短期异步任务的程序而言，这些线程池通常可提高程序性能。调用 execute() 将重用以前构造的线程（如果线程可用）。
+			如果现有线程没有可用的，则创建一个新线程并添加到池中。
+			终止并从缓存中移除那些已有 60 秒钟未被使用的线程。
+			返回类型ExecutorService，实际类型ThreadPoolExecutor。
+		newSingleThreadExecutor ： 创建是一个单线程池，也就是该线程池只有一个线程在工作，所有的任务是串行执行的。
+			如果这个唯一的线程因为异常结束，那么会有一个新的线程来替代它，此线程池保证所有任务的执行顺序按照任务的提交顺序执行。
+			返回类型ExecutorService。
+		newFixedThreadPool：创建固定大小的线程池，每次提交一个任务就创建一个线程，直到线程达到线程池的最大大小。
+			线程池的大小一旦达到最大值就会保持不变，如果某个线程因为执行异常而结束，那么线程池会补充一个新线程。
+			返回类型ExecutorService。
+		newScheduledThreadPool ：创建一个大小无限的线程池，此线程池支持定时以及周期性执行任务的需求。
+			返回类型ScheduledExecutorService。

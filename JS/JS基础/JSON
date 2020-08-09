@@ -1,0 +1,25 @@
+JSON
+	JS提供的一种数据交换格式
+	格式：由｛｝包围
+		属性名需要双引号包围，单引号不可以
+		属性值可以有：null，数值，字符串，布尔值，数组【方括号括起来】
+		
+	对于字符串形式的伪JSON，可以使用eval("("+str+")")转为JSON格式
+	
+	与XML相比
+		XML可读性较好
+		JSON解析难度更低
+		XML适用性更广
+		
+	将JavaBean与JSON格式的相互转换
+		json-lib【2010年已停止更新】
+			JSON-lib is a java library for transforming beans, maps, collections, java arrays and XML to JSON and back again to beans and DynaBeans.
+			依赖于很多第三方包，json-lib在功能和性能上面都不能满足现在互联网化的需求，内存占用相当高。
+		Jackson
+			相比json-lib框架，Jackson所依赖的jar包较少，简单易用并且性能也要相对高些。
+		FastJson
+			由阿里巴巴公司开发。无依赖，不需要例外额外的jar，能够直接跑在JDK上。
+			FastJson采用独创的算法，将parse的速度提升到极致。
+		Gson
+			由Google自行研发，无依赖，不需要例外额外的jar，能够直接跑在JDK上。
+		
