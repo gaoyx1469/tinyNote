@@ -10,7 +10,7 @@ JAVA8LTS发布于2014年3月
 
 3. Lambda表达式之方法引用与构造器引用【配合Lambda表达式使用】
 
-4. Stream API
+4. Stream API【详见3_StreamAPI】
 
 5. 接口中的默认方法和静态方法
 
