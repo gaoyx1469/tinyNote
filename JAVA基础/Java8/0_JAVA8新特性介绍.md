@@ -6,9 +6,9 @@ JAVA8LTS发布于2014年3月
 
 1. Lambda表达式【详见2_Lambda表达式】
 
-2. 函数式接口
+2. 函数式接口【配合Lambda表达式使用】
 
-3. 方法引用与构造器引用
+3. Lambda表达式之方法引用与构造器引用【配合Lambda表达式使用】
 
 4. Stream API
 
