@@ -47,3 +47,13 @@ java.util.stream.*
 5. 并行流和串行流  
     底层是fork/join模式  
     * parallel方法和sequential方法切换数据流的并行串行
+    
+6. Optional类，是一个容器类，代表一个值存在或不存在
+    * of(T t)创建一个Optional实例
+    * empty()创建一个空实例
+    * ofNullable(T t)若T为空，创建一个空实例，若不为空，创建一个Optional实例
+    * isPresent()判断是否包含值
+    * orElse(T t)若调用对象包含值，返回其值，若为空，返回t
+    * orElse(Supplier s) 若调用对象包含值，返回其值，若为空，返回s获取的值
+    * map(Function f)若有值则对其处理，并返回处理后的Optional，若无值，返回empty()
+    * flatMap(Function mapper)同上，但Function处理的返回值需要是Optional类型
