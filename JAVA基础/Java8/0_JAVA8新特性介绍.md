@@ -10,7 +10,7 @@ JAVA8LTS发布于2014年3月
 
 3. Lambda表达式之方法引用与构造器引用【配合Lambda表达式使用】
 
-4. Stream API【详见3_StreamAPI】
+4. Stream API以及Optional类【详见3_StreamAPI】
 
 5. 接口中的默认方法和静态方法
     * 接口方法可用default修饰，然后写上默认方法体
@@ -23,3 +23,6 @@ JAVA8LTS发布于2014年3月
 7. 其它特性
     * 支持可重复注解及可用于类型的注解
         * 重复注解需要有个注解容器
+        
+    *Nashorn引擎替代性能低下的Rhino，允许在JVM上运行JS应用
+        * 在java的bin目录中jjs.exe可执行js脚本
