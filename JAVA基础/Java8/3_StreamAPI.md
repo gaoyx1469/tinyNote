@@ -14,18 +14,18 @@ java.util.stream.*
     * 无限流-迭代：Stream类提供的iterator方法，提供种子和操作，返回无限流
     * 无限流-生成：Stream类提供的generate方法，提供操作，返回无限流
 3. 中间操作
-    * 筛选和切片
+    * 筛选和切片 StreamFilter
         * filter 接收断言型Lambda表达式，排除掉流中某些元素
         * limit  截断流，使元素数量不超过某个值
         * skip   截断流，跳过前n个元素
         * distinct 筛选去重，通过元素的hashcode和equals去重
-    * 映射
+    * 映射    StreamMap
         * map 接收函数型Lambda表达式，对每个元素进行函数操作
         * flatMap 接收函数型Lambda表达式，对每个元素进行函数操作，当函数操作返回的是流的时候，将返回的流拼接成一个流
-    * 排序
+    * 排序    StreamSort
         * sorted 自然排序或接收比较器排序，比较器可使用Lambda表达式
 4.  终止操作
-    * 查找与匹配
+    * 查找与匹配 StreamMatch
         * allMatch 检查是否匹配所有元素，传入断定型Lambda表达式，返回boolean类型
         * anyMatch 
         * noneMatch 
@@ -34,11 +34,11 @@ java.util.stream.*
         * count 返回Long类型
         * max   传入比较器，可使用Lambda表达式，返回Optional对象
         * min   传入比较器，可使用Lambda表达式，返回Optional对象
-    * 归约
+    * 归约    StreamReduce
         * reduce(BinaryOperation bo)/reduce(T identity,BinaryOperation bo)将流中元素反复结合起来，得到一个值  
             解释：传入identity作为二元运算的第一个值，流中元素依次作为第二个值，结果再次作为第一个值，最终得到结果。  
             与map方法结合形成map-reduce模式
-    * 收集
+    * 收集    StreamCollection
         * collection 将流转换为其他格式，接收一个收集器Collector接口，JDK提供了Collectors工具类有很多静态方法如toList等
             * 可以筛选
             * 可以分组

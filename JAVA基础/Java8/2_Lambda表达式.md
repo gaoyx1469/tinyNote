@@ -25,3 +25,6 @@
     供给型接口Supplier<T>    无参，返回类型T
     函数型接口Function<T,R>  参数类型T，返回类型R
     断定型接口Predicate<T>   参数类型T，返回类型boolean
+ 
+4. 示例
+    HowToUseLambda
