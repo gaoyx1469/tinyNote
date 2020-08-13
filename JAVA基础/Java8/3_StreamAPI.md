@@ -43,6 +43,7 @@ java.util.stream.*
             * 可以筛选
             * 可以分组
             * 可以分区
+    * 内部迭代  foreach
      
 5. 并行流和串行流  
     底层是fork/join模式  
