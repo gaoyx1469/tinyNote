@@ -1,5 +1,3 @@
 #JAVA11
 
 JAVA11LTS发布于2018年9月
-
-1、Lambda表达式
