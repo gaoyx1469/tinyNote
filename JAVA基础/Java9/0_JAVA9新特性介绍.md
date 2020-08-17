@@ -27,7 +27,7 @@ JAVA9发布于2017年9月
     * dropWhile 跟上个相反，从前往后遍历，不要满足条件的，知道遇到不满足条件的，不管后面满不满足，全都取
     * ofNullable Stream原来的of方法的参数不可以只有一个null，多个值时允许有null值（可以多个都是null），而ofNullable接口允许参数为一个null，其不算一个元素，且打印也不会输出
     * iterate重载  新提供了重载方法，增加了一个断言接口入参，使用条件可以使无限流变为有限流
-11. 新HTTP客户端API
+11. 新HTTP客户端API【在JAVA11中进一步升级，详见JAVA11】
 12. Deprecated相关API
 13. javadoc的H5支持
 14. js引擎升级Nashorn（JDK11又干掉了）
