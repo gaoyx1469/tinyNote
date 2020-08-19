@@ -15,7 +15,7 @@ JAVA11LTS发布于2018年9月
     var类型上可以加注解
 4. 全新的HTTP客户端API，对JAVA9再升级【详见1_HTTP客户端API】
 5. 简化编译运行，cmd中直接java+java源文件，不需要先javac了【要求：执行java文件中第一个类，其中必须有主方法，引用的类必须是本文件中存在的，不能引用其它文件的类】
-6. 废除了Nashorn引擎，JAVA8出现，JAVA9增强，JAVA11废除
+6. 废除了Nashorn引擎，JAVA8出现，JAVA9增强，JAVA11废除，建议用Graal
 7. ZGC【并发的、基于region、压缩型的垃圾回收器】
     * GC暂停时间不超10ms
     * 能处理更大的堆（几个T）
@@ -23,3 +23,7 @@ JAVA11LTS发布于2018年9月
     * 支持64位系统，不支持32位系统
     * 可扩展的实现机制
 8. 其它特性
+    * JFR Flight Recorder
+    * Epsilon GC
+    * 支持unicode10
+    * TLS1.3
