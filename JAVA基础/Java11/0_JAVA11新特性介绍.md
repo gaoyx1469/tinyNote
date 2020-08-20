@@ -8,7 +8,7 @@ JAVA11LTS发布于2018年9月
     * stripTrailing     去除尾部空白
     * stripLeading      去除首部空白
     * repeat(count)     原字符串重复count次，生成新字符串
-    * lines     获取字符串行数【换行符个数+1？】
+    * lines     按行获取字符串流
 2. Optional继续增强，新增几个方法
     * isEmpty   与isPresent正好相反
 3. 局部变量类型推断升级  
