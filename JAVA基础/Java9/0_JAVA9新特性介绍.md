@@ -32,3 +32,4 @@ JAVA9发布于2017年9月
 13. javadoc的H5支持
 14. js引擎升级Nashorn（JDK11又干掉了）
 15. java动态编译器
+16. 弃用Serial+CMS和ParNew+Serial Old两种垃圾回收组合
