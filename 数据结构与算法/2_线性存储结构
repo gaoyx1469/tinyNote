@@ -31,6 +31,10 @@
 
     约瑟夫问题【丢手帕问题】
         环形链表实现丢手帕问题
+        JosephusProblemTest
     简单计算器
+        SimpleCalculator
     前缀中缀后缀表达式的转换
+        中缀转后缀CalculatorUtils.getPostExpressionList
     逆波兰计算器
+        PostfixExpressionCalculator
