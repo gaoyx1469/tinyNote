@@ -30,11 +30,14 @@
    在其中定义了默认的日志输出级别等信息，子logger对象使用父logger对象的默认的日志输出级别等信息  
    使用setUseParentHandlers(false)可以使当前logger对象与其父logger对象的配置脱钩  
    示例：  
-    top.trial.logging.JUCLogLevel演示不使用父logger的配置，改用自定义配置  
-    top.trial.logging.JUCLoggerMsg演示父子关系
+    top.trial.logging.JULLogLevel演示不使用父logger的配置，改用自定义配置  
+    top.trial.logging.JULLoggerMsg演示父子关系
 ###配置文件
    src/main/resources/logging.properties复制的jdk默认配置，源文件位置在conf下  
    若要使用自己的配置文件，需要自己调用LogManager.getLogManager().readConfiguration(配置文件输入流)
    若要修改Formatters，指定其属性format的值即可  
-   若要修改日志输出Handler的追加属性，指定其属性append为true即可
+   若要修改日志输出Handler的追加属性，指定其属性append为true即可  
+   示例：
+   top.trial.logging.JULLogConfig
+   src/main/resources/logging.properties
     
