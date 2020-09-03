@@ -5,16 +5,13 @@ Simple Logging Facade For Java java简单日志门面
 优化了JCL扩展性不强的问题，可实现日志框架的绑定和桥接
 
 ###常用API
-
+LoggerFactory 日志记录器工厂  
+Logger  日志记录器
 
 ###快速入门
    首先导入依赖，包括slf4j的api和内置的简单实现
 ```
-<dependency>
-    <groupId>org.slf4j</groupId>
-    <artifactId>slf4j-api</artifactId>
-    <version>1.7.25</version>
-</dependency>
+<!--slf4j-simple已经依赖slf4j-api-->
 <dependency>
     <groupId>org.slf4j</groupId>
     <artifactId>slf4j-simple</artifactId>
@@ -32,3 +29,88 @@ INFO
 DEBUG  
 TRACE  
 
+###集成其它日志框架
+#####集成内置简单实现
+```
+<!--slf4j-simple已经依赖slf4j-api-->
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-simple</artifactId>
+    <version>1.7.30</version>
+</dependency>
+```
+#####集成logback
+```
+<!--logback-classic已经依赖slf4j-api-->
+<dependency>
+    <groupId>ch.qos.logback</groupId>
+    <artifactId>logback-classic</artifactId>
+    <version>1.2.3</version>
+</dependency>
+```
+#####集成JUL
+```
+<!--slf4j-jdk14已经依赖slf4j-api-->
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-jdk14</artifactId>
+    <version>1.5.6</version>
+</dependency>
+```
+#####集成log4j
+```
+<!--slf4j-log4j12已经依赖slf4j-api和log4j-->
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-log4j12</artifactId>
+    <version>1.7.25</version>
+</dependency>
+```
+#####集成JCL
+```
+<!--slf4j-jcl已经依赖slf4j-api和jcl-->
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-jcl</artifactId>
+    <version>1.7.25</version>
+</dependency>
+```
+
+#####被log4j2集成
+```
+<!--log4j-slf4j-impl已经依赖slf4j-api和log4j-api和log4j-core-->
+<dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-slf4j-impl</artifactId>
+    <version>2.13.3</version>
+</dependency>
+```
+
+###老代码处理--桥接
+对于已经使用了旧的日志框架的项目，想要使用slf4j，但不想修改代码，则使用桥接器即可
+注意，对同一个日志框架来说，桥接器和集成不能同时使用，因为集成是调用slf4j的API，实际日志实现是对应框架；
+而桥接器是调用老的框架API，实际日志实现是委托log4j
+#####桥接器之log4j桥接
+```
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>log4j-over-slf4j</artifactId>
+    <version>1.7.25</version>
+</dependency>
+```
+#####桥接器之JCL桥接
+```
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>jcl-over-slf4j</artifactId>
+    <version>1.7.25</version>
+</dependency>
+```
+#####桥接器之JUL桥接
+```
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>jul-to-slf4j</artifactId>
+    <version>1.7.25</version>
+</dependency>
+```
