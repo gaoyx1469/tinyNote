@@ -30,9 +30,9 @@
         * yield 静态方法，让当前线程让出CPU使用权，开始抢CPU执行权
         * setDaemon 将调用者置为当前线程的守护线程
     * Object
-        * wait 当前线程【不是调用该方法的线程对象，而是语句所在的线程】等待
-        * notify
-        * notifyAll
+        * wait 当前线程【不是调用该方法的线程对象，而是语句所在的线程】等待，同时释放锁，详见【3_wait&notify】
+        * notify 详见【3_wait&notify】
+        * notifyAll 详见【3_wait&notify】
     * LockSupport
         * park  暂停当前线程，可被打断，当打断标记置为true时，此方法无效
 
