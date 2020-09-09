@@ -23,6 +23,7 @@
         * join  实际上调用了Object类的wait方法
             【在A线程中调用了B线程的join()方法时，表示只有当B线程执行完毕时，A线程才能继续执行。】
             【join传入毫秒数，则是最多等待传入毫秒数，之后A线程就可以执行了】
+            【当前线程调用t.join方法，则当前线程会在t线程对象的monitor上等待】
         * interrupt     打断线程，若要打断的线程正处于阻塞sleep、wait、join，会抛异常且打断标记为false，否则，设置打断标记为true
         * isInterrupted 判断线程是否被打断，不清除打断标记
         * interrupted   静态方法，判断当前线程是否被打断，并清除打断标记【置为FALSE】

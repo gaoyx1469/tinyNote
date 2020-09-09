@@ -13,8 +13,3 @@
         GuardedObjectPlusTest
 6. 异步模式--生产者消费者模式：阻塞队列，可使用LinkedList存储消息，提供入队和出队的方法，都有wait和notifyAll方法；
     入队时队列已满就wait，入队完毕notifyAll；出队时队列为空就wait，出队完毕notifyAll。
-7. park和unpark方法
-    LockSupport类中的静态方法，LockSupport.park()暂停当前线程，LockSupport.unpark(暂停的线程对象)。
-    park后线程的状态时wait状态。
-    若先执行了unpark，再执行park，将不会暂停。
-    原理：
