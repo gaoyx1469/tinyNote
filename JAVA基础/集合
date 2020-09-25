@@ -54,6 +54,7 @@ TIPS：
 		当两种方法都存在时，以比较器为主
 	
 	HashMap和Hashtable的区别
-		HashMap可以接受null作为键和值
+		HashMap可以接受null作为键和值，JDK7中扩容可能出现并发死链
 		Hashtable不可以使用null作为键和值，synchronized线程安全
-		ConcurrentHashMap在java1.5后出现，替代Hashtable，同样线程安全，但是效率更高，因为默认分成16段Hashtable，分16个锁保证线程安全。
+		ConcurrentHashMap在java1.5后出现，替代Hashtable，同样线程安全，但是效率更高，因为默认分成16段Hashtable，分16个锁保证线程安全。【1.7是这样，1.8已经改变】
+		    扩容扩到64后，链表转换成红黑树，删除结点到一定阈值，红黑树又会还原成链表
