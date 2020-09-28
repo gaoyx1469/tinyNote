@@ -63,7 +63,7 @@
 			排序性能：不稳定排序。时间复杂度O(nlogn)，空间复杂度O(1)
 			优化点：
 			适合场景：
-			代码实现：/SimpleGOD/src/top/trial/sort/HeapSort.java
+			代码实现：top.algorithm.util.sort.HeapSort
 
 		中级排序算法比较：
 			堆排序由于二叉堆父子节点不连续，因此性能稍低
@@ -75,21 +75,21 @@
 			排序性能：时间复杂度O(n+m)，空间复杂度O(n)，原始版为不稳定排序，优化版为稳定排序
 			优化点：新数组构建长度选择；稳定性实现
 			适合场景：适用于一定范围内的整数排序
-			代码实现：/SimpleGOD/src/top/trial/sort/CountSort.java
+			代码实现：top.algorithm.util.sort.CountSort
 
 		桶排序：
 			算法描述：类比计数排序，桶排序构建与原始数组长度一样数量的桶，除最后一个桶只包含数列最大值，前面各桶按比例确定区间。遍历原始数组放到桶中，桶内元素分别排序，遍历桶即可
 			排序性能：时间复杂度O(n+m+n(logn-logm))，空间复杂度O(m+n)，当m与n相同，最佳时间复杂度和空间复杂度都是O(n)，最差时间复杂度O(nlogn)
 			优化点：
 			适合场景：
-			代码实现：/SimpleGOD/src/top/trial/sort/BucketSort.java
+			代码实现：top.algorithm.util.sort.BucketSort
 
 		基数排序：
 			算法描述：把字符串或数字按位拆分，每一位进行一次计数排序，即为基数排序。
 			排序性能：
 			优化点：
 			适合场景：适用于电话号码后和单词排序等
-			代码实现：/SimpleGOD/src/top/trial/sort/RadixSort.java
+			代码实现：top.algorithm.util.sort.RadixSort
 
 		高级排序算法比较：
 
