@@ -1,0 +1,11 @@
+项目拆分实战
+背景：
+    simplegodplus项目作为学习实践的demo项目，实践各种框架与类库，最终形成大杂烩，不利于代码阅读和解耦；
+    因此对项目按所涉及框架进行拆分，形成数个框架集合的演示demo
+
+实现：
+    新建module，分为base，web，mybatis，spring，springmvc，springsecurity等
+
+    拆分pom文件，对应module文件引入相关依赖
+
+    关联module可依赖引入，但不可互相依赖
