@@ -15,7 +15,16 @@ IDEA2020.1
             <artifactId>spring-boot-starter-web</artifactId>
             <version>2.3.4.RELEASE</version>
         </dependency>
-    </dependencies>
+    </dependencies>  
+        
+如果是一个项目而不是一个module，可以配置parent父项目
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.4.RELEASE</version>
+    </parent>
+
 2、创建主程序
     创建@SpringBootApplication修饰的主程序类，main方法中调用SpringApplication.run()实现启动
 3、编写相关Controller、Service
