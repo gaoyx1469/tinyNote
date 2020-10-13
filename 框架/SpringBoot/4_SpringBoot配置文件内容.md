@@ -4,6 +4,7 @@
 可以是以下两者之一，名称是固定的，若都存在，以properties为主
 application.properties
 application.yml
+具体能配置什么内容，可以参考SpringBoot官方文档附录部分。
 
 #####YAML语法
 1、基本使用 key:空格value表示基本键值对
