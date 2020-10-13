@@ -26,7 +26,7 @@
 		}
 		
 		懒汉式：
-			在首次用的时候才产生对象
+			在首次用的时候才产生对象【可再升级为double check方式】
 		public class Demo {
 			private Demo(){}
 			
