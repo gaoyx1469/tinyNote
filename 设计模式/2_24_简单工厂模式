@@ -19,3 +19,6 @@
 				return null;
 			}
 		}
+
+	示例：
+	    java-base/src/main/java/top/trial/designPattern/simpleFactory
