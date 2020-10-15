@@ -1,7 +1,5 @@
 #Web开发基础
 
-
-
 ###1、SpringBoot对静态资源的映射规则
 #####1、一般静态资源
 规则写在SpringBoot的SpringMVC WEB模块的配置类：WebMvcAutoConfiguration中的addResourceHandlers方法中
@@ -37,4 +35,28 @@ html中导入名称空间，就会有提示：
     java-springboot/src/main/resources/templates/base/thymeleafTest.html
     top.trial.springboot.controller.ThymeleafTestController
 Thymeleaf语法规则参考官方文档
-    
+
+###3、MVC配置
+
+#####SpringBoot对MVC做了哪些默认配置，怎样扩展和定制MVC配置
+默认配置了两个视图解析器ViewResolver：
+    ContentNegotiatingViewResolver：组合所有视图解析器。因此自定义视图解析器只要实现ViewResolver接口，就能添加进视图解析器集合
+默认配置了静态首页index.html
+默认配置了icon  favicon.ico
+默认配置了静态文件夹路径和Webjars路径
+自动注册了Converter、GenericConverter、Formatter，用来自动注入参数值
+    Converter是转换器，用来类型转换，如把字符串转换成对象
+    Formatter是格式化器，用来格式化数据
+    自定义转换器和格式化器，同样放到容器中就能用
+支持HttpMessageConverters消息转换器，
+自动注册了MessageCodesResolver定义错误代码生成规则
+自动使用了ConfigurableWebBindingInitializer
+
+要【扩展】配置，比如原SpringMVC中XML配置文件的mvc:view-controller/mvc:interceptors等mvc标签
+    需要定义一个配置类，@Configuration修饰，类型必须是WebMvcConfigurerAdapter，且不能有@EnableWebMvc注解修饰
+    WebMvcConfigurerAdapter是抽象类，其所有方法都默认空实现，自己配置时用到哪个重写哪个
+    @EnableWebMvc注解会将自动配置的所有MVC配置全部失效，由开发者接管
+    注意：WebMvcConfigurerAdapter已废弃，SpringBoot新版本的方式：
+        Spring 5.0后，WebMvcConfigurerAdapter被废弃，取代的方法有两种：
+        1、implements WebMvcConfigurer（官方推荐）
+        2、extends WebMvcConfigurationSupport
