@@ -7,8 +7,8 @@
 	缺点：
 		在实际使用过程中，违背了 开放-关闭原则，增加实例类型需要修改工厂类。因此用处不大，建议使用工厂方法模式
 	
-	实现：
-		创建一个普通类，类中有一个方法，通过不同入参，return不通对象
+	实现【三种】：
+		***创建一个普通类，类中有一个方法，通过不同入参，return不通对象
 		
 		public fatherClass create(String type){
 			if("+".equals(type)) {
@@ -19,6 +19,9 @@
 				return null;
 			}
 		}
+
+		***同样，也可以在工厂类中添加多个方法，让每个方法返回一种子类对象。
+		***同样，也可以把方法修改为静态的，则不需要实例化工厂类的对象
 
 	示例：
 	    java-base/src/main/java/top/trial/designPattern/simpleFactory
