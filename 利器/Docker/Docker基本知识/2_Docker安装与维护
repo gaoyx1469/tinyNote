@@ -1,0 +1,36 @@
+
+Windows安装：
+	https://docs.docker.com/docker-for-windows/install/
+	下载exe文件并安装
+	
+	docker --version  	查看版本信息
+	docker info			查看更多信息
+	
+	通过运行简单的Docker镜像hello-world来测试安装是否有效 ：docker run hello-world
+	列出hello-world下载到您的计算机的图像：docker image ls
+	列出hello-world在显示其消息后退出的容器（由图像生成）。如果它仍在运行，将不需要--all选项：docker container ls --all
+
+    Docker在Windows上启动时可能会出现如下报错：
+        error during connect: Get http://%2F%2F.%2Fpipe%2Fdocker_engine/v1.39/containers/json:
+        open //./pipe/docker_engine: The system cannot find the file specified. In the default
+        daemon configuration on Windows, the docker client must be run elevated to connect.
+        This error may also indicate that the docker daemon is not running.
+    解决方案：
+        运行Docker Desktop可以解决，当Docker Desktop运行异常，尝试：
+        进入Docker目录，运行如下命令即可：DockerCli.exe -SwitchDaemon
+
+Linux虚拟机安装：
+    1、检查内核版本，需要大于3.10
+        使用uname -r查看版本
+        使用yum update更新版本
+    2、安装Docker
+        使用yum install docker安装
+        中途有确认环节，输入y
+    3、启动Docker
+        以CentOS7为例：systemctl start docker
+        使用docker -v 查看版本号
+        使用docker info 查看更多信息
+    4、设置Docker开机自启动
+        以CentOS7为例：systemctl enable docker
+    5、停止Docker
+        以CentOS7为例：systemctl stop docker

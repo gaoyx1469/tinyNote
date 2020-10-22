@@ -1,0 +1,97 @@
+安装完成后，查看是否正常工作
+	docker info
+
+运行一个容器
+	docker run -i -t ubuntu /bin/bash	【-i：保证STDIN开启|-t：为容器分配伪tty终端|ubuntu：基于ubuntu镜像创建容器|/bin/bash：告诉容器执行此命令】
+	
+在容器中执行操作
+	hostname
+	ps -aux
+	apt-get update && apt-get install vim
+
+退出容器，容器自动停止运行
+	exit
+
+查看当前容器列表
+	docker ps -a	【-a：列出所有容器|-l：最后一个运行的容器，无论此时运行还是停止】
+	docker ps -n X	【-n：列出最后的X个容器】
+	
+指定名字运行一个容器
+	docker run --name xxx_xxx_xxx -i -t ubuntu /bin/bash
+	
+删除指定名称的容器
+	docker rm xxx_xxx_xxx
+	
+删除全部的容器
+	docker rm 'docker ps -a -q'
+	
+停止容器
+	docker stop xxx_xxx_xxx
+
+重启停止的容器
+	docker restart xxx_xxx_xxx 或 docker start xxx_xxx_xxx
+	
+附着到容器上(运行原命令)
+	docker attach xxx_xxx_xxx
+	
+创建守护式容器
+	docker run --name xxx_xxx_xxx -d ubuntu /bin/sh -c "while true; do echo hello world;sleep 1;done" 【-d：将容器以分离的方式放到后台运行|-p xx:xx：运行时公开哪些端口，冒号前为宿主机端口省略则自动分配，冒号后为容器端口】
+	
+查看容器日志
+	docker logs -f xxx_xxx_xxx	【-f：监控日志，可省略，就只会输出当前最后几条日志，ctr+c退出监控|-ft：监控日志并加时间戳】
+	
+查看容器内部进程
+	docker top xxx_xxx_xxx
+	
+查看容器统计信息
+	docker stats xxx_xxx_xxx	【后面可附加多个容器名】
+	
+在容器内部额外运行进程
+	docker exec -d xxx_xxx_xxx 命令	【运行后台进程】
+	docker exec -t -i xxx_xxx_xxx 命令 【运行前台交互进程】
+
+自动重启容器
+	docker run --restart=always --name -d ubuntu /bin/sh -c "while true; do echo hello world;sleep 1;done"			【总是自动重启】
+	docker run --restart=on-failure:5 --name -d ubuntu /bin/sh -c "while true; do echo hello world;sleep 1;done"	【退出代码不是0时重启，最多重启5次】
+
+获取更多容器信息
+	docker inspect xxx_xxx_xxx
+	docker inspect --format='{{ .State.Running }}' xxx_xxx_xxx  【--format:选择输出信息】
+	
+列出所有镜像
+	docker images
+	
+拉取镜像
+	docker pull
+	如：docker pull ubuntu:12.04	【12.04是镜像的标签，区分不同的版本】
+
+运行指定标签的镜像启动一个容器
+	docker run -t -i --name xxx_xxx_xxx ubuntu:12.04 /bin/bash
+	
+查找Docker Hub上的公共可用镜像
+	docker search xxx_xxx_xxx
+	
+登录到Docker Hub
+	docker login
+
+使用commit命令创建镜像
+	docker commit -m"xxxxxxx" -a"xxxx" 容器ID 用户名/仓库名:标签	【-m：提交信息，可省略|-a：作者信息，可省略|标签名也可省略，默认latest】
+
+使用build命令创建镜像
+	进入Dockerfile所在目录
+	docker build --no-cache -t="用户名/仓库名:标签" .	【--no-cache：不使用缓存，可省略】
+	
+查看镜像构建历史
+	docker history imageID
+	
+查看Docker端口映射情况
+	docker port 容器ID或容器名 容器端口号
+  
+将镜像推送到Docker Hub
+	docker push 用户名/仓库名:标签
+	
+删除镜像
+	docker rmi 用户名/仓库名:标签	【空格隔开可删除多个】	
+	
+删除全部镜像
+	docker rmi 'docker images -a -q'
