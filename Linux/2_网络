@@ -16,3 +16,8 @@
 			虚拟机IP地址和网关是查看物理机ipconfig，得到的为虚拟机分配的网络的IPv4地址和网关，取其同网段IP和相同的网关即可。
 		3.重启网络
 			service network restart
+
+	查看防火墙状态
+	    service firewalld status
+	关闭防火墙
+	    service firewalld stop
