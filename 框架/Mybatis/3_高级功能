@@ -37,6 +37,8 @@
             二级缓存存放的是数据而不是对象，查询时往对象中填充【因此，实体类需要实现序列化接口】
     注解开发【替代映射文件】
         单表CRUD
+            当主键自增，插入后如何通过注解方式将主键再映射回JavaBean？
+                【使用@Options(useGeneratedKeys = true ,ketProperty="JavaBean中主键字段名")】
             示例
             GameEntityAnnotationDao
             GameEntityAnnotationDaoTest
