@@ -1,10 +1,12 @@
-#错误处理机制
+# 错误处理机制
 
-##默认效果
+## 默认效果
+
 浏览器访问：返回默认错误页面，包括时间和状态码
 客户端访问，返回JSON数据，包括时间戳和状态码，错误信息、提示消息、访问路径
 
-###原理
+### 原理
+
 参照ErrorMvcAutoConfiguration类，其中加载错误处理的默认配置
 配置类中加载了以下几个bean
     DefaultErrorAttributes
@@ -20,14 +22,15 @@
     而ErrorViewResolver列表包含DefaultErrorViewResolver这种，其类中resolve方法解析错误并返回ModelAndView。
     另：errorHtml和error方法中也调用getErrorAttributes方法返回model，该方法实际调用DefaultErrorAttributes的getErrorAttributes方法。
     具体错误返回里能有哪些错误信息，是该方法确定的。
-    
-    
-###如何自定义错误页面
+
+### 如何自定义错误页面
+
 有模板引擎的情况：自己写一个错误码.html的文件，放到模板引擎文件夹下的error文件夹下就可以生效，同时，可以以4xx.html作为以4开头错误码的默认匹配项。【精确匹配优先】
 没有模板引擎的情况，自己写一个错误码.html的文件，放到静态文件夹下的error文件夹下就可以生效。 
 若以上都没有放置错误页面，则访问SpringBoot默认的空白页面
 
-###如何自定义json数据
+### 如何自定义json数据
+
 方案一：自定义一个异常处理器，使用@ControllerAdvice注解修饰，处理器中定义异常处理方法，使用@ExceptionHandler(Exception.class)注解修饰；
     方法返回一个Map集合，里面可以自定义要返回的数据。最后在方法上增加@ResponseBody注解，让map以json数据形式返回。
     这样，出现错误后都是以json数据形式返回，不再区分请求是浏览器的还是客户端的。
