@@ -1,12 +1,13 @@
-#QuickStart
+# QuickStart
 
-###环境准备
+### 环境准备
+
 JDK14
 Maven3.6.3
 IDEA2020.1
 
-    
-###QuickStart
+### QuickStart
+
 1、导入SpringBoot依赖
 
     <dependencies>
@@ -16,7 +17,7 @@ IDEA2020.1
             <version>2.3.4.RELEASE</version>
         </dependency>
     </dependencies>  
-        
+
 如果是一个项目而不是一个module，可以配置parent父项目
 
     <parent>

@@ -1,7 +1,9 @@
-#Web开发基础
+# Web开发基础
 
-###1、SpringBoot对静态资源的映射规则
-#####1、一般静态资源
+### 1、SpringBoot对静态资源的映射规则
+
+##### 1、一般静态资源
+
 规则写在SpringBoot的SpringMVC WEB模块的配置类：WebMvcAutoConfiguration中的addResourceHandlers方法中
     外部静态文件如jQuery：
         /webjars/**  --->   classpath:/META-INF/resources/webjars/
@@ -12,18 +14,25 @@
         /**   --->  { "classpath:/META-INF/resources/", "classpath:/resources/", "classpath:/static/", "classpath:/public/" }
         其余所有请求，去上述数组中的路径还有当前项目根路径下寻找资源。
         上述都属于静态资源文件夹
-#####2、欢迎页映射规则
+
+##### 2、欢迎页映射规则
+
 规则写在SpringBoot的SpringMVC WEB模块的配置类：WebMvcAutoConfiguration中的welcomePageHandlerMapping方法中
     映射静态文件夹下的所有index.html页面
-#####3、项目图标映射
+
+##### 3、项目图标映射
+
 规则
     映射静态文件夹下的所有favicon.ico
 
-###2、模板引擎
+### 2、模板引擎
+
 常见有JSP、Velocity、Freemarker、Thymeleaf【SpringBoot推荐】
 思想：将包含动态表达式的页面模板和数据组装起来，向前端返回
 Thymeleaf特点是语法简单功能强大。
-#####SpringBoot中使用Thymeleaf的方式
+
+##### SpringBoot中使用Thymeleaf的方式
+
 pom文件导入spring-boot-starter-thymeleaf依赖
 SpringBoot中thymeleaf默认规则见autoconfigure包中的ThymeleafProperties：
     private static final Charset DEFAULT_ENCODING = StandardCharsets.UTF_8;
@@ -36,9 +45,10 @@ html中导入名称空间，就会有提示：
     top.trial.springboot.controller.ThymeleafTestController
 Thymeleaf语法规则参考官方文档
 
-###3、MVC配置
+### 3、MVC配置
 
-#####SpringBoot对MVC做了哪些默认配置，怎样扩展和定制MVC配置
+##### SpringBoot对MVC做了哪些默认配置，怎样扩展和定制MVC配置
+
 默认配置了两个视图解析器ViewResolver：
     ContentNegotiatingViewResolver：组合所有视图解析器。因此自定义视图解析器只要实现ViewResolver接口，就能添加进视图解析器集合
 默认配置了静态首页index.html
