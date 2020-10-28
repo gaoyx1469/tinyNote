@@ -1,0 +1,8 @@
+Linux中安装前端依赖【使用淘宝的仓库】
+    npm install --unsafe-perm --registry=https://registry.npm.taobao.org
+
+Linux中为前端代码打包【prod生产环境】，在当前目录生成dist目录
+    npm run build:prod
+
+Linux中在后台执行jar包
+    nohup java -jar xxx.jar &
