@@ -1,8 +1,0 @@
-配置文件读取
-	JAVA应用配置文件读取
-		WEB环境下利用ServletContext读取
-			示例：/SimpleGOD/src/top/trial/servlet/GetPropertiesServlet.java
-		利用ResourceBundle读取，仅支持properties文件，仅能读取classespath下的文件，可用在非WEB环境下
-			示例：/SimpleGOD/src/top/util/properties/PropertiesUtil.java
-		###利用类加载器读取配置文件，可用在非WEB环境下，可以读取classespath下的任何文件
-			示例：/SimpleGOD/src/top/util/properties/PropertiesUtil.java

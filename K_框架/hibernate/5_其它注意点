@@ -1,0 +1,25 @@
+1、hibernate与java的类型对应关系【POJO配置文件xml中id及property中的type】
+	hibernate内置了一些type，可以实现类型对应
+	主要有：
+		string	:	java.lang.String-->VARCHAR/VARCHAR2
+		date	:	java.util.Date-->DATE
+		big_decimal	:	java.math.BigDecimal-->NUMBER
+		big_integer	:	java.math.BigInteger-->NUMBER
+2、hibernate主键生成器
+	increment：自增，主键类型必须是数字，主键的生成是hibernate内部生成的【先select，然后最大主键+1】，效率较低，程序中手动设置无效，hibernate会忽视
+	identity：自增，要求表要支持自动增长，主键的生成是数据库生成的，效率比上个高
+	assigned：由程序产生，主键的生成是在程序中手动设置
+	uuid：uuid，主键的生成是hibernate内部生成的uuid，主键类型需要是varchar
+	sequence：oracle中的序列，主键的生成是由序列产生
+3、对象的状态
+	临时状态对象
+	持久化状态对象（托管状态对象）
+		【session使用get方法获得对象后，不需要再调用update方法，因为已经是持久化的对象了】
+		【第一次get方法获得对象后，hibernate得到其快照，最终提交事务时与快照比较，没有修改的话，不会发出update语句】
+		【session的save方法，当increment，只发出查询最大主键值的语句；当identity，会发出insert语句，待commit时执行】
+	脱管状态对象
+		【session的clear方法也可以将session中的所有持久化状态对象变为脱管状态】
+		【session的evict方法也可以将session中的某个持久化状态对象变为脱管状态】
+4、hbm2ddl.auto
+	根据持久化类和映射文件生成表，码值可以是 validate create-drop create update none
+	使用update，可能在建表时有外键的情况下依然按照bibernate规则创建外键，设置为none则可解决

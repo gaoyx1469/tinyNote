@@ -1,0 +1,53 @@
+优化
+	session的产生
+		目前在用的SessionFactory.openSession会有问题，只能操作最简单的情况
+			openSession做的事情：每次都new了一个SessionImpl对象
+		hibernate3开始可以使用sessionFactory.getCurrentSession获取当前线程ThreadLocal里放的session
+			需要hibernate.cfg.xml中配置current_session_context_class参数为thread
+			ThreadLocal里放的session是在map中，以sessionFactory对象为key，保证线程中session唯一
+			此方案拿到的线程与事务绑定，即必须开启事务，事务提交后自动close此session，不再需要手动close
+			示例见/SimpleGOD/src/top/trial/hibernate/TestGetCurrentSession.java
+		
+	数据缓存
+		缓存，将持久化数据临时加载到内存中，便于快速响应为不需要经过存储设备IO，需要注意的问题：
+			缓存生命周期
+			持久化数据如何加载到缓存
+			缓存数据如何持久化
+			如何取出缓存数据
+			如何添加修改缓存数据
+			如何清空缓存数据
+		一级缓存
+			存放在session中，其生命周期就是session的生命周期
+			存放的都是私有数据
+			使用前提：使用sessionFactory.getCurrentSession获取session
+			示例见/SimpleGOD/src/top/trial/hibernate/cache/SessionCacheTest.java		
+		二级缓存
+			存放在sessionFactory中，其生命周期就是sessionFactory的生命周期
+			存放的都是不常变更的公有数据，例如页面权限控制信息
+			hibernate借助第三方组件实现二级缓存，本身没有提供二级缓存解决方案；第三方组件有：ehcache、oscache
+			使用前提：1、配置hibernate.cfg.xml/2、配置映射文件使其可以进入二级缓存
+			示例见/SimpleGOD/src/top/trial/hibernate/cache/SecondLevelCacheTest.java
+			二级缓存提供了大数据量处理技巧，将少部分数据放入内存，其余数据放入磁盘，以防止内存溢出。方法为配置根目录下的ehcache.xml
+		查询缓存
+			在二级缓存的基础上使用
+			只能使用在session.createQuery方法中使用
+			示例见/SimpleGOD/src/top/trial/hibernate/cache/QueryCacheQuery.java
+			
+	懒加载【何时发出SQL语句】
+		1、使用session.load方法替代session.get，得到代理对象，该对象将在使用到除主键外的属性的时候才发出sql语句进行实际查询；
+		2、一对多中，配置文件里的Set部分，增加属性lazy=""，值可以是
+			false	不使用懒加载，查“一”时直接发出SQL语句查询到“多”	默认这个
+			true	使用懒加载，在使用到“一”中的“多”的部分的引用信息是才发出SQL语句
+			extra	在进行count、sum、min、max计算时
+		3、多对一中，在many-to-one中增加lazy=""，值可以是
+			false
+			no-proxy
+			proxy
+			多对一不使用懒加载也只多出一条SQL，影响不大
+	抓取策略【发出何种/多少SQL语句】
+		常规情况下，一对多中，查询数据会发出n+1条查询语句，一：1条，多：n条
+		由一个对象如何高效查询关联对象，采用手段发出更少的SQL语句，这就是抓取策略
+		一对多中，配置文件里的Set部分，增加属性fetch="",值可以是
+			join		左外连接
+			select		默认
+			subselect	子查询

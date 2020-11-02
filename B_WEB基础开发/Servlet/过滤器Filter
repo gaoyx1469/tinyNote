@@ -1,0 +1,48 @@
+过滤器
+	新建过滤器类继承Filter接口，并在web.xml中配置即可
+	
+	示例：
+		/SimpleGOD/src/top/trial/servlet/filter/InnerDemoFilter.java
+		/SimpleGOD/src/top/trial/servlet/filter/OuterDemoFilter.java
+	
+	使用场景：
+		【字符编码过滤】
+			request.setCharacterEncoding("UTF-8");//POST方式适用
+			response.setContentType("text/html;charset=UTF-8");
+		【禁止动态资源缓存】
+			response.setHeader("Expires","-1");
+			response.setHeader("Cache-Control","no-cache");
+			response.setHeader("Pragma","no-cache");
+		【控制静态资源缓存时间】
+			response.setDateHeader("Expires",1*60*60*1000);
+		【实现自动登录】
+			登录页-->登陆Servlet-->跳转主页
+				登录Servlet校验客户身份，将客户信息存入session，并根据客户是否保存来存入指定cookie，客户名BASE64编码，密码MD5加密
+				各页面根据session中是否有客户信息判断是否登陆
+				增加权限过滤器，对所有请求进行过滤，判断session中是否有客户信息，若没有，看cookie是否有客户信息，如有，将客户信息存入session
+				增加字符过滤器，对所有请求进行字符过滤
+				
+				示例：访问http://127.0.0.1:8080/SimpleGOD/JSP/autoLogin/autoMain.jsp
+		【过滤器高级配置】
+			在<dispatcher></dispatcher>中可以配置过滤器高级过滤规则
+			REQUEST	默认有，如填写其他值，则不再默认。代表过滤器过滤REQUEST请求
+			FORWARD	代表过滤器要过滤请求转发的转发操作 	<jsp:forward page=""/>以及跳转页面配置的errorPage时
+			INCLUDE 代表过滤器要过滤包含的内容，静态包含<jsp:include page=""/>有效，动态包含不会过滤	
+			ERROR	代表过滤页面报错后,web.xml中配置<error-page>时
+		【中文乱码、敏感词汇、HTML标记过滤器】
+			采用包装模式，重写HttpServletRequest的getParameter方法
+			注意：
+				request.setCharacterEncoding(encoding)之前一定不能getParameter，否则无效
+			分别进行：
+				字符转译
+				敏感词汇转译
+				特殊字符转译
+		【GZIP全站压缩】
+			暂略
+		【URL级别的权限认证】
+		
+		
+		示例：
+			中文字符过滤：
+				/SimpleGOD/WebContent/JSP/trial/input.jsp
+				/SimpleGOD/src/top/trial/servlet/filter/ChineseEncodingFilter.java

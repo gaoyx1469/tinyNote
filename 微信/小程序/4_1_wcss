@@ -1,9 +1,0 @@
-选择器目前支持
-	.class				.xxx		渲染class="xxx"的组件
-	#id					#xxx		渲染id="xxx"的组件
-	element				xxx			所有xxx组件
-	element,element		aaa,bbb		所有aaa和bbb组件
-	::after				xxx::after		在xxx组件后插入内容
-	::before			xxx::before		在xxx组件前插入内容
-	
-	使用@impoet导入外联样式表

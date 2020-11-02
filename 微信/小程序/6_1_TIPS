@@ -1,4 +1,0 @@
-1.	navigateTo方法不能跳转到tabbar页！即当一个页面被设置为tabbar页，则不能再通过navigateTo方法跳转过去。
-	"navigateTo:fail can not navigateTo a tabbar page"
-	
-2.	js打上Page自动生成默认方法很好使呀

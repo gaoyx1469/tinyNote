@@ -1,0 +1,16 @@
+1、注解  参考JAVA基础--注解  部分
+
+2、web fragment
+	jar包中使用web-fragment.xml相当于可插拔式web.xml
+	具体使用：
+		在jar包里META-INF文件夹中添加web-fragment.xml，配好映射路径。
+		
+3、ServletContext增加API，可以主动初始化Servlet以及过滤器
+
+4、新增HttpOnly cookies
+	HttpOnly表示禁掉客户端获取cookie值，只能服务器获取。（使用js拿不到cookie的值啦）
+	
+5、ServletRequest直接获取Response和ServletContext
+
+6、新文件上传
+	参考WEB基础开发--文件上传下载

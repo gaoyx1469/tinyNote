@@ -1,0 +1,42 @@
+Template系列
+	操作关系型数据库：
+		JdbcTemplate
+		HibernateTemplate
+	操作nosql数据库
+		RedisTemplate
+	操作消息队列
+		JmsTemplate
+		
+
+JdbcTemplate
+	Spring框架下的一个对象，对JDBC的简单封装，简化操作。
+	在IoC基础上，需要额外的jar包有：
+		spring的tx--事务相关
+		spring的jdbc--JdbcTemplate相关【依赖core】
+
+		maven依赖是
+		    <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>5.2.7.RELEASE</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-tx</artifactId>
+                <version>5.2.7.RELEASE</version>
+            </dependency>
+
+JdbcDaoSupport
+	Spring框架下的一个对象，对DAO的支持，自己写的DAO继承该类，则不再需要自己注入JdbcTemplate，只要在XML中注入DataSource。
+	全注解形式下，不建议使用此方式，因为无法通过注解向此类中注入JdbcTemplate对象或DataSource对象。
+
+DriverManagerDataSource
+	Spring框架下的一个内部数据源，可替代C3P0数据源
+		
+	
+示例
+	最简化入门使用版：
+		JdbcTemplateDemo.java
+	增删改操作示例版：
+		JdbcTemplateCRUDDemo.java
+	

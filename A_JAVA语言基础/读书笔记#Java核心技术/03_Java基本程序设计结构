@@ -1,0 +1,15 @@
+1/
+	Java7开始，加上前缀0b或0B就可以直接写二进制数，同时，可以为数字加上下划线，使之更易读，编译器会忽略这些下划线。
+	
+2/
+	单精度浮点数有效位数为6到7位，很难满足需求；双精度浮点数有效位数为15位。
+	Double.isNaN()可判断非数值，而不能用 ==Double.NaN，因为后一个永为false
+	
+3/	
+	整数除0会报错，非0浮点数除0会是无穷大，0.0除0会是NaN
+
+4/
+	Scanner类【5.0】不适合在控制台读取密码。可使用Console类【6.0】实现。
+	Console cons = System.console();
+	String username = cons.readLine("User name: ")；
+	char[] passwd = cons.readPassword("Password: ");

@@ -1,0 +1,50 @@
+1/
+	如果将一个类声明为 final， 只有其中的方法自动地成为 final,而不包括域。
+	
+2/
+	equals方法补充扩展：
+		使用Objects.equals方法：【JAVA7】
+			static boolean equals(Object a, Object b)
+			如果两个参数都为 null，Objects.equals(a,b) 调用将返回 true; 
+			如果其中一个参数为 null，则返回 false; 
+			否则，如果两个参数都不为 null， 则调用 a.equals(b)
+		使用Arrays.equals方法：
+			static Boolean equals(type[] a , type[] b) 5.0
+			如果两个数组长度相同， 并且在对应的位置上数据元素也均相同， 将返回 true。 
+			数组的元素类型可以是 Object、 int、 long、 short、 char、 byte、 boolean、 float 或 double 。
+
+3/
+	继承关系中equals方法
+		写一个完美的 equals 方法的建议：
+		1 ) 显式参数命名为 otherObject, 稍后需要将它转换成另一个叫做 other 的变量。
+		2 ) 检测 this 与 otherObject 是否引用同一个对象：
+			if (this = otherObject) return true;
+			这条语句只是一个优化。实际上，这是一种经常采用的形式。因为计算这个等式要比一个一个地比较类中的域所付出的代价小得多。
+		3 ) 检测 otherObject 是否为 null, 如 果 为 null, 返 回 false。这项检测是很必要的。
+			if (otherObject = null) return false;
+		4 ) 比较 this 与 otherObject 是否属于同一个类。如果 equals 的语义在每个子类中有所改变，就使用 getClass 检测：
+			if (getClass() != otherObject.getClass()) return false;
+			如果所有的子类都拥有统一的语义，就使用 instanceof 检测：
+			if (!(otherObject instanceof ClassName)) return false;
+		5 ) 将 otherObject 转换为相应的类类型变量：
+			ClassName other = (ClassName) otherObject
+		6 ) 现在开始对所有需要比较的域进行比较了。使用= 比较基本类型域，使用 equals 比较对象域。如果所有的域都匹配， 就返回 true; 否 则 返 回 false。
+			return fieldl == other.field && Objects.equa1s(fie1d2, other.field2)
+			如果在子类中重新定义 equals, 就要在其中包含调用 super.equals(other)
+
+4/
+	hashCode方法
+		使用Objects类中方法：【JAVA7】
+		static int hash(Object . .. objects)
+		返回一个散列码，由提供的所有对象的散列码组合而得到。
+		static int hashCode(Object a )
+		如果 a 为 null 返回 0， 否则返回 a.hashCode()
+		
+		基础类型封装类中在8之后都有hashCode方法
+		static int hashCode((int|1ong|short|byte|double|float|char|boolean) value) 【JAVA8】
+		
+		Arrays类在5.0后增加hashCode方法
+		static int hashCode( type[] a ) 5.0
+		计算数组 a 的散列码。组成这个数组的元素类型可以是 object, int, long, short, char, byte, boolean, float 或 double。
+	
+		

@@ -1,0 +1,29 @@
+HQL语句
+
+	使用:
+		session.createQuery(String hql)
+		createQuery方法的参数就是HQL语句
+		
+	
+	单表查询：
+		三种HQL查询方案
+			1、	from POJO类名
+				直接输出结果对象List集合
+			2、 select 属性名 from POJO类名
+				输出筛选的属性的数组List集合
+			3、 select new 全类名构造方法 from POJO类名
+				输出筛选数据填到结果对象的List集合
+			示例见：/SimpleGOD/src/top/trial/hibernate/hql/HqlSingleTestDemo.java
+	
+	一对多查询：
+		经试验，“一”的一方的POJO类不包含“多”的一方的引用，“多”的一方的POJO类包含“一”的一方的引用，这样易于写出HQL语句
+		等式连接	返回对象数组的List		from A a, B b where a.aid=b.ba.aid	ba--->映射文件中配置的many-to-one标签内容
+		内连接	返回对象数组的List		from A a inner join a.ab--->映射文件中配置的set标签内容
+		迫切内连接	inner join fetch  返回inner join fetch 前的对象的List		from A a inner join fetch a.ab
+		左外连接	返回对象数组的List		from A a left outer join a.ab
+		迫切左外连接	返回left outer join fetch 前的对象的List	from A a left outer join fetch a.ab
+		部分查询	返回对象List	select new	显示POJO类 from from A a left outer join a.ab  注意不可与fetch同时存在
+		
+	多对多查询：
+		几乎与一对多一样	
+		

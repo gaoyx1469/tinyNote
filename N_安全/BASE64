@@ -1,0 +1,21 @@
+BASE64
+	Base64编码是从二进制到字符的过程
+	
+	编码规则
+		把3个字符变成4个字符。
+		每76个字符加一个换行符。
+		最后的结束符也要处理。
+		
+	BASE64Encoder和BASE64Decoder是BASE64编码的工具类，
+		这两个类是sun公司的内部方法，并没有在java api中公开过，不属于JDK标准库范畴。
+		但在JDK中包含了该类，可以直接使用。
+		在eclipse中使用这个类可能找不到，解决方法：
+			右键项目--》Build Path --》Configure Build Path
+			选择Libraries，点击JRE System Library，选择 Access rules
+			点击Edit --》Add
+			在Resolution下拉列表框中选择Accessible，Rule Pattern 选择**
+			
+	JDK之前的base64是内部测试使用的代码，不建议生产环境使用，而且未来可能会移除，JDK1.8提供最新可以正式使用的Base64类，
+		可以用java.util.Base64类来生成和解析base64码了。
+		java.util.Base64.getEncoder().encodeToString(待编码字符串)//编码
+		java.util.Base64.getDecoder().decode(待解码字符串）//解码

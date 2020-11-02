@@ -1,0 +1,16 @@
+文件上传
+	前提：
+		-->	struts依赖包fileupload和io包需要有
+		-->	页面上form表单的method为post，enctype为multipart/form-data
+		-->	页面上input输入框type为file，name为Action动作类中的属性
+		
+	实现：
+		--> 通过struts默认拦截器实现，将文件注入到Action类中的File类型的文件【格式为页面input输入框的name属性值一致】,
+				String类型的文件名【格式为页面input输入框的name属性值后面加FileName】,
+				String类型的文件类型【格式为页面input输入框的name属性值后面加ContentType】
+		-->	使用ServletActionContext.getServletContext().getRealPath("应用内路径")获取真实存储路径
+		-->	使用io包中的FileUtils.copyFile(File srcFile,new File(真实存储路径,srcFileFileName))
+	
+	扩展：
+		-->	多文件上传，将Action动作类中的属性改为File数组和String数组就行。
+		--> 上传出问题，会转到input的result结果，建议配置一个全局input的result

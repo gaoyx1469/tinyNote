@@ -1,0 +1,45 @@
+输入校验
+	手工编写代码实现
+		对action的所有方法进行校验
+			动作类继承ActionSupport，重写ActionSupport中的validate方法，该方法会校验所有与execute方法签名相同的方法。
+			在validate方法中编写判断代码，校验失败时，需要调用addFieldError方法往系统的fieldErrors中添加校验失败信息
+			当fieldErrors中有校验失败信息，struts2会将请求转发到名为input的result，在input视图中可以使用<s:fielderror/>显示失败信息
+			使用<s:fielderror/>显示失败信息需要引入s标签:<@ taglib uri="/struts-tags" prefix="s">
+			使用<s:fielderror fieldName="属性名"></s:fielderror>展示错误信息
+		对action的指定方法进行校验
+			动作类继承ActionSupport，不去重写ActionSupport中的validate方法，而是编写一个validateXxx方法，Xxx代表Action名
+			其余与上面相同即可
+			
+	基于XML配置方式实现
+		对action的所有方法进行校验
+			动作类继承ActionSupport，编写 ActionClassName-validation.xml
+			xml模板：
+				<?xml version="1.0" encoding="UTF-8"?>
+				<!DOCTYPE validators PUBLIC
+						"-//OpenSymphony Group//XWork Validator 1.0.3//EN"
+						"http://www.opensymphony.com/xwork/xwork-validator-1.0.3.dtd">
+				<validators>
+					<field name="username">
+						<!-- 内置验证器都是定义好的，在xwork-core.jar com.opensymphony.xwork2.validator.validators包中的default.xml文件中 -->
+						<field-validator type="requiredstring"><!-- 不能为null或者""字符串，默认会去掉前后的空格 -->
+							<message>用户名不能为空</message>
+						</field-validator>
+					</field>
+				</validators>
+		对action的指定方法进行校验
+			与上面的区别是配置文件名的不同，变为ActionClassName-ActionName-validation.xml
+	
+自定义验证器
+	自定义验证器继承FieldValidatorSupport或者ValidatorSupport类
+		在public void validate(Object object)编写验证逻辑
+				不符合要求的就向fieldErrors中放消息
+	在ValidatorFactory中注册验证器：在classes路径下创建validators.xml注册：
+		<?xml version="1.0" encoding="UTF-8"?>
+		<!-- 注册自定义的验证器 -->
+		<!DOCTYPE validators PUBLIC
+		        "-//OpenSymphony Group//XWork Validator Config 1.0//EN"
+		        "http://www.opensymphony.com/xwork/xwork-validator-config-1.0.dtd">
+		<validators>
+		    <validator name="strongpassword" class="cn.itcast.validators.StrongPasswordValidator"/>
+		</validators>
+	

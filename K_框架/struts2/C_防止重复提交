@@ -1,0 +1,10 @@
+使用token标签
+	方法：
+		1.在form表单里面增加<s:token/>标签
+		2.动作类拦截器增加token
+		3.动作的结果视图result增加invalid.token进行处理
+		
+	原理：
+		表单中增加了token，同时往session中放一份
+		接收一次提交后，看是否匹配，session中的token值会删除
+		重复提交时，无法匹配，拦截器拦截并分发到invalid.token的结果视图

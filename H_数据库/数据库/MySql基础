@@ -1,0 +1,49 @@
+
+MySql5.7版本
+
+	更改root用户密码：
+		update user set authentication_string=PASSWORD("123456") where user='root';
+	重启服务即可
+	
+	若上述方法不行，可以使用如下语句
+	ALTER USER 'root'@'localhost' IDENTIFIED BY '新密码';
+	
+	若不能登陆客户端的情况下
+		在mysql的bin目录下执行
+		mysqld –shared-memory –skip-grant-tables
+		以免密登陆
+		
+		再执行mysql
+		执行指令FLUSH PRIVILEGES;  刷新权限
+		然后执行
+		ALTER USER 'root'@'localhost' IDENTIFIED BY '新密码';
+		
+		
+	Mysql基本配置：安装路径下的my.ini
+	Mysql默认最大连接数100
+	
+	MySQL数据类型
+		TINYINT		0~255
+		SMALLINT	0~65535
+		MEDIUMINT
+		INT
+		BIGINT
+		FLOAT
+		DOUBLE
+		DECIMAL
+		DATE		YYYY-MM-DD
+		TIME		HH:MM:SS
+		TEAR		YYYY
+		DATETIME	YYYY-MM-DD HH:MM:SS
+		TIMESTAMP	YYYYMMDD HHMMSS
+		CHAR		0~255定长
+		VARCHAR		0~65536变长
+		TINYBLOB	0~255
+		TINYTEXT	0~255
+		BLOB
+		TEXT
+		MEDIUMBLOB
+		MEDIUMTEXT
+		LONGBLOB
+		LONGTEXT
+	

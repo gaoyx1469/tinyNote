@@ -1,0 +1,54 @@
+1.【导入JDBC的JAR包】环境--WebSphere
+	修改ORACLE_JDBC_DRIVER_PATH为/websphere/lib
+	将jar包ojdbc6.jar上传到/websphere/lib路径下
+2.【新建端口】环境--虚拟主机
+	增加主机别名，新建端口，同时增加8080端口作为对应web服务器端口。
+3.【J2C认证】安全性--全局安全性--Java 认证和授权服务 -- J2C认证数据
+	新建J2C认证数据，需要数据库名称和密码
+4.【新建Server】服务器--新建服务器
+5.【新建DateSource步骤一】资源--JDBC--JDBC提供程序
+	为新建的服务器新建JDBC提供程序，数据库类型Oracle，提供者类型Oracle JDBC Driver Provider，实现类型连接池数据源
+	数据库类型信息填写ojdbc6.jar所在目录的绝对路径
+	确认新建的JDBC提供程序中类路径里jar包正确
+6.【新建DateSource步骤二】资源--JDBC--数据源
+	选择新建的节点和服务器，新建数据源名ebank_ds，JNDI名称ebank_ds
+	下一步选择现有的JDBC提供程序（上一步新建的）
+	输入URL和数据存储器辅助控件类名（11g那个），持久性不点
+	填写两个认证别名，完成保存。
+	点击新建的数据源，点击连接池属性可修改最大连接数
+7.【测试数据源DateSource】服务器--服务器类型--WebSphere Application Server
+	选择新建的服务器，勾选ebank_ds,点击连接测试
+	如不成功，重启节点试一试
+8.【配置线程池】服务器--服务器类型--WebSphere Application Server
+	选择新建的服务器，点击，选择线程池，点击WebContent，可调整线程池最小大小和最大大小
+	点击Web容器传输链，WCInboundDefault
+	点击TCP入站通道
+	点击线程池
+	点击TCPChannel.DCS
+	可修改最大大小和最小大小
+9.【配置JVM参数】服务器--服务器类型--WebSphere Application Server	
+	选择新建的服务器，点击，点击进程定义
+	点击Java虚拟机
+	勾选详细垃圾回收，配置初始堆大小1024，最大堆大小3072，通过JVM参数：-Xgcpolicy:gencon -Djava.net.preferIPv4Stack=true -Ddefault.client.encoding=GBK
+	-Dfile.encoding=GBK -Duser.language=zh -Duser.region=CN
+10.【配置JVM日志】服务器--服务器类型--WebSphere Application Server		
+	选择新建的服务器，点击，点击记录与跟踪
+	点击JVM日志
+	设置SystemOut.log和SystemErr.log，勾选时间并填写历史日志文件的最大数30
+11.【新建应用程序】应用程序--新建应用程序--新建企业应用程序
+	选择本地war包
+	选择快速路径
+	修改应用程序名
+	下一步选择对应集群和服务器并勾选复选框，点击应用
+	下一步填写上下文根，点击完成
+12.【同步节点】系统管理--节点
+	勾选节点，点击同步
+13.【勾选java安全性（选择操作）】安全性--全局安全性--安全配置向导
+	勾选启用应用程序安全性
+	勾选使用Java2安全性来限制应用程序访问本地资源及其下面的复选框
+	
+	
+	
+	
+
+	

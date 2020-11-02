@@ -1,0 +1,41 @@
+国际化
+	编写
+		编写properties文件，命名规则：基名_语言_国家.properties
+	使用
+		全局范围
+			在struts.xml文件中增加常量
+				<constant name='stuts.custom.i18n.resources' value='基名'></constant>
+			页面使用
+				<%@ taglib uri="/struts-tags" prefix="s"/>
+				<s:text name="properties文件中的key名">
+					<s:param>xxx</s:param><!-- 如果properties文件中有占位符 -->
+				</s>
+			动作类中使用
+				需要继承ActionSupport类，直接使用getText方法，第一个参数使用properties文件中的key名即可
+				如果properties文件中有占位符，第二个参数传入字符串数组即可
+		包范围
+			命名规则改为：package_语言_国家.properties
+			其余全部不变
+			注意：包中及其子包中的动作类会使用到该国际化配置，其他包及页面都使用不了
+		动作类范围
+			命名规则改为：ActionClassName_语言_国家.properties
+			其余全部不变
+			只有该动作类能够使用该配置文件
+		JSP页面使用
+			在页面上要使用包范围和动作类范围的国际化数据，使用<s:i18n>标签就行
+			
+			<s:i18n name="xxx">	<!-- xxx为基名 -->
+				<s:text name="yyy"/>
+			</s:i18n>
+			
+			<s:i18n name="xxx/xxx/xxx/package"> <!-- xxx/xxx/xxx/为properties文件路径 -->
+				<s:text name="yyy">
+					<s:param>zzz</s:param>	<!-- 占位符也有用 -->
+				</s:text>
+			</s:i18n>
+	
+	加载顺序
+		先找动作类范围
+		然后找本包范围、父包范围直至根包范围
+		最后找全局范围：在struts.xml中配置的那个
+		中间找到了就停止继续找

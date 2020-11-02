@@ -1,0 +1,71 @@
+触发器：
+	
+	创建触发器格式：	
+		CREATE TRIGGER 触发器名 BEFORE|AFTER 触发事件
+		ON 表名 FOR EACH ROW
+		BEGIN
+		        执行语句列表
+		END;
+		
+		ORACLE 可以在CREATE后加上  or replace
+		ORACLE 触发事件可以同时有多个，MYSQL只能有一个，未经验证。
+	查询触发器：
+		SHOW TRIGGERS;
+		或
+		SELECT * FROM INFORMATION_SCHEMA.TRIGGERS WHERE TRIGGER_NAME='触发器名';
+	删除触发器：
+		DROP TRIGGER 触发器名;
+		MYSQL中可以加上 IF EXIST;
+		
+	其它注意点：
+		NEW 和 OLD，用来表示触发器的所在表中，触发了触发器的那一行数据，来引用触发器中发生变化的记录内容，具体地：
+		　　在INSERT型触发器中，NEW用来表示将要（BEFORE）或已经（AFTER）插入的新数据；
+		　　在UPDATE型触发器中，OLD用来表示将要或已经被修改的原数据，NEW用来表示将要或已经修改为的新数据；
+		　　在DELETE型触发器中，OLD用来表示将要或已经被删除的原数据；
+		OLD是只读的，NEW可以改变
+		ORACLE与MYSQL的区别：ORACLE使用empno=:old.empno这种，MYSQL没有:
+	
+	ORACLE示例：
+		用户权限触发器：
+		create or replace trigger tri_dm1
+		 before insert or update or delete on scott.emp
+		 begin
+		   if user <>'SCOTT' then
+		     raise_application_error(-20001,'You don''t have access to modify this table.');
+		   end if;
+		 end;
+		 /
+		 表同步触发器：
+		create or replace trigger duplicate_emp
+		 after update or insert or delete on scott.emp
+		 for each row
+		 begin
+		   if inserting then
+		     insert into  employee values (:new.empno,:new.ename,:new.job,:new.mgr,
+		                                   :new.hiredate,:new.sal,:new.comm,:new.deptno);
+		   elsif deleting then
+		     delete from employee where empno=:old.empno;
+		   else
+		     update employee set empno=:new.empno,ename=:new.ename,job=:new.job,
+		                         mgr=:new.mgr,hiredate=:new.hiredate,sal=:new.sal,comm=:new.comm,
+		                          deptno=:new.deptno
+		     where empno=:old.empno;
+		   end if;
+		  end;
+		 /
+		 日志记录触发器：
+		  create or replace trigger dm1_log
+			 after insert or update or delete on scott.emp
+			 declare 
+			   oper emp_log.oper%type;
+			  begin 
+			    if inserting then 
+			       oper:='insert';
+			    elsif deleting then 
+			       oper:='delete';
+			    else 
+			       oper:='update';
+			    end if;
+			    insert into emp_log  values(user,sysdate,oper);
+			 end;
+			 /

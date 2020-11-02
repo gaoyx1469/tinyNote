@@ -1,0 +1,56 @@
+级联cascade
+	save-update	“一”中的set集合中有“多”的元素，配置了级联后，save“一”对象，“多”对象会自动入表(insert或update)
+   	1、当 保存班级的时候，对学生进行怎么样的操作
+   	     如果学生对象在数据库中没有对应的值，这个时候会执行save操作
+   	     如果学生对象在数据库中有对应的值，这个时候会执行update操作
+   delete
+   all
+inverse  维护关系,给“多”增加外键的值
+   true      不维护关系     
+   false     维护关系
+   default   false
+一对多单向关系
+	“一”中使用Set集合关联“多”
+	“多”中关联不到“一”
+	
+	映射文件相关：
+		<!-- 
+			set元素对应类中的set集合
+			通过set元素使classes表与student表建立关联
+			   key是通过外键的形式让两张表建立关联
+			   one-to-many是通过类的形式让两个类建立关联
+		 -->
+		<set name="students" cascade="all" inverse="true">
+			<!-- 
+				key是用来描述外键
+			 -->
+			<key>
+				<column name="cid"></column>
+			</key>
+			<one-to-many class="top.trial.hiberate.domain.Student"/>
+		</set>
+	操作：
+		/SimpleGOD/src/top/trial/hibernate/relation/OneToManyTest.java
+一对多双向关系
+	“一”中使用Set集合关联“多”
+	“多”中直接关联“一”
+	直接配置<many-to-one class="" column="" cascade="save-update"></many-to-one>
+	操作“多”的一方，效率更高
+多对多关系
+	修改如下配置
+	<set name="" table="第三张表" cascade="" inverse="false">
+		<key>
+			<column name="本类对应表的主键列"></column>
+		</key>
+		<many-to-many class="top.trial.hiberate.domain.Student" column="关联类对应表的主键列"/>
+	</set>
+	操作：
+		/SimpleGOD/src/top/trial/hibernate/relation/ManyToManyTest.java
+一对一关系
+	主键生成策略使用foreign
+	<id name="appid" column="SAHI_ID">
+		<generator class="foreign">
+			<param name="property">外键关联属性</param>
+		</generator>
+	</id>
+	<one-to-one name="外键关联属性" class="top.trial.hiberate.domain.Student" contained="true"/>

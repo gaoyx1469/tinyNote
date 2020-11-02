@@ -1,0 +1,17 @@
+数字格式化为字符串
+	to_char(xxx,'fm9990.9990')		fm代表去空格，0代表有则显示无则补零，9代表有则显示无则不显示
+	所以会格式化成小数点前至少一位，小数点后四位的小数字符串
+	to_char(xxx,'fm9.9EEEE')		EEEE表示科学计数法
+	格式化成X.X+EYYY格式的字符串
+	
+
+Oracle某用户密码过期
+	使用另一用户登录，并查看用户状态：
+		SELECT * FROM DBA_USERS;
+		注：PROFILE字段是看用户使用了哪个profile文件作为参数，一般为DEFAULT
+		查看PROFILE为DEFAULT的密码有效期
+			SELECT * FROM dba_profiles s WHERE s.profile='DEFAULT' AND resource_name='PASSWORD_LIFE_TIME';
+		将密码有效期改为无限期
+			ALTER PROFILE DEFAULT LIMIT PASSWORD_LIFE_TIME UNLIMITED
+	使用另一用户登录，并修改过期用户密码
+		ALTER USER 过期用户登录名 IDENTIFIED BY 新密码;

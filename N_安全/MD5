@@ -1,0 +1,6 @@
+MD5
+	MD5消息摘要算法，一种被广泛使用的密码散列函数，可以产生出一个128位（16字节）的散列值（hash value）
+	
+	
+	自用工具类
+		/SimpleGOD/src/top/util/security/MD5Util.java

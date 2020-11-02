@@ -1,0 +1,5 @@
+XStream
+	JavaBean转XML
+	
+	示例：
+		使用演示：/SimpleGOD/src/top/trial/xml/XStreamDemo.java

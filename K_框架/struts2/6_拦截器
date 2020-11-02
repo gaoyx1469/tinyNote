@@ -1,0 +1,8 @@
+拦截器
+	自定义拦截器：
+		>	创建拦截器类，实现com.opensymphony.xwork2.ActionInvocation接口
+		>	intercept方法返回invocation.invoke()【进行后续调用】，或者返回其它ERROR或INPUT
+		>	定义拦截器：struts.xml中的包里添加<interceptors>标签下<interceptor>标签，name属性自取，class使用拦截器类全名
+		>	拦截器使用：struts.xml中<action>标签下添加<interceptor-ref>标签，name属性使用上面定义的，此时默认拦截器就失效了
+		>	为使拦截器不失效，再引入一个<interceptor-ref>，name属性为defaultStack，自定义的拦截器放最后
+		>	也可以定义自己的Stack，即在<interceptors>下定义<interceptor-stack>标签，name属性自定义，下面包含<interceptor-ref>标签

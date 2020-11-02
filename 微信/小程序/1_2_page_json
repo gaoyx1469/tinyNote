@@ -1,7 +1,0 @@
-配置项
-	navigationBarBackgroundColor	导航栏背景色	数据类型HexColor	默认#000000
-	navigationBarTextStyle			导航栏标题色	数据类型String		默认white，仅支持black、white？
-	navigationBarTitleText			导航栏标题文字	数据类型String
-	backgroundColor					窗口背景色		数据类型HexColor	默认#ffffff
-	backgroundTextStyle				下拉背景字体、loading图样式	数据类型String	默认dark，仅支持dark，light？
-	enablePullDownRefresh			是否开启下拉刷新	数据类型Boolean	默认false

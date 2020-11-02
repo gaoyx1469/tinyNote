@@ -1,0 +1,7 @@
+UUID
+	UUID 是 通用唯一识别码（Universally Unique Identifier）的缩写
+	
+	UUID是由一组32位数的16进制数字所构成，以连字号分为五段，形式为8-4-4-4-12的32个字符
+	
+	JAVA中的使用
+		String s = UUID.randomUUID().toString();
