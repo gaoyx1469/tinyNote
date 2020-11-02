@@ -1,0 +1,9 @@
+*.Z			compress程序压缩的文件，不流行了
+*.zip		zip程序压缩的文件
+*.gz		gzip程序压缩的文件
+*.bz2		bzip2程序压缩的文件
+*.xz		xz程序压缩的文件
+*.tar		tar程序打包的数据，未压缩
+*.tar.gz	tar程序打包的文件，经gzip压缩
+*.tar.bz2	tar程序打包的文件，经bzip2压缩
+*.tar.xz	tar程序打包的文件，经xz压缩
