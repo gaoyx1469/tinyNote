@@ -12,4 +12,4 @@
 	Scanner类【5.0】不适合在控制台读取密码。可使用Console类【6.0】实现。
 	Console cons = System.console();
 	String username = cons.readLine("User name: ")；
-	char[] passwd = cons.readPassword("Password: ");
+	char[] password = cons.readPassword("Password: ");
